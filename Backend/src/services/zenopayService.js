@@ -34,8 +34,9 @@ const initiatePayment = async ({ orderId, amount, buyerName, buyerEmail, buyerPh
     console.log(`Zenopay Payment Initiated for Order: ${orderId}`);
     return response.data;
   } catch (error) {
-    console.error('Zenopay Initiation Error:', error.response ? error.response.data : error.message);
-    throw new Error('Failed to initiate Zenopay payment');
+    const errorData = error.response ? JSON.stringify(error.response.data) : error.message;
+    console.error('Zenopay Initiation Error:', errorData);
+    throw new Error(`Zenopay failed: ${errorData}`);
   }
 };
 
