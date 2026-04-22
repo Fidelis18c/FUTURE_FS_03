@@ -21,6 +21,9 @@ const initiatePayment = async ({ orderId, amount, buyerName, buyerEmail, buyerPh
   };
 
   try {
+
+    console.log("ZENOPAY PAYLOAD:", payload);
+
     const response = await axios.post(ZENOPAY_URL, payload, {
       headers: {
         'Content-Type': 'application/json',

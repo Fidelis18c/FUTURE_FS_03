@@ -21,8 +21,8 @@ const createOrder = async (req, res, next) => {
 
     // 1. Create Order
     const orderResult = await client.query(
-      'INSERT INTO orders (user_id, address_id, total_amount) VALUES ($1, $2, $3) RETURNING id',
-      [userId, address_id, totalAmount]
+      'INSERT INTO orders (user_id, address_id, total_amount,status) VALUES ($1, $2, $3, $4) RETURNING id',
+      [userId, address_id, totalAmount, 'pending']
     );
     const orderId = orderResult.rows[0].id;
 
@@ -34,6 +34,8 @@ const createOrder = async (req, res, next) => {
         [orderId, item.productId, item.quantity, item.price]
       );
     }
+
+    
 
     // 3. Initiate Zenopay Payment
     try {
@@ -55,8 +57,10 @@ const createOrder = async (req, res, next) => {
         [orderId, totalAmount, 'mobile_money', 'ZENOPAY']
       );
     } catch (payErr) {
-      console.error('Payment Initiation failed, order will remain pending:', payErr);
-    }
+     console.error('Zenopay FULL ERROR:', payErr.response?.data || payErr.message);
+     throw payErr;
+}
+    
 
     await client.query('COMMIT');
     
@@ -67,8 +71,8 @@ const createOrder = async (req, res, next) => {
     });
   } catch (err) {
     await client.query('ROLLBACK');
-     return res.status(500).json({ error: "Payment failed" });
-    next(err);
+    console.error("ORDER ERROR:", err);
+   return res.status(500).json({ error: err.message });
   } finally {
     client.release();
   }
@@ -87,3 +91,5 @@ const getMyOrders = async (req, res, next) => {
 };
 
 module.exports = { createOrder, getMyOrders };
+ 
+
