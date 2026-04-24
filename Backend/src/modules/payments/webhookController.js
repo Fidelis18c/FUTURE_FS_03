@@ -32,12 +32,12 @@ const handleZenopayWebhook = async (req, res, next) => {
       // 3. Finalize Inventory (Reserved -> Sold)
       // We need to fetch order items first
       const itemsResult = await client.query(
-        'SELECT product_id, quantity FROM order_items WHERE order_id = $1',
+        'SELECT variant_id, quantity FROM order_items WHERE order_id = $1',
         [order_id]
       );
 
       for (const item of itemsResult.rows) {
-        await confirmStockSale(item.product_id, item.quantity, client);
+        await confirmStockSale(item.variant_id, item.quantity, client);
       }
       
       console.log(`Order ${order_id} confirmed and inventory finalized.`);

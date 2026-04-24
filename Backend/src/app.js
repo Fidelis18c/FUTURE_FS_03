@@ -20,6 +20,8 @@ app.get('/health', (req, res) => {
 // Routes
 app.use('/api/auth', require('./modules/auth/routes'));
 app.use('/api/products', require('./modules/products/routes'));
+app.use('/api/categories', require('./modules/categories/routes'));
+app.use('/api/cart', require('./modules/cart/routes'));
 app.use('/api/orders', require('./modules/orders/routes'));
 app.use('/api/user', require('./modules/users/routes'));
 app.use('/api/payments', require('./modules/payments/routes'));

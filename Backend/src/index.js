@@ -1,6 +1,7 @@
+require('dotenv').config();
 const app = require('./app');
 const db = require('./config/db');
-require('dotenv').config();
+
 
 
 const PORT = process.env.PORT || 5000;
@@ -16,5 +17,12 @@ db.query('SELECT NOW()')
   .catch((err) => {
     console.error('❌ Database connection test: FAILED');
     console.error(err.message);
+    console.error('🔥 FULL ERROR:');
+  console.error(err); // 👈 IMPORTANT
+
+  console.error('🔥 MESSAGE:');
+  console.error(err.message);
+
+  process.exit(1);
     process.exit(1);
   });

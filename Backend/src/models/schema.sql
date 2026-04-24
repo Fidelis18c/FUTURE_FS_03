@@ -44,18 +44,35 @@ CREATE TABLE products (
     name VARCHAR(255) NOT NULL,
     slug VARCHAR(255) UNIQUE NOT NULL,
     description TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE product_variants (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    product_id UUID NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    name VARCHAR(255) NOT NULL, -- e.g., "iPhone 13 - Blue"
+    attributes JSONB DEFAULT '{}', -- e.g., {"storage": "256 GB", "color": "Blue"}
     price DECIMAL(15, 2) NOT NULL,
     sku VARCHAR(100) UNIQUE NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE inventory (
-    product_id UUID PRIMARY KEY REFERENCES products(id) ON DELETE CASCADE,
+    variant_id UUID PRIMARY KEY REFERENCES product_variants(id) ON DELETE CASCADE,
     available INT NOT NULL DEFAULT 0,
     reserved INT NOT NULL DEFAULT 0,
     sold INT NOT NULL DEFAULT 0,
     low_stock_threshold INT DEFAULT 10,
     version INT NOT NULL DEFAULT 1 -- Optimistic Locking
+);
+
+CREATE TABLE cart_items (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    variant_id UUID NOT NULL REFERENCES product_variants(id) ON DELETE CASCADE,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(user_id, variant_id)
 );
 
 CREATE TABLE orders (
@@ -70,7 +87,7 @@ CREATE TABLE orders (
 CREATE TABLE order_items (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     order_id UUID NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    product_id UUID REFERENCES products(id) ON DELETE SET NULL,
+    variant_id UUID REFERENCES product_variants(id) ON DELETE SET NULL,
     quantity INT NOT NULL CHECK (quantity > 0),
     unit_price DECIMAL(15, 2) NOT NULL
 );
@@ -95,3 +112,5 @@ CREATE INDEX idx_orders_user_id ON orders(user_id);
 CREATE INDEX idx_payments_order_id ON payments(order_id);
 CREATE INDEX idx_products_slug ON products(slug);
 CREATE INDEX idx_order_items_order_id ON order_items(order_id);
+CREATE INDEX idx_cart_items_user_id ON cart_items(user_id);
+CREATE INDEX idx_variants_product_id ON product_variants(product_id);
