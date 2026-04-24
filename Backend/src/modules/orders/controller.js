@@ -80,6 +80,8 @@ const createOrder = async (req, res, next) => {
         buyerPhone: payment_phone
       });
 
+
+
       await client.query(
         'INSERT INTO payments (order_id, amount, payment_method, provider) VALUES ($1, $2, $3, $4)',
         [orderId, totalAmount, 'mobile_money', 'ZENOPAY']
@@ -89,9 +91,9 @@ const createOrder = async (req, res, next) => {
       await sendSMS(user.phone_number, `Hello ${user.full_name}, your order #${orderId.slice(0,8)} has been received. Please complete the payment of TZS ${totalAmount} on your phone.`);
       
     } catch (payErr) {
-      console.error('Payment/SMS background error:', payErr.message);
-    }
-
+  console.error('🔥 ZENOPAY FULL ERROR:');
+  console.error(payErr.response?.data || payErr.message);
+}
     await client.query('COMMIT');
     res.status(201).json({ orderId, totalAmount, message: 'Checkout successful. Please confirm payment.' });
 
