@@ -69,7 +69,7 @@ const createOrder = async (req, res, next) => {
 
     // 6. Initiate Payment (Zenopay)
     try {
-      const userResult = await client.query('SELECT full_name, phone_number FROM users WHERE id = $1', [userId]);
+      const userResult = await client.query('SELECT full_name, phone_number, email FROM users WHERE id = $1', [userId]);
       const user = userResult.rows[0];
 
       await initiatePayment({

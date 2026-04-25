@@ -2,27 +2,38 @@ const axios = require('axios');
 require('dotenv').config();
 
 /**
+ * Sanitizes the phone number for Zenopay (Tanzania).
+ * Converts 255XXXXXXXXX to 0XXXXXXXXX if necessary.
+ */
+const sanitizePhone = (phone) => {
+  if (!phone) return '';
+  let sanitized = phone.trim().replace(/\D/g, ''); // Remove non-digits
+  if (sanitized.startsWith('255')) {
+    sanitized = '0' + sanitized.slice(3);
+  }
+  return sanitized;
+};
+
+/**
  * Initiates a payment request with Zenopay.
  * @param {Object} paymentData - { orderId, amount, buyerName, buyerEmail, buyerPhone }
  * @returns {Promise<Object>} - Zenopay response data
  */
 const initiatePayment = async ({ orderId, amount, buyerName, buyerEmail, buyerPhone }) => {
-  const ZENOPAY_URL = process.env.ZENOPAY_URL; // Re-verify in production
+  const ZENOPAY_URL = process.env.ZENOPAY_URL;
   
+  // Clean payload according to ZenoAPI.com docs
   const payload = {
-    account_id: process.env.ZENOPAY_ACCOUNT_ID,
-    api_key: process.env.ZENOPAY_API_KEY,
     order_id: orderId,
-    amount: amount,
-    buyer_name: buyerName,
     buyer_email: buyerEmail,
-    buyer_phone: buyerPhone,
+    buyer_name: buyerName,
+    buyer_phone: sanitizePhone(buyerPhone),
+    amount: parseFloat(amount),
     webhook_url: `${process.env.BASE_URL}/api/payments/webhook`
   };
 
   try {
-
-    console.log("ZENOPAY PAYLOAD:", payload);
+    console.log("🚀 INITIATING ZENOPAY:", { ...payload, buyer_phone: payload.buyer_phone });
 
     const response = await axios.post(ZENOPAY_URL, payload, {
       headers: {
@@ -31,11 +42,11 @@ const initiatePayment = async ({ orderId, amount, buyerName, buyerEmail, buyerPh
       }
     });
 
-    console.log(`Zenopay Payment Initiated for Order: ${orderId}`);
+    console.log(`✅ Zenopay Success: ${JSON.stringify(response.data)}`);
     return response.data;
   } catch (error) {
     const errorData = error.response ? JSON.stringify(error.response.data) : error.message;
-    console.error('Zenopay Initiation Error:', errorData);
+    console.error('❌ Zenopay Initiation Error:', errorData);
     throw new Error(`Zenopay failed: ${errorData}`);
   }
 };
