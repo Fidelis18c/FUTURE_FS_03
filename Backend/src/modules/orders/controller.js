@@ -17,7 +17,7 @@ const createOrder = async (req, res, next) => {
 
     // 1. Fetch Cart Items with current Variant Prices
     const cartResult = await client.query(
-      `SELECT ci.*, v.price, v.name as variant_name, p.name as product_name
+      `SELECT ci.*, v.price as variant_price, v.name as variant_name, p.name as product_name
        FROM cart_items ci
        JOIN product_variants v ON ci.variant_id = v.id
        JOIN products p ON v.product_id = p.id
@@ -35,7 +35,7 @@ const createOrder = async (req, res, next) => {
     const orderItems = [];
 
     for (const item of cartResult.rows) {
-      const itemTotal = parseFloat(item.price) * item.quantity;
+      const itemTotal = parseFloat(item.variant_price) * item.quantity;
       totalAmount += itemTotal;
 
       // Reserve stock at variant level
@@ -44,7 +44,7 @@ const createOrder = async (req, res, next) => {
       orderItems.push({
         variant_id: item.variant_id,
         quantity: item.quantity,
-        unit_price: item.price
+        unit_price: item.variant_price
       });
     }
 

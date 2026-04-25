@@ -4,9 +4,16 @@ const getAllProducts = async (req, res, next) => {
   const { category, search, limit = 20, offset = 0 } = req.query;
   try {
     let query = `
-      SELECT p.*, c.name as category_name, 
+      SELECT p.id, p.name, p.slug, p.description, p.category_id, p.created_at, c.name as category_name, 
       (
-        SELECT json_agg(v.*) 
+        SELECT json_agg(json_build_object(
+          'id', v.id,
+          'name', v.name,
+          'attributes', v.attributes,
+          'price', v.price,
+          'sku', v.sku,
+          'available', i.available
+        ))
         FROM product_variants v 
         LEFT JOIN inventory i ON v.id = i.variant_id
         WHERE v.product_id = p.id

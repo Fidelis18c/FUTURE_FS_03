@@ -34,7 +34,7 @@ const addToCart = async (req, res, next) => {
 const getMyCart = async (req, res, next) => {
   try {
     const query = `
-      SELECT ci.*, v.name as variant_name, v.price, v.attributes, p.name as product_name
+      SELECT ci.*, v.name as variant_name, v.price as variant_price, v.attributes, p.name as product_name
       FROM cart_items ci
       JOIN product_variants v ON ci.variant_id = v.id
       JOIN products p ON v.product_id = p.id
