@@ -67,35 +67,44 @@ const createOrder = async (req, res, next) => {
     // 5. Clear Cart
     await client.query('DELETE FROM cart_items WHERE user_id = $1', [userId]);
 
-    // 6. Initiate Payment (Zenopay)
-    try {
-      const userResult = await client.query('SELECT full_name, phone_number, email FROM users WHERE id = $1', [userId]);
-      const user = userResult.rows[0];
-
-      await initiatePayment({
-        orderId: orderId,
-        amount: totalAmount,
-        buyerName: user.full_name,
-        buyerEmail: user.email || '',
-        buyerPhone: payment_phone
-      });
-
-
-
-      await client.query(
-        'INSERT INTO payments (order_id, amount, payment_method, provider) VALUES ($1, $2, $3, $4)',
-        [orderId, totalAmount, 'mobile_money', 'ZENOPAY']
-      );
-
-      // Send SMS notification
-      await sendSMS(user.phone_number, `Hello ${user.full_name}, your order #${orderId.slice(0,8)} has been received. Please complete the payment of TZS ${totalAmount} on your phone.`);
-      
-    } catch (payErr) {
-  console.error('🔥 ZENOPAY FULL ERROR:');
-  console.error(payErr.response?.data || payErr.message);
-}
     await client.query('COMMIT');
-    res.status(201).json({ orderId, totalAmount, message: 'Checkout successful. Please confirm payment.' });
+    
+    // Send immediate response to user
+    res.status(201).json({ 
+      orderId, 
+      totalAmount, 
+      message: 'Order created successfully. You will receive a payment prompt on your phone shortly.' 
+    });
+
+    // 6. Initiate Payment (Zenopay) & SMS in the background
+    // We don't 'await' these so the response isn't delayed by external APIs
+    (async () => {
+      try {
+        const userResult = await db.query('SELECT full_name, phone_number, email FROM users WHERE id = $1', [userId]);
+        const user = userResult.rows[0];
+
+        // Initiate Zenopay
+        await initiatePayment({
+          orderId: orderId,
+          amount: totalAmount,
+          buyerName: user.full_name,
+          buyerEmail: user.email || '',
+          buyerPhone: payment_phone
+        });
+
+        // Record payment as pending in our DB
+        await db.query(
+          'INSERT INTO payments (order_id, amount, payment_method, provider) VALUES ($1, $2, $3, $4)',
+          [orderId, totalAmount, 'mobile_money', 'ZENOPAY']
+        );
+
+        // Send SMS notification
+        await sendSMS(user.phone_number, `Hello ${user.full_name}, your order #${orderId.slice(0,8)} has been received. Please complete the payment of TZS ${totalAmount} on your phone.`);
+        
+      } catch (bgErr) {
+        console.error('🔥 Background processing error (Payment/SMS):', bgErr.message);
+      }
+    })();
 
   } catch (err) {
     await client.query('ROLLBACK');
