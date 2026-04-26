@@ -67,7 +67,13 @@ const createOrder = async (req, res, next) => {
     // 5. Clear Cart
     await client.query('DELETE FROM cart_items WHERE user_id = $1', [userId]);
 
-    // 6. Initiate Payment (Zenopay)
+    // 6. Create Initial Shipment Record
+    await client.query(
+      'INSERT INTO shipments (order_id, status) VALUES ($1, $2)',
+      [orderId, 'pending']
+    );
+
+    // 7. Initiate Payment (Zenopay)
     try {
       const userResult = await client.query('SELECT full_name, phone_number, email FROM users WHERE id = $1', [userId]);
       const user = userResult.rows[0];
