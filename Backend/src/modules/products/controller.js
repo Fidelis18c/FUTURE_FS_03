@@ -1,22 +1,35 @@
 const db = require('../../config/db');
 
 const getAllProducts = async (req, res, next) => {
-  const { category, search, limit = 20, offset = 0 } = req.query;
+  // 1. Sanitize and validate pagination
+  let limit = parseInt(req.query.limit) || 20;
+  let offset = parseInt(req.query.offset) || 0;
+  const category = req.query.category;
+  const search = req.query.search;
+
+  // Prevent abuse and invalid values
+  if (limit > 100) limit = 100;
+  if (limit < 1) limit = 20;
+  if (offset < 0) offset = 0;
+
   try {
     let query = `
       SELECT p.id, p.name, p.slug, p.description, p.category_id, p.created_at, c.name as category_name, 
-      (
-        SELECT json_agg(json_build_object(
-          'id', v.id,
-          'name', v.name,
-          'attributes', v.attributes,
-          'price', v.price,
-          'sku', v.sku,
-          'available', i.available
-        ))
-        FROM product_variants v 
-        LEFT JOIN inventory i ON v.id = i.variant_id
-        WHERE v.product_id = p.id
+      COALESCE(
+        (
+          SELECT json_agg(json_build_object(
+            'id', v.id,
+            'name', v.name,
+            'attributes', v.attributes,
+            'price', v.price,
+            'sku', v.sku,
+            'available', COALESCE(i.available, 0)
+          ))
+          FROM product_variants v 
+          LEFT JOIN inventory i ON v.id = i.variant_id
+          WHERE v.product_id = p.id
+        ), 
+        '[]'::json
       ) as variants
       FROM products p 
       LEFT JOIN categories c ON p.category_id = c.id
@@ -34,7 +47,7 @@ const getAllProducts = async (req, res, next) => {
       query += ` AND (p.name ILIKE $${params.length} OR p.description ILIKE $${params.length})`;
     }
 
-    params.push(parseInt(limit), parseInt(offset));
+    params.push(limit, offset);
     query += ` ORDER BY p.created_at DESC LIMIT $${params.length - 1} OFFSET $${params.length}`;
 
     const result = await db.query(query, params);
