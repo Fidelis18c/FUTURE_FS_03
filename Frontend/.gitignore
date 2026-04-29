@@ -1,61 +1,24 @@
-
-# =========================
-# DEPENDENCIES (VERY IMPORTANT)
-# =========================
-node_modules/
-**/node_modules/
-
-# =========================
-# ENV FILES
-# =========================
-.env
-.env.local
-.env.development
-.env.production
-.env.test
-
-# =========================
-# LOGS
-# =========================
-logs/
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# =========================
-# OS FILES
-# =========================
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-
-# =========================
-# BACKEND
-# =========================
-backend/dist/
-backend/build/
-backend/coverage/
-backend/*.db
-backend/*.sqlite
-
-# =========================
-# FRONTEND
-# =========================
-frontend/dist/
-frontend/build/
-frontend/.next/
-frontend/out/
-frontend/.vite/
-frontend/coverage/
-
-# =========================
-# IDE
-# =========================
-.vscode/
-.idea/
-
-# =========================
-# CACHE
-# =========================
-*.cache
-.parcel-cache
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
