@@ -39,15 +39,8 @@ const Navbar = () => {
         { name: 'Android Chargers', path: '/chargers/android' },
       ],
     },
-    {
-      name: 'Covers',
-      path: '/covers',
-      dropdown: [
-        { name: 'iPhone Cases', path: '/covers/iphone' },
-        { name: 'Samsung Cases', path: '/covers/samsung' },
-        { name: 'Pixel Cases', path: '/covers/pixel' },
-      ],
-    },
+    
+
   ];
 
   const handleSearch = (e) => {
@@ -58,11 +51,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar-glass sticky top-0 z-50 py-4 px-6 md:px-12">
+    <nav className="navbar-glass sticky top-0 z-50  px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold tracking-tighter text-brand-dark">
-          HS STORE
+        <Link to="/" className="flex items-center">
+          <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-15 w-15 md:h-25 md:w-25 object-contain" />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -71,7 +64,7 @@ const Navbar = () => {
             <div key={link.name} className="relative group">
               <Link
                 to={link.path}
-                className="flex items-center text-sm font-medium text-gray-600 hover:text-brand-dark transition-colors py-2 relative"
+                className="flex items-center text-sm font-light text-black hover:text-brand-dark transition-colors relative"
               >
                 {link.name}
                 <FiChevronDown className="ml-1 text-xs transition-transform group-hover:rotate-180" />
@@ -123,7 +116,7 @@ const Navbar = () => {
             )}
           </button>
 
-          <Link to="/login" className="hidden md:flex items-center space-x-1 bg-brand-dark text-white px-5 py-2 text-sm font-medium hover:bg-gray-800 transition-colors">
+          <Link to="/login" className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors">
             <FiUser />
             <span>Login</span>
           </Link>
@@ -179,7 +172,7 @@ const Navbar = () => {
 
               <Link
                 to="/login"
-                className="block text-center bg-brand-dark text-white py-3 rounded-lg font-medium"
+                className="block text-center bg-brand-orange text-white py-3 rounded-lg font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Login

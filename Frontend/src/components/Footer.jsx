@@ -8,8 +8,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
         {/* Brand */}
         <div className="space-y-6">
-          <Link to="/" className="text-2xl font-bold tracking-tighter text-brand-dark">
-            HS STORE
+          <Link to="/" className="flex items-center">
+            <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-10 object-contain" />
           </Link>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
             Premium devices and accessories for the smart generation. Quality you can trust, service you'll love.

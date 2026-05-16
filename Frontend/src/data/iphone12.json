@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1201,
+    "name": "iPhone 12 Pro Max",
+    "slug": "iphone-12-pro-max",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 1700000,
+    "variant": "128GB",
+    "description": "Ceramic Shield. 5G. LiDAR Scanner. The biggest iPhone camera system.",
+    "image": "/src/assets/products/Iphone12ProMax-Blue.png",
+    "trending": false,
+    "colors": ["Blue", "Gold", "Grahite", "White"],
+    "storage": ["128GB", "256GB", "512GB"],
+    "variantData": {
+      "Blue": { "image": "/src/assets/products/Iphone12ProMax-Blue.png", "prices": { "128GB": 1700000, "256GB": 2000000, "512GB": 2400000 } },
+      "Gold": { "image": "/src/assets/products/Iphone12ProMax-Gold.png", "prices": { "128GB": 1700000, "256GB": 2000000, "512GB": 2400000 } },
+      "Grahite": { "image": "/src/assets/products/Iphone12ProMax-Grahite.png", "prices": { "128GB": 1700000, "256GB": 2000000, "512GB": 2400000 } },
+      "White": { "image": "/src/assets/products/Iphone12ProMax-White.png", "prices": { "128GB": 1700000, "256GB": 2000000, "512GB": 2400000 } }
+    }
+  },
+  {
+    "id": 1202,
+    "name": "iPhone 12 Pro",
+    "slug": "iphone-12-pro",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 1400000,
+    "variant": "128GB",
+    "description": "5G. A14 Bionic. Pro camera system. Stunning night mode.",
+    "image": "/src/assets/products/Iphone12Pro-Black.png",
+    "trending": false,
+    "colors": ["Black", "Blue", "Green", "Silver"],
+    "storage": ["128GB", "256GB", "512GB"],
+    "variantData": {
+      "Black": { "image": "/src/assets/products/Iphone12Pro-Black.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Blue": { "image": "/src/assets/products/Iphone12Pro-Blue.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Green": { "image": "/src/assets/products/Iphone12Pro-Green.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Silver": { "image": "/src/assets/products/Iphone12Pro-Silver.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } }
+    }
+  },
+  {
+    "id": 1203,
+    "name": "iPhone 12",
+    "slug": "iphone-12",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 1100000,
+    "variant": "128GB",
+    "description": "Super Retina XDR display. A14 Bionic chip. 5G speed.",
+    "image": "/src/assets/products/Iphone12Plain-Blue.png",
+    "trending": true,
+    "colors": ["Blue", "Black", "Green", "Purple", "Red", "White"],
+    "storage": ["64GB", "128GB", "256GB"],
+    "variantData": {
+      "Blue": { "image": "/src/assets/products/Iphone12Plain-Blue.png", "prices": { "64GB": 1000000, "128GB": 1100000, "256GB": 1400000 } },
+      "Black": { "image": "/src/assets/products/Iphone12Plain-Black.png", "prices": { "64GB": 1000000, "128GB": 1100000, "256GB": 1400000 } },
+      "Green": { "image": "/src/assets/products/Iphone12Plain-Green.png", "prices": { "64GB": 1000000, "128GB": 1100000, "256GB": 1400000 } },
+      "Purple": { "image": "/src/assets/products/Iphone12Plain-Purple.png", "prices": { "64GB": 1000000, "128GB": 1100000, "256GB": 1400000 } },
+      "Red": { "image": "/src/assets/products/Iphone12Plain-Red.png", "prices": { "64GB": 1000000, "128GB": 1100000, "256GB": 1400000 } },
+      "White": { "image": "/src/assets/products/Iphone12Plain-White.png", "prices": { "64GB": 1000000, "128GB": 1100000, "256GB": 1400000 } }
+    }
+  }
+]

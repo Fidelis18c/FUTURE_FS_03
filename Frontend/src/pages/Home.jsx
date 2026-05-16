@@ -1,11 +1,26 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
-import productsData from '../data/products.json';
+import productsData from '../data/products';
 import { motion } from 'framer-motion';
 
 const Home = () => {
-  const trendingProducts = productsData.filter(p => p.trending);
+  const trendingProducts = productsData.filter(p => p.trending).slice(0, 12);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
 
   return (
     <div className="bg-white">
@@ -14,26 +29,19 @@ const Home = () => {
       {/* Trending Products Section */}
       <section className="py-20 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tighter">
-                Trending <span className="text-gray-400">Products</span>
-              </h2>
-              <p className="text-gray-500 mt-2">The most popular items this week.</p>
-            </div>
-            <button className="mt-4 md:mt-0 text-sm font-bold uppercase tracking-widest border-b-2 border-brand-dark pb-1 hover:text-gray-500 hover:border-gray-300 transition-all">
-              View All
-            </button>
-          </div>
+
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {trendingProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <motion.div key={product.id} variants={itemVariants}>
+                <ProductCard product={product} />
+              </motion.div>
             ))}
           </motion.div>
         </div>

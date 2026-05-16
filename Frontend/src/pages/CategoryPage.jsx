@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-import productsData from '../data/products.json';
+import productsData from '../data/products';
 import { FiFilter, FiChevronDown } from 'react-icons/fi';
 
 const CategoryPage = () => {

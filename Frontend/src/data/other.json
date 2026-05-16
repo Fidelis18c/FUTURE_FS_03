@@ -1,0 +1,84 @@
+[
+  {
+    "id": 3,
+    "name": "Google Pixel 9 Pro",
+    "slug": "pixel-9-pro",
+    "category": "phones",
+    "brand": "Pixel",
+    "price": 2100000,
+    "variant": "128GB",
+    "description": "The most advanced Pixel yet, with Gemini built-in.",
+    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=1000&auto=format&fit=crop",
+    "trending": false,
+    "colors": ["Obsidian", "Porcelain", "Hazel"],
+    "storage": ["128GB", "256GB", "512GB"]
+  },
+  {
+    "id": 4,
+    "name": "Apple AirPods Pro",
+    "slug": "apple-airpods-pro",
+    "category": "audio",
+    "brand": "iPhone",
+    "price": 450000,
+    "variant": "MagSafe Case",
+    "description": "Magic like you've never heard.",
+    "image": "/src/assets/products/Aipods.png",
+    "trending": true,
+    "colors": ["White"],
+    "storage": [],
+    "variantData": {
+      "White": { "image": "/src/assets/products/Aipods.png", "prices": { "Default": 450000 } }
+    }
+  },
+  {
+    "id": 41,
+    "name": "Apple AirPods Max",
+    "slug": "apple-airpods-max",
+    "category": "audio",
+    "brand": "iPhone",
+    "price": 1200000,
+    "variant": "Standard",
+    "description": "High-fidelity audio meets effortless AirPods magic.",
+    "image": "/src/assets/products/Aipods2.png",
+    "trending": true,
+    "colors": ["White"],
+    "storage": [],
+    "variantData": {
+      "White": { "image": "/src/assets/products/Aipods2.png", "prices": { "Default": 1200000 } }
+    }
+  },
+  {
+    "id": 5,
+    "name": "JBL Tune 760NC",
+    "slug": "jbl-tune-760nc",
+    "category": "audio",
+    "brand": "JBL",
+    "price": 350000,
+    "variant": "Bluetooth",
+    "description": "Loud, crystal clear, powerful sound with Noise Cancelling.",
+    "image": "/src/assets/products/JBL Headphones.png",
+    "trending": true,
+    "colors": ["Black"],
+    "storage": [],
+    "variantData": {
+      "Black": { "image": "/src/assets/products/JBL Headphones.png", "prices": { "Default": 350000 } }
+    }
+  },
+  {
+    "id": 51,
+    "name": "JBL Wave Buds",
+    "slug": "jbl-wave-buds",
+    "category": "audio",
+    "brand": "JBL",
+    "price": 150000,
+    "variant": "Bluetooth",
+    "description": "Simple, smart, everyday fun.",
+    "image": "/src/assets/products/JBL pods.png",
+    "trending": true,
+    "colors": ["Black"],
+    "storage": [],
+    "variantData": {
+      "Black": { "image": "/src/assets/products/JBL pods.png", "prices": { "Default": 150000 } }
+    }
+  }
+]

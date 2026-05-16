@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import productsData from '../data/products.json';
+import productsData from '../data/products';
 import { useCart } from '../context/CartContext';
 import { FiMinus, FiPlus, FiShoppingCart, FiShield, FiTruck, FiRefreshCw } from 'react-icons/fi';
 import { motion } from 'framer-motion';
@@ -21,7 +21,7 @@ const ProductDetails = () => {
       setProduct(foundProduct);
       setSelectedStorage(foundProduct.storage?.[0] || '');
       setSelectedColor(foundProduct.colors?.[0] || '');
-      
+
       // Get related products (same category)
       const related = productsData
         .filter((p) => p.category === foundProduct.category && p.id !== foundProduct.id)
@@ -33,28 +33,43 @@ const ProductDetails = () => {
 
   if (!product) return <div className="py-20 text-center">Loading...</div>;
 
+  const currentPrice = product.variantData?.[selectedColor]?.prices?.[selectedStorage] || product.price;
+  const currentImage = product.variantData?.[selectedColor]?.image || product.image;
+
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left: Image Gallery */}
-          <div className="space-y-4">
-            <motion.div 
+          <div className="space-y-4 max-w-md mx-auto lg:mx-0">
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="aspect-square bg-brand-gray flex items-center justify-center p-12 overflow-hidden"
+              className="aspect-[5/4] bg-brand-gray flex items-center justify-center p-12 overflow-hidden"
             >
-              <img 
-                src={product.image} 
-                alt={product.name} 
+              <img
+                src={currentImage}
+                alt={product.name}
                 className="w-full h-full object-contain mix-blend-multiply"
                 onError={(e) => { e.target.src = 'https://via.placeholder.com/600x600?text=Product'; }}
               />
             </motion.div>
             <div className="grid grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="aspect-square bg-brand-gray cursor-pointer border border-transparent hover:border-brand-dark transition-all opacity-60 hover:opacity-100"></div>
-              ))}
+              {product.variantData ? (
+                Object.entries(product.variantData).map(([color, data]) => (
+                  <div
+                    key={color}
+                    onClick={() => setSelectedColor(color)}
+                    className={`aspect-square bg-brand-gray cursor-pointer border transition-all overflow-hidden flex items-center justify-center p-2 ${selectedColor === color ? 'border-brand-dark opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                  >
+                    <img src={data.image} alt={color} className="w-full h-full object-contain mix-blend-multiply" />
+                  </div>
+                ))
+              ) : (
+                [1, 2, 3, 4].map((i) => (
+                  <div key={i} className="aspect-square bg-brand-gray cursor-pointer border border-transparent hover:border-brand-dark transition-all opacity-60 hover:opacity-100"></div>
+                ))
+              )}
             </div>
           </div>
 
@@ -62,8 +77,8 @@ const ProductDetails = () => {
           <div className="flex flex-col">
             <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">{product.brand}</div>
             <h1 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tighter mb-4">{product.name}</h1>
-            <div className="text-3xl font-bold text-brand-dark mb-8">${product.price.toLocaleString()}</div>
-            
+            <div className="text-3xl font-bold text-brand-dark mb-8">Tshs {currentPrice.toLocaleString()}</div>
+
             <p className="text-gray-500 leading-relaxed mb-10">
               {product.description}
             </p>
@@ -117,7 +132,7 @@ const ProductDetails = () => {
             {/* Buttons */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
               <button
-                onClick={() => addToCart(product, quantity, selectedStorage, selectedColor)}
+                onClick={() => addToCart({ ...product, price: currentPrice }, quantity, selectedStorage, selectedColor)}
                 className="flex items-center justify-center bg-brand-dark text-white py-4 px-8 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
               >
                 <FiShoppingCart className="mr-2" /> Add To Cart

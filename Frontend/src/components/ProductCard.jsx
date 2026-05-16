@@ -10,18 +10,16 @@ const ProductCard = ({ product }) => {
         className="group bg-white overflow-hidden transition-all duration-300 border border-transparent hover:border-gray-100"
       >
         {/* Top Area: Image */}
-        <div className="relative aspect-square bg-brand-gray flex items-center justify-center p-8 overflow-hidden">
+        <div className="relative aspect-square bg-white flex items-center justify-center p-3 overflow-hidden">
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
             onError={(e) => { e.target.src = 'https://via.placeholder.com/400x400?text=Product'; }}
           />
-          {product.trending && (
-            <span className="absolute top-4 left-4 bg-brand-dark text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
-              Trending
-            </span>
-          )}
+
         </div>
 
         {/* Bottom Area: Info */}
@@ -35,7 +33,7 @@ const ProductCard = ({ product }) => {
           <p className="text-sm text-gray-400 mt-1">{product.variant}</p>
           <div className="mt-4 flex items-center justify-between">
             <span className="text-lg font-bold text-brand-dark">
-              ${product.price.toLocaleString()}
+              Tshs {product.price.toLocaleString()}
             </span>
             <span className="text-xs text-gray-500 border-b border-gray-300 group-hover:border-brand-dark transition-colors pb-0.5">
               View Details

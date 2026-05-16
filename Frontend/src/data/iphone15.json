@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1501,
+    "name": "iPhone 15 Pro Max",
+    "slug": "iphone-15-pro-max",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 2900000,
+    "variant": "256GB",
+    "description": "Titanium design, A17 Pro chip, and a powerful camera system.",
+    "image": "/src/assets/products/Iphone15ProMax-DarkBlue.png",
+    "trending": true,
+    "colors": ["DarkBlue", "Blue", "Silver", "White"],
+    "storage": ["256GB", "512GB", "1TB"],
+    "variantData": {
+      "DarkBlue": {
+        "image": "/src/assets/products/Iphone15ProMax-DarkBlue.png",
+        "prices": { "256GB": 2900000, "512GB": 3300000, "1TB": 3800000 }
+      },
+      "Blue": {
+        "image": "/src/assets/products/Iphone15ProMax-Blue.png",
+        "prices": { "256GB": 2900000, "512GB": 3300000, "1TB": 3800000 }
+      },
+      "Silver": {
+        "image": "/src/assets/products/Iphone15ProMax-Silver.png",
+        "prices": { "256GB": 2900000, "512GB": 3300000, "1TB": 3800000 }
+      },
+      "White": {
+        "image": "/src/assets/products/Iphone15ProMax-White.png",
+        "prices": { "256GB": 2900000, "512GB": 3300000, "1TB": 3800000 }
+      }
+    },
+    "specs": {
+      "Display": "6.7-inch Super Retina XDR",
+      "Chip": "A17 Pro chip",
+      "Camera": "48MP Main | 12MP Ultra Wide | 12MP Telephoto",
+      "Battery": "Up to 29 hours video playback"
+    }
+  },
+  {
+    "id": 1502,
+    "name": "iPhone 15 Pro",
+    "slug": "iphone-15-pro",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 2500000,
+    "variant": "128GB",
+    "description": "The first iPhone with an aerospace-grade titanium design.",
+    "image": "/src/assets/products/Iphone15Pro-black.png",
+    "trending": false,
+    "colors": ["Black", "Darkblue", "Silver"],
+    "storage": ["128GB", "256GB", "512GB"],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/Iphone15Pro-black.png",
+        "prices": { "128GB": 2500000, "256GB": 2800000, "512GB": 3200000 }
+      },
+      "Darkblue": {
+        "image": "/src/assets/products/Iphone15ProDarkblue.png",
+        "prices": { "128GB": 2500000, "256GB": 2800000, "512GB": 3200000 }
+      },
+      "Silver": {
+        "image": "/src/assets/products/Iphone15ProSilver.png",
+        "prices": { "128GB": 2500000, "256GB": 2800000, "512GB": 3200000 }
+      }
+    },
+    "specs": {
+      "Display": "6.1-inch Super Retina XDR",
+      "Chip": "A17 Pro chip",
+      "Camera": "48MP Main | 12MP Ultra Wide | 12MP Telephoto",
+      "Battery": "Up to 23 hours video playback"
+    }
+  },
+  {
+    "id": 1503,
+    "name": "iPhone 15",
+    "slug": "iphone-15",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 1800000,
+    "variant": "128GB",
+    "description": "New 48MP camera. Dynamic Island. USB-C.",
+    "image": "/src/assets/products/Iphone15-black.png",
+    "trending": true,
+    "colors": ["Black", "White", "Lightblue", "Pink"],
+    "storage": ["128GB", "256GB", "512GB"],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/Iphone15-black.png",
+        "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000 }
+      },
+      "White": {
+        "image": "/src/assets/products/Iphone15-White.png",
+        "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000 }
+      },
+      "Lightblue": {
+        "image": "/src/assets/products/Iphone15-lightblue.png",
+        "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000 }
+      },
+      "Pink": {
+        "image": "/src/assets/products/Iphone15-pink.png",
+        "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000 }
+      }
+    },
+    "specs": {
+      "Display": "6.1-inch Super Retina XDR",
+      "Chip": "A16 Bionic chip",
+      "Camera": "48MP Main | 12MP Ultra Wide",
+      "Battery": "Up to 20 hours video playback"
+    }
+  }
+]

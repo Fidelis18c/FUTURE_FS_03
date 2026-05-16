@@ -1,0 +1,30 @@
+[
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S24 Ultra",
+    "slug": "samsung-s24-ultra",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1299,
+    "variant": "256GB",
+    "description": "Galaxy AI is here. The ultimate Samsung experience.",
+    "image": "https://images.unsplash.com/photo-1707065091334-08039775336e?q=80&w=1000&auto=format&fit=crop",
+    "trending": true,
+    "colors": [
+      "Titanium Gray",
+      "Titanium Black",
+      "Titanium Violet"
+    ],
+    "storage": [
+      "256GB",
+      "512GB",
+      "1TB"
+    ],
+    "specs": {
+      "Display": "6.8-inch Dynamic AMOLED 2X",
+      "Chip": "Snapdragon 8 Gen 3",
+      "Camera": "200MP Main | 12MP Ultra Wide | 50MP Telephoto",
+      "Battery": "5000mAh"
+    }
+  }
+]

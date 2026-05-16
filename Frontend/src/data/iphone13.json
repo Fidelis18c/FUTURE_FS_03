@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1301,
+    "name": "iPhone 13 Pro Max",
+    "slug": "iphone-13-pro-max",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 2100000,
+    "variant": "128GB",
+    "description": "The peak of iPhone performance. ProMotion display and advanced camera.",
+    "image": "/src/assets/products/Iphone13ProMax-SierraBlue.png",
+    "trending": false,
+    "colors": ["SierraBlue", "Gold", "Graphite", "Green", "Silver"],
+    "storage": ["128GB", "256GB", "512GB", "1TB"],
+    "variantData": {
+      "SierraBlue": { "image": "/src/assets/products/Iphone13ProMax-SierraBlue.png", "prices": { "128GB": 2100000, "256GB": 2400000, "512GB": 2800000, "1TB": 3200000 } },
+      "Gold": { "image": "/src/assets/products/Iphone13ProMax-Gold.png", "prices": { "128GB": 2100000, "256GB": 2400000, "512GB": 2800000, "1TB": 3200000 } },
+      "Graphite": { "image": "/src/assets/products/Iphone13ProMax-Graphite.png", "prices": { "128GB": 2100000, "256GB": 2400000, "512GB": 2800000, "1TB": 3200000 } },
+      "Green": { "image": "/src/assets/products/Iphone13ProMax-Green.png", "prices": { "128GB": 2100000, "256GB": 2400000, "512GB": 2800000, "1TB": 3200000 } },
+      "Silver": { "image": "/src/assets/products/Iphone13ProMax-Silver.png", "prices": { "128GB": 2100000, "256GB": 2400000, "512GB": 2800000, "1TB": 3200000 } }
+    }
+  },
+  {
+    "id": 1302,
+    "name": "iPhone 13 Pro",
+    "slug": "iphone-13-pro",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 1800000,
+    "variant": "128GB",
+    "description": "Pro camera system. ProMotion display. More battery life.",
+    "image": "/src/assets/products/Iphone13Pro-Graphite.png",
+    "trending": false,
+    "colors": ["Graphite", "SierraBlue", "Silver", "Green"],
+    "storage": ["128GB", "256GB", "512GB", "1TB"],
+    "variantData": {
+      "Graphite": { "image": "/src/assets/products/Iphone13Pro-Graphite.png", "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000, "1TB": 2900000 } },
+      "SierraBlue": { "image": "/src/assets/products/Iphone13Pro-SierraBlue.png", "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000, "1TB": 2900000 } },
+      "Silver": { "image": "/src/assets/products/Iphone13Pro-Silver.png", "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000, "1TB": 2900000 } },
+      "Green": { "image": "/src/assets/products/Iphone13Pro=Green.png", "prices": { "128GB": 1800000, "256GB": 2100000, "512GB": 2500000, "1TB": 2900000 } }
+    }
+  },
+  {
+    "id": 1303,
+    "name": "iPhone 13",
+    "slug": "iphone-13",
+    "category": "phones",
+    "brand": "iPhone",
+    "price": 1400000,
+    "variant": "128GB",
+    "description": "Cinematic mode. Advanced dual-camera system. All-day battery.",
+    "image": "/src/assets/products/Iphone13Plain-Midnight.png",
+    "trending": true,
+    "colors": ["Midnight", "Blue", "Green", "Pink", "Red"],
+    "storage": ["128GB", "256GB", "512GB"],
+    "variantData": {
+      "Midnight": { "image": "/src/assets/products/Iphone13Plain-Midnight.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Blue": { "image": "/src/assets/products/Iphone13Plain-Blue.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Green": { "image": "/src/assets/products/Iphone13Plain-Green.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Pink": { "image": "/src/assets/products/Iphone13Plain-Pink.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } },
+      "Red": { "image": "/src/assets/products/Iphone13Plain-Red.png", "prices": { "128GB": 1400000, "256GB": 1700000, "512GB": 2100000 } }
+    }
+  }
+]
