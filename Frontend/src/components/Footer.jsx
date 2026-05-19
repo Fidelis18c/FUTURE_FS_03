@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiFacebook, FiInstagram, FiTwitter, FiYoutube } from 'react-icons/fi';
 
@@ -9,7 +8,7 @@ const Footer = () => {
         {/* Brand */}
         <div className="space-y-6">
           <Link to="/" className="flex items-center">
-            <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-10 object-contain" />
+            <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-23 object-contain" />
           </Link>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
             Premium devices and accessories for the smart generation. Quality you can trust, service you'll love.

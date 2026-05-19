@@ -39,7 +39,7 @@ const Navbar = () => {
         { name: 'Android Chargers', path: '/chargers/android' },
       ],
     },
-    
+
 
   ];
 
@@ -51,11 +51,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar-glass sticky top-0 z-50  px-6 md:px-12">
+    <nav className="navbar-glass sticky top-0 z-50 py-0 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-15 w-15 md:h-25 md:w-25 object-contain" />
+          <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-15 w-15 md:h-40 md:w-40 object-contain" />
         </Link>
 
         {/* Desktop Nav Links */}
@@ -64,11 +64,11 @@ const Navbar = () => {
             <div key={link.name} className="relative group">
               <Link
                 to={link.path}
-                className="flex items-center text-sm font-light text-black hover:text-brand-dark transition-colors relative"
+                className="flex items-center text-sm font-semibold text-black hover:text-brand-orange transition-colors relative"
               >
                 {link.name}
                 <FiChevronDown className="ml-1 text-xs transition-transform group-hover:rotate-180" />
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-dark transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
               {/* Dropdown */}
@@ -91,11 +91,11 @@ const Navbar = () => {
 
         {/* Search & Icons */}
         <div className="flex items-center space-x-4">
-          <form onSubmit={handleSearch} className="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-1.5 focus-within:bg-white focus-within:ring-1 focus-within:ring-brand-gray transition-all">
+          <form onSubmit={handleSearch} className="hidden md:flex items-center bg-white rounded-full px-4 py-1.5 border border-black/30 focus-within:border-black transition-all">
             <input
               type="text"
               placeholder="Search products..."
-              className="bg-transparent border-none focus:outline-none text-sm w-40 lg:w-60"
+              className="bg-transparent border-none focus:outline-none text-sm font-light text-black placeholder:text-gray-400 placeholder:font-light w-40 lg:w-60"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -116,7 +116,7 @@ const Navbar = () => {
             )}
           </button>
 
-          <Link to="/login" className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors">
+          <Link to="/login" className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full">
             <FiUser />
             <span>Login</span>
           </Link>

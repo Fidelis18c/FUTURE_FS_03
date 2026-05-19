@@ -31,7 +31,7 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-[75vh] min-h-125 bg-brand-gray overflow-hidden flex flex-col justify-between pt-8 pb-12 px-6 md:px-12 lg:px-24">
+    <section className="relative w-full h-[75vh] min-h-125 bg-transparent overflow-hidden flex flex-col justify-between pt-0 pb-52 px-6 md:px-12 lg:px-24">
 
       {/* SHOWROOM AREA */}
       <div className="relative flex-1 flex items-center justify-center">
@@ -78,10 +78,8 @@ const Hero = () => {
                     alt={slide.category}
                     loading="eager"
                     fetchpriority="high"
-                    className={`w-64 md:w-96 lg:w-[40rem] h-auto object-contain transition-all duration-700 ${isActive ? 'drop-shadow-[0_35px_50px_rgba(0,0,0,0.25)]' : ''}`}
-                    style={{ 
-                      mixBlendMode: 'multiply' // Keep for non-transparent backgrounds if needed
-                    }}
+                    className={`w-64 md:w-96 lg:w-[40rem] h-auto object-contain transition-all duration-700 ${isActive ? 'drop-shadow-[0_40px_60px_rgba(0,0,0,0.3)]' : ''}`}
+                    style={{ mixBlendMode: 'multiply' }}
                     draggable="false"
                   />
                 </Link>
@@ -91,38 +89,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* CTA AREA */}
-      <div className="relative z-50 flex justify-end items-end w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <Link
-            to="/phones"
-            className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-black bg-white border-2 border-black overflow-hidden transition-all duration-500 ease-out"
-          >
-            <span className="absolute inset-0 w-0 h-full bg-brand-orange transition-all duration-500 ease-out group-hover:w-full"></span>
-            <span className="relative text-xs tracking-[0.4em] uppercase transition-colors duration-500 group-hover:text-white">
-              Get Your Phone
-            </span>
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* Subtle Navigation Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveIndex(i)}
-            className={`transition-all duration-500 rounded-full h-1 ${i === activeIndex
-                ? 'w-8 bg-brand-orange'
-                : 'w-2 bg-gray-200 hover:bg-gray-400'
-              }`}
-          />
-        ))}
-      </div>
 
     </section>
   );

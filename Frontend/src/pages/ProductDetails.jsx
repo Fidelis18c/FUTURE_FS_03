@@ -1,26 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import productsData from '../data/products';
 import { useCart } from '../context/CartContext';
 import { FiMinus, FiPlus, FiShoppingCart, FiShield, FiTruck, FiRefreshCw } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
+import CheckoutDrawer from '../components/CheckoutDrawer';
 
 const ProductDetails = () => {
   const { slug } = useParams();
+  const location = useLocation();
   const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedStorage, setSelectedStorage] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
     const foundProduct = productsData.find((p) => p.slug === slug);
     if (foundProduct) {
       setProduct(foundProduct);
-      setSelectedStorage(foundProduct.storage?.[0] || '');
-      setSelectedColor(foundProduct.colors?.[0] || '');
+
+      const params = new URLSearchParams(location.search);
+      const initialColor = params.get('color');
+      const initialStorage = params.get('storage');
+
+      if (initialColor && foundProduct.colors?.some(c => c.toLowerCase() === initialColor.toLowerCase())) {
+        const matchingColor = foundProduct.colors.find(c => c.toLowerCase() === initialColor.toLowerCase());
+        setSelectedColor(matchingColor);
+      } else {
+        setSelectedColor(foundProduct.colors?.[0] || '');
+      }
+
+      if (initialStorage && foundProduct.storage?.some(s => s.toLowerCase() === initialStorage.toLowerCase())) {
+        const matchingStorage = foundProduct.storage.find(s => s.toLowerCase() === initialStorage.toLowerCase());
+        setSelectedStorage(matchingStorage);
+      } else {
+        setSelectedStorage(foundProduct.storage?.[0] || '');
+      }
 
       // Get related products (same category)
       const related = productsData
@@ -29,7 +48,7 @@ const ProductDetails = () => {
       setRelatedProducts(related);
     }
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [slug, location.search]);
 
   if (!product) return <div className="py-20 text-center">Loading...</div>;
 
@@ -45,7 +64,8 @@ const ProductDetails = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="aspect-[5/4] bg-brand-gray flex items-center justify-center p-12 overflow-hidden"
+              className="rounded-3xl bg-brand-gray flex items-center justify-center p-12 overflow-hidden"
+              style={{ height: '520px' }}
             >
               <img
                 src={currentImage}
@@ -54,20 +74,21 @@ const ProductDetails = () => {
                 onError={(e) => { e.target.src = 'https://via.placeholder.com/600x600?text=Product'; }}
               />
             </motion.div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-3">
               {product.variantData ? (
                 Object.entries(product.variantData).map(([color, data]) => (
                   <div
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`aspect-square bg-brand-gray cursor-pointer border transition-all overflow-hidden flex items-center justify-center p-2 ${selectedColor === color ? 'border-brand-dark opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                    className={`rounded-2xl bg-brand-gray cursor-pointer border transition-all overflow-hidden flex items-center justify-center p-2 ${selectedColor === color ? 'border-brand-dark opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                    style={{ height: '90px' }}
                   >
                     <img src={data.image} alt={color} className="w-full h-full object-contain mix-blend-multiply" />
                   </div>
                 ))
               ) : (
                 [1, 2, 3, 4].map((i) => (
-                  <div key={i} className="aspect-square bg-brand-gray cursor-pointer border border-transparent hover:border-brand-dark transition-all opacity-60 hover:opacity-100"></div>
+                  <div key={i} className="rounded-2xl bg-brand-gray cursor-pointer border border-transparent hover:border-brand-dark transition-all opacity-60 hover:opacity-100" style={{ height: '90px' }}></div>
                 ))
               )}
             </div>
@@ -93,7 +114,7 @@ const ProductDetails = () => {
                       <button
                         key={s}
                         onClick={() => setSelectedStorage(s)}
-                        className={`px-6 py-2 text-sm border font-medium transition-all ${selectedStorage === s ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
+                        className={`px-6 py-2 text-sm border font-medium rounded-full transition-all ${selectedStorage === s ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
                       >
                         {s}
                       </button>
@@ -110,7 +131,7 @@ const ProductDetails = () => {
                       <button
                         key={c}
                         onClick={() => setSelectedColor(c)}
-                        className={`px-6 py-2 text-sm border font-medium transition-all ${selectedColor === c ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
+                        className={`px-6 py-2 text-sm border font-medium rounded-full transition-all ${selectedColor === c ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
                       >
                         {c}
                       </button>
@@ -133,11 +154,14 @@ const ProductDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
               <button
                 onClick={() => addToCart({ ...product, price: currentPrice }, quantity, selectedStorage, selectedColor)}
-                className="flex items-center justify-center bg-brand-dark text-white py-4 px-8 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
+                className="flex items-center justify-center rounded-full bg-brand-dark text-white py-4 px-8 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
               >
                 <FiShoppingCart className="mr-2" /> Add To Cart
               </button>
-              <button className="flex items-center justify-center border border-brand-dark text-brand-dark py-4 px-8 font-bold uppercase tracking-widest text-sm hover:bg-gray-50 transition-all">
+              <button
+                onClick={() => setIsCheckoutOpen(true)}
+                className="flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 font-bold uppercase tracking-widest text-sm transition-all"
+              >
                 Buy Now
               </button>
             </div>
@@ -169,6 +193,18 @@ const ProductDetails = () => {
             ))}
           </div>
         </div>
+
+        <CheckoutDrawer
+          isOpen={isCheckoutOpen}
+          onClose={() => setIsCheckoutOpen(false)}
+          product={{
+            name:    product.name,
+            image:   currentImage,
+            price:   currentPrice,
+            color:   selectedColor,
+            storage: selectedStorage,
+          }}
+        />
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
