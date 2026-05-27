@@ -9,6 +9,11 @@ import iphoneHero3image from '../assets/hero/IphoneHeroC.png';
 import iphoneHero4image from '../assets/hero/IphoneHeroD.png';
 import samsungImage1 from '../assets/hero/SamsungHero2.png';
 import iphoneHero5image from '../assets/hero/SamsungHero3.png';
+import jblHeadphonesImage from '../assets/hero/JBL headphones.png';
+import fourSpeakersImage from '../assets/hero/FourSpeakers.png';
+import macBookProImage from '../assets/hero/MacBookPro.png';
+import oraimoPodsImage from '../assets/hero/OraimoPods.png';
+import pixelImage from '../assets/hero/PIxel.png';
 
 
 const Hero = () => {
@@ -20,7 +25,11 @@ const Hero = () => {
     { id: 3, image: iphoneHero4image, path: '/phones/iphone', category: 'iPhone' },
     { id: 4, image: samsungImage1, path: '/phones/samsung', category: 'Samsung' },
     { id: 5, image: iphoneHero5image, path: '/phones/samsung', category: 'Samsung' },
-
+    { id: 6, image: jblHeadphonesImage, path: '/audio/jbl', category: 'JBL' },
+    { id: 7, image: fourSpeakersImage, path: '/audio/speakers', category: 'Speakers' },
+    { id: 8, image: pixelImage, path: '/phones/pixel', category: 'Pixel' },
+    { id: 9, image: oraimoPodsImage, path: '/audio/oraimo', category: 'Oraimo Pods' },
+    { id: 10, image: macBookProImage, path: '/', category: 'MacBook' },
   ];
 
   useEffect(() => {

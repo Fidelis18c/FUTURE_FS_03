@@ -10,8 +10,9 @@ import heroVideo from '../assets/Hero1/HSSTOREVideo.mp4';
 import heroImg1 from '../assets/Hero1/HSSTOREHero1.jpeg';
 import heroImg2 from '../assets/Hero1/HSSTOREHero2.jpeg';
 import heroImg3 from '../assets/Hero1/HSSTOREHero3.jpeg';
-import sidePhoneLeft  from '../assets/hero/IphoneHeroB.png';
+import sidePhoneLeft from '../assets/hero/IphoneHeroB.png';
 import sidePhoneRight from '../assets/hero/IphoneHeroC.png';
+import featureVideo from '../assets/Hero2/The handcrafted wireless to daily mastery..mp4';
 
 const INITIAL_PRODUCTS = 8;
 
@@ -40,8 +41,8 @@ const HERO_BG = 'linear-gradient(155deg, #13111c 0%, #1f1509 52%, #13111c 100%)'
 
 const Home = () => {
   const trendingProducts = productsData.filter((p) => p.trending);
-  const [showAll, setShowAll]     = useState(false);
-  const [slide, setSlide]         = useState(0);
+  const [showAll, setShowAll] = useState(false);
+  const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
 
   const visibleProducts = showAll
@@ -58,12 +59,12 @@ const Home = () => {
 
   const goTo = (idx) => { setDirection(idx > slide ? 1 : -1); setSlide(idx); };
   const prev = () => { setDirection(-1); setSlide((s) => (s - 1 + topHeroItems.length) % topHeroItems.length); };
-  const next = () => { setDirection(1);  setSlide((s) => (s + 1) % topHeroItems.length); };
+  const next = () => { setDirection(1); setSlide((s) => (s + 1) % topHeroItems.length); };
 
   const slideVariants = {
-    enter:  (d) => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
+    enter: (d) => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit:   (d) => ({ x: d > 0 ? '-100%' : '100%', opacity: 0 }),
+    exit: (d) => ({ x: d > 0 ? '-100%' : '100%', opacity: 0 }),
   };
 
   return (
@@ -200,6 +201,7 @@ const Home = () => {
       {/* ── END TOP HERO ── */}
 
 
+
       {/* ══════════════════════════════════════════
           TRENDING PRODUCTS
       ══════════════════════════════════════════ */}
@@ -293,6 +295,46 @@ const Home = () => {
 
       {/* ── PHONE SHOWCASE HERO (below products) ── */}
       <Hero />
+
+      {/* ══════════════════════════════════════════
+          FEATURE VIDEO SECTION
+      ══════════════════════════════════════════ */}
+      <section className="py-20 px-6 md:px-8 lg:px-12 bg-white">
+        <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 items-center">
+          {/* Video (3/4 on large screens) */}
+          <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-2xl">
+            <video
+              src={featureVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* Text Content (1/4 on large screens) */}
+          <div className="lg:col-span-1 flex flex-col justify-center">
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark leading-tight mb-4">
+              The Feeling of Finding Exactly What You Need.
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              From the latest iPhones, Pixels, and Samsung flagships to high-performance laptops and premium headphones—we’ve got your upgrade waiting.
+            </p>
+            <ul className="text-sm text-gray-500 space-y-3 mb-8">
+              <li><strong className="text-brand-dark">Phones:</strong> iPhone, Google Pixel, Samsung Galaxy.</li>
+              <li><strong className="text-brand-dark">Gear:</strong> Premium Laptops & Immersive Headphones.</li>
+              <li><strong className="text-brand-dark">Extras:</strong> Protective covers, fast chargers, and more</li>
+            </ul>
+            <Link
+              to="/phones"
+              className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white bg-black px-6 py-4 hover:bg-gray-800 transition-colors rounded-full text-center"
+            >
+              Explore the Collection &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
