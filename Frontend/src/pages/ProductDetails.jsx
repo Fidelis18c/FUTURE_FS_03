@@ -106,7 +106,7 @@ const ProductDetails = () => {
 
             {/* Selectors */}
             <div className="space-y-8 mb-10">
-              {product.storage.length > 0 && (
+              {product.storage?.length > 0 && (
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">Storage</h4>
                   <div className="flex flex-wrap gap-3">
@@ -123,7 +123,7 @@ const ProductDetails = () => {
                 </div>
               )}
 
-              {product.colors.length > 0 && (
+              {product.colors?.length > 0 && (
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">Color</h4>
                   <div className="flex flex-wrap gap-3">
@@ -182,17 +182,19 @@ const ProductDetails = () => {
         </div>
 
         {/* Specifications */}
-        <div className="mt-32">
-          <h2 className="text-2xl font-bold text-brand-dark mb-10 border-b border-gray-100 pb-4">Specifications</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-6">
-            {Object.entries(product.specs).map(([key, value]) => (
-              <div key={key} className="flex justify-between py-4 border-b border-gray-50">
-                <span className="text-sm text-gray-400 uppercase tracking-widest">{key}</span>
-                <span className="text-sm font-bold text-brand-dark">{value}</span>
-              </div>
-            ))}
+        {product.specs && Object.keys(product.specs).length > 0 && (
+          <div className="mt-32">
+            <h2 className="text-2xl font-bold text-brand-dark mb-10 border-b border-gray-100 pb-4">Specifications</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-6">
+              {Object.entries(product.specs).map(([key, value]) => (
+                <div key={key} className="flex justify-between py-4 border-b border-gray-50">
+                  <span className="text-sm text-gray-400 uppercase tracking-widest">{key}</span>
+                  <span className="text-sm font-bold text-brand-dark">{value}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         <CheckoutDrawer
           isOpen={isCheckoutOpen}

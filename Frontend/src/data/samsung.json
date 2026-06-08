@@ -8,12 +8,13 @@
     "price": 1299,
     "variant": "256GB",
     "description": "Galaxy AI is here. The ultimate Samsung experience.",
-    "image": "https://images.unsplash.com/photo-1707065091334-08039775336e?q=80&w=1000&auto=format&fit=crop",
+    "image": "/src/assets/products/SAMSUNG S24 ULTRA TITANIUM BLACK.webp",
     "trending": true,
     "colors": [
       "Titanium Gray",
       "Titanium Black",
-      "Titanium Violet"
+      "Titanium Violet",
+      "Titanium Yellow"
     ],
     "storage": [
       "256GB",
@@ -25,6 +26,1640 @@
       "Chip": "Snapdragon 8 Gen 3",
       "Camera": "200MP Main | 12MP Ultra Wide | 50MP Telephoto",
       "Battery": "5000mAh"
+    },
+    "variantData": {
+      "Titanium Black": {
+        "image": "/src/assets/products/SAMSUNG S24 ULTRA TITANIUM BLACK.webp",
+        "prices": {
+          "256GB": 1299,
+          "512GB": 1299,
+          "1TB": 1299
+        }
+      },
+      "Titanium Gray": {
+        "image": "/src/assets/products/SAMSUNG S24 ULTRA TITANIUM GRAY.webp",
+        "prices": {
+          "256GB": 1299,
+          "512GB": 1299,
+          "1TB": 1299
+        }
+      },
+      "Titanium Violet": {
+        "image": "/src/assets/products/SAMSUNG S24 ULTRA TITANIUM VIOLET.webp",
+        "prices": {
+          "256GB": 1299,
+          "512GB": 1299,
+          "1TB": 1299
+        }
+      },
+      "Titanium Yellow": {
+        "image": "/src/assets/products/SAMSUNG S24 ULTRA TITANIUM YELLOW.webp",
+        "prices": {
+          "256GB": 1299,
+          "512GB": 1299,
+          "1TB": 1299
+        }
+      }
+    }
+  },
+  {
+    "id": 5034,
+    "name": "SAMSUNG  A06",
+    "slug": "samsung-a06",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG  A06 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG  A06 LIGHTBLUE.webp",
+    "trending": true,
+    "colors": [
+      "Lightblue",
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Lightblue": {
+        "image": "/src/assets/products/SAMSUNG  A06 LIGHTBLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG A06 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5035,
+    "name": "SAMSUNG  GALAXY FOLD 5",
+    "slug": "samsung-galaxy-fold-5",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG  GALAXY FOLD 5 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG  GALAXY FOLD 5 CREAM.webp",
+    "trending": true,
+    "colors": [
+      "Cream",
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Cream": {
+        "image": "/src/assets/products/SAMSUNG  GALAXY FOLD 5 CREAM.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 5 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5036,
+    "name": "SAMSUNG A07",
+    "slug": "samsung-a07",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A07 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A07 BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Green"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG A07 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG A07 GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5037,
+    "name": "SAMSUNG A16",
+    "slug": "samsung-a16",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A16 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A16 BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG A16 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5038,
+    "name": "SAMSUNG A16 LIGHT",
+    "slug": "samsung-a16-light",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A16 LIGHT from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A16 LIGHT GRAY.webp",
+    "trending": true,
+    "colors": [
+      "Gray",
+      "Green"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Gray": {
+        "image": "/src/assets/products/SAMSUNG A16 LIGHT GRAY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG A16 LIGHT GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5039,
+    "name": "SAMSUNG A17",
+    "slug": "samsung-a17",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A17 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A17 BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Blue",
+      "Gray"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG A17 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Blue": {
+        "image": "/src/assets/products/SAMSUNG A17 BLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Gray": {
+        "image": "/src/assets/products/SAMSUNG A17 GRAY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5040,
+    "name": "SAMSUNG A36 AWESOME",
+    "slug": "samsung-a36-awesome",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A36 AWESOME from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A36 AWESOME BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Lavender",
+      "Lime",
+      "White"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG A36 AWESOME BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Lavender": {
+        "image": "/src/assets/products/SAMSUNG A36 AWESOME LAVENDER.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Lime": {
+        "image": "/src/assets/products/SAMSUNG A36 AWESOME LIME.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "White": {
+        "image": "/src/assets/products/SAMSUNG A36 AWESOME WHITE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5041,
+    "name": "SAMSUNG A57",
+    "slug": "samsung-a57",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A57 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A57 GRAY.webp",
+    "trending": true,
+    "colors": [
+      "Gray",
+      "Icyblue",
+      "Navy"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Gray": {
+        "image": "/src/assets/products/SAMSUNG A57 GRAY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Icyblue": {
+        "image": "/src/assets/products/SAMSUNG A57 ICYBLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Navy": {
+        "image": "/src/assets/products/SAMSUNG A57 NAVY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5042,
+    "name": "SAMSUNG A57 LILAC",
+    "slug": "samsung-a57-lilac",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG A57 LILAC from Samsung.",
+    "image": "/src/assets/products/SAMSUNG A57 LILAC.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/SAMSUNG A57 LILAC.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5043,
+    "name": "SAMSUNG GALAXY FOLD 3",
+    "slug": "samsung-galaxy-fold-3",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY FOLD 3 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY FOLD 3 BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Green",
+      "Silver"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 3 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 3 GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Silver": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 3 SILVER.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5044,
+    "name": "SAMSUNG GALAXY FOLD 4  BEIGE",
+    "slug": "samsung-galaxy-fold-4-beige",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY FOLD 4  BEIGE from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY FOLD 4  BEIGE.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 4  BEIGE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5045,
+    "name": "SAMSUNG GALAXY FOLD 4",
+    "slug": "samsung-galaxy-fold-4",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY FOLD 4 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY FOLD 4 BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Graygreen"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 4 BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Graygreen": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 4 GRAYGREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5046,
+    "name": "SAMSUNG GALAXY FOLD 5 ICY",
+    "slug": "samsung-galaxy-fold-5-icy",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY FOLD 5 ICY from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY FOLD 5 ICY BLUE.webp",
+    "trending": true,
+    "colors": [
+      "Blue"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Blue": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 5 ICY BLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5047,
+    "name": "SAMSUNG GALAXY FOLD 6",
+    "slug": "samsung-galaxy-fold-6",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY FOLD 6 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY FOLD 6 NAVY.webp",
+    "trending": true,
+    "colors": [
+      "Navy",
+      "Pink.webp",
+      "Silver Shadow",
+      "White.webp",
+      "Black.webp"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Navy": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 6 NAVY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Pink.webp": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 6 PINK.png.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Silver Shadow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 6 SILVER SHADOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "White.webp": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 6 WHITE.png.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Black.webp": {
+        "image": "/src/assets/products/VSAMSUNG GALAXY FOLD 6 BLACK.png.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5048,
+    "name": "SAMSUNG GALAXY FOLD 7",
+    "slug": "samsung-galaxy-fold-7",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY FOLD 7 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY FOLD 7 BLUE SHADOW.webp",
+    "trending": true,
+    "colors": [
+      "Blue Shadow",
+      "Jetblack",
+      "Silver Shadow"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Blue Shadow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 7 BLUE SHADOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Jetblack": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 7 JETBLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Silver Shadow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY FOLD 7 SILVER SHADOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5049,
+    "name": "SAMSUNG GALAXY Flip 5",
+    "slug": "samsung-galaxy-flip-5",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY Flip 5 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY Flip 5 Cream.webp",
+    "trending": true,
+    "colors": [
+      "Cream",
+      "Lavender",
+      "Mint"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Cream": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 5 Cream.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Lavender": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 5 LAVENDER.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Mint": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 5 MINT.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5050,
+    "name": "SAMSUNG GALAXY Flip 5 DARK",
+    "slug": "samsung-galaxy-flip-5-dark",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY Flip 5 DARK from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY Flip 5 DARK.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 5 DARK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5051,
+    "name": "SAMSUNG GALAXY Flip 6",
+    "slug": "samsung-galaxy-flip-6",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY Flip 6 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 BLUE.webp",
+    "trending": true,
+    "colors": [
+      "Blue",
+      "Mint",
+      "Peach",
+      "Silver Shadow",
+      "White",
+      "Yellow"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Blue": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 BLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Mint": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 MINT.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Peach": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 PEACH.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Silver Shadow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 SILVER SHADOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "White": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 WHITE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Yellow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 YELLOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5052,
+    "name": "SAMSUNG GALAXY Flip 6 CRAFTED",
+    "slug": "samsung-galaxy-flip-6-crafted",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY Flip 6 CRAFTED from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 CRAFTED BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY Flip 6 CRAFTED BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5053,
+    "name": "SAMSUNG GALAXY S22",
+    "slug": "samsung-galaxy-s22",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S22 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S22 PLANE BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Green",
+      "Pink Gold",
+      "Purple",
+      "White"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 PLANE BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 PLANE GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Pink Gold": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 PLANE PINK GOLD.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Purple": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 PLANE PURPLE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "White": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 PLANE WHITE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5054,
+    "name": "SAMSUNG GALAXY S22 ULTRA",
+    "slug": "samsung-galaxy-s22-ultra",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S22 ULTRA from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S22 ULTRA BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Burgundy",
+      "Green",
+      "White"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 ULTRA BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Burgundy": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 ULTRA BURGUNDY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 ULTRA GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "White": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S22 ULTRA WHITE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5055,
+    "name": "SAMSUNG GALAXY S23 PLUS",
+    "slug": "samsung-galaxy-s23-plus",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S23 PLUS from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S23 PLUS BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black",
+      "Cream",
+      "Green",
+      "Lavender"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S23 PLUS BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Cream": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S23 PLUS CREAM.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S23 PLUS GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Lavender": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S23 PLUS LAVENDER.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5056,
+    "name": "SAMSUNG GALAXY S24",
+    "slug": "samsung-galaxy-s24",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAIN BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAIN BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5057,
+    "name": "SAMSUNG GALAXY S24 COBALT",
+    "slug": "samsung-galaxy-s24-cobalt",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 COBALT from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAIN COBALT VIOLET.webp",
+    "trending": true,
+    "colors": [
+      "Violet"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Violet": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAIN COBALT VIOLET.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5058,
+    "name": "SAMSUNG GALAXY S24 MARBLE",
+    "slug": "samsung-galaxy-s24-marble",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 MARBLE from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAIN MARBLE GRAY.webp",
+    "trending": true,
+    "colors": [
+      "Gray"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Gray": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAIN MARBLE GRAY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5059,
+    "name": "SAMSUNG GALAXY S24 PLAINAMBER",
+    "slug": "samsung-galaxy-s24-plainamber",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 PLAINAMBER from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAINAMBER YELLOW.webp",
+    "trending": true,
+    "colors": [
+      "Yellow"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Yellow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLAINAMBER YELLOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5060,
+    "name": "SAMSUNG GALAXY S24 PLUS AMBER",
+    "slug": "samsung-galaxy-s24-plus-amber",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 PLUS AMBER from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS AMBER YELLOW.webp",
+    "trending": true,
+    "colors": [
+      "Yellow"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Yellow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS AMBER YELLOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5061,
+    "name": "SAMSUNG GALAXY S24 PLUS",
+    "slug": "samsung-galaxy-s24-plus",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 PLUS from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5062,
+    "name": "SAMSUNG GALAXY S24 PLUS COBALT",
+    "slug": "samsung-galaxy-s24-plus-cobalt",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 PLUS COBALT from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS COBALT VIOLET.webp",
+    "trending": true,
+    "colors": [
+      "Violet"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Violet": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS COBALT VIOLET.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5063,
+    "name": "SAMSUNG GALAXY S24 PLUS MARBLE",
+    "slug": "samsung-galaxy-s24-plus-marble",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S24 PLUS MARBLE from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS MARBLE GRAY.webp",
+    "trending": true,
+    "colors": [
+      "Gray"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Gray": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S24 PLUS MARBLE GRAY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5064,
+    "name": "SAMSUNG GALAXY S25",
+    "slug": "samsung-galaxy-s25",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S25 from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S25 PLAIN ICYBLUE.webp",
+    "trending": true,
+    "colors": [
+      "Icyblue",
+      "Mint",
+      "Navy",
+      "Silver Shadow"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Icyblue": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLAIN ICYBLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Mint": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLAIN MINT.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Navy": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLAIN NAVY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Silver Shadow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLAIN SILVER SHADOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5065,
+    "name": "SAMSUNG GALAXY S25 PLUS",
+    "slug": "samsung-galaxy-s25-plus",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S25 PLUS from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S25 PLUS ICYBLUE.webp",
+    "trending": true,
+    "colors": [
+      "Icyblue",
+      "Mint",
+      "Navy",
+      "Silver Shadow"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Icyblue": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLUS ICYBLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Mint": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLUS MINT.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Navy": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLUS NAVY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Silver Shadow": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 PLUS SILVER SHADOW.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5066,
+    "name": "SAMSUNG GALAXY S25 ULTRA",
+    "slug": "samsung-galaxy-s25-ultra",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG GALAXY S25 ULTRA from Samsung.",
+    "image": "/src/assets/products/SAMSUNG GALAXY S25 ULTRA TITANIUM BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Titanium Black",
+      "Titanium Gray",
+      "Titanium Silverblue",
+      "Titanium Whitesilver"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Titanium Black": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 ULTRA TITANIUM BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Titanium Gray": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 ULTRA TITANIUM GRAY.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Titanium Silverblue": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 ULTRA TITANIUM SILVERBLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Titanium Whitesilver": {
+        "image": "/src/assets/products/SAMSUNG GALAXY S25 ULTRA TITANIUM WHITESILVER.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5067,
+    "name": "SAMSUNG S23 ULTRA ",
+    "slug": "samsung-s23-ultra",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG S23 ULTRA  from Samsung.",
+    "image": "/src/assets/products/SAMSUNG S23 ULTRA  CREAM.webp",
+    "trending": true,
+    "colors": [
+      "Cream",
+      "Green",
+      "Lavender"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Cream": {
+        "image": "/src/assets/products/SAMSUNG S23 ULTRA  CREAM.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/SAMSUNG S23 ULTRA GREEN.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1000000
+        }
+      },
+      "Lavender": {
+        "image": "/src/assets/products/SAMSUNG S23 ULTRA LAVENDER.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5068,
+    "name": "SAMSUNG S23 ULTRA PHANTOM",
+    "slug": "samsung-s23-ultra-phantom",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNG S23 ULTRA PHANTOM from Samsung.",
+    "image": "/src/assets/products/SAMSUNG S23 ULTRA PHANTOM BLACK.webp",
+    "trending": true,
+    "colors": [
+      "Black"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Black": {
+        "image": "/src/assets/products/SAMSUNG S23 ULTRA PHANTOM BLACK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5069,
+    "name": "SAMSUNGGALAXY Flip 4",
+    "slug": "samsunggalaxy-flip-4",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNGGALAXY Flip 4 from Samsung.",
+    "image": "/src/assets/products/SAMSUNGGALAXY Flip 4 BLUE.webp",
+    "trending": true,
+    "colors": [
+      "Blue",
+      "Pink Gold",
+      "Purple"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Blue": {
+        "image": "/src/assets/products/SAMSUNGGALAXY Flip 4 BLUE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Pink Gold": {
+        "image": "/src/assets/products/SAMSUNGGALAXY Flip 4 PINK GOLD.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      },
+      "Purple": {
+        "image": "/src/assets/products/SAMSUNGGALAXY Flip 4 PURPLE.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5070,
+    "name": "SAMSUNGGALAXY Flip 4 DARK",
+    "slug": "samsunggalaxy-flip-4-dark",
+    "category": "phones",
+    "brand": "Samsung",
+    "price": 1000000,
+    "variant": "256GB",
+    "description": "Experience the new SAMSUNGGALAXY Flip 4 DARK from Samsung.",
+    "image": "/src/assets/products/SAMSUNGGALAXY Flip 4 DARK.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/SAMSUNGGALAXY Flip 4 DARK.webp",
+        "prices": {
+          "256GB": 1000000,
+          "512GB": 1200000
+        }
+      }
+    }
+  },
+  {
+    "id": 5071,
+    "name": "Samsung galaxy buds 4pro",
+    "slug": "samsung-galaxy-buds-4pro",
+    "category": "audio",
+    "brand": "Samsung",
+    "price": 150000,
+    "variant": "Standard",
+    "description": "Experience the new Samsung galaxy buds 4pro from Samsung.",
+    "image": "/src/assets/products/Samsung galaxy buds 4pro.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/Samsung galaxy buds 4pro.webp",
+        "prices": {
+          "Standard": 150000
+        }
+      }
+    }
+  },
+  {
+    "id": 5072,
+    "name": "TAB A11 4G",
+    "slug": "tab-a11-4g",
+    "category": "tablets",
+    "brand": "Samsung",
+    "price": 800000,
+    "variant": "256GB",
+    "description": "Experience the new TAB A11 4G from Samsung.",
+    "image": "/src/assets/products/TAB A11 4G .webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/TAB A11 4G .webp",
+        "prices": {
+          "256GB": 800000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5073,
+    "name": "TAB A11 WIF ONLY",
+    "slug": "tab-a11-wif-only",
+    "category": "tablets",
+    "brand": "Samsung",
+    "price": 800000,
+    "variant": "256GB",
+    "description": "Experience the new TAB A11 WIF ONLY from Samsung.",
+    "image": "/src/assets/products/TAB A11 WIF ONLY.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/TAB A11 WIF ONLY.webp",
+        "prices": {
+          "256GB": 800000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5074,
+    "name": "TAB A11PLUS 5G",
+    "slug": "tab-a11plus-5g",
+    "category": "tablets",
+    "brand": "Samsung",
+    "price": 800000,
+    "variant": "256GB",
+    "description": "Experience the new TAB A11PLUS 5G from Samsung.",
+    "image": "/src/assets/products/TAB A11PLUS 5G.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/TAB A11PLUS 5G.webp",
+        "prices": {
+          "256GB": 800000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5075,
+    "name": "TAB A9 PLUS A",
+    "slug": "tab-a9-plus-a",
+    "category": "tablets",
+    "brand": "Samsung",
+    "price": 800000,
+    "variant": "256GB",
+    "description": "Experience the new TAB A9 PLUS A from Samsung.",
+    "image": "/src/assets/products/TAB A9 PLUS A.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/TAB A9 PLUS A.webp",
+        "prices": {
+          "256GB": 800000,
+          "512GB": 1000000
+        }
+      }
+    }
+  },
+  {
+    "id": 5076,
+    "name": "TAB A9PLAIN 4G TDRA",
+    "slug": "tab-a9plain-4g-tdra",
+    "category": "tablets",
+    "brand": "Samsung",
+    "price": 800000,
+    "variant": "256GB",
+    "description": "Experience the new TAB A9PLAIN 4G TDRA from Samsung.",
+    "image": "/src/assets/products/TAB A9PLAIN 4G TDRA.webp",
+    "trending": true,
+    "colors": [
+      "Default"
+    ],
+    "storage": [
+      "256GB",
+      "512GB"
+    ],
+    "variantData": {
+      "Default": {
+        "image": "/src/assets/products/TAB A9PLAIN 4G TDRA.webp",
+        "prices": {
+          "256GB": 800000,
+          "512GB": 1000000
+        }
+      }
     }
   }
 ]

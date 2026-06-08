@@ -45,7 +45,7 @@ const Footer = () => {
         <div>
           <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-6">Categories</h4>
           <ul className="space-y-4">
-            {['Phones', 'Audio & Pods', 'Chargers', 'Cases & Covers', 'Accessories'].map((link) => (
+            {['Phones', 'Audio & Pods', 'Tablets', 'Cases & Covers', 'Accessories'].map((link) => (
               <li key={link}>
                 <Link to={`/${link.toLowerCase().split(' ')[0]}`} className="text-sm text-gray-500 hover:text-brand-dark transition-colors">{link}</Link>
               </li>

@@ -7,6 +7,7 @@ import iphone12 from './iphone12.json';
 import iphone11 from './iphone11.json';
 import samsung from './samsung.json';
 import other from './other.json';
+import iphoneother from './iphoneother.json';
 
 const productsData = [
   ...iphone17,
@@ -17,7 +18,8 @@ const productsData = [
   ...iphone12,
   ...iphone11,
   ...samsung,
-  ...other
+  ...other,
+  ...iphoneother
 ];
 
 export default productsData;

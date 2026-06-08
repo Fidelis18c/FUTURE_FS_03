@@ -8,15 +8,61 @@
     "price": 1300000,
     "variant": "64GB",
     "description": "Triple-camera system. All-day battery life. The first iPhone powerful enough to be called Pro.",
-    "image": "/src/assets/products/Iphone11ProMax-MidnightGreen.png",
+    "image": "/src/assets/products/Iphone11ProMax-MidnightGreen.webp",
     "trending": false,
-    "colors": ["MidnightGreen", "Gold", "Gray", "Silver"],
-    "storage": ["64GB", "256GB", "512GB"],
+    "colors": [
+      "MidnightGreen",
+      "Gold",
+      "Gray",
+      "Silver",
+      "Midnightgreen"
+    ],
+    "storage": [
+      "64GB",
+      "256GB",
+      "512GB"
+    ],
     "variantData": {
-      "MidnightGreen": { "image": "/src/assets/products/Iphone11ProMax-MidnightGreen.png", "prices": { "64GB": 1300000, "256GB": 1600000, "512GB": 1900000 } },
-      "Gold": { "image": "/src/assets/products/Iphone11ProMax-Gold.png", "prices": { "64GB": 1300000, "256GB": 1600000, "512GB": 1900000 } },
-      "Gray": { "image": "/src/assets/products/Iphone11ProMax-Gray.png", "prices": { "64GB": 1300000, "256GB": 1600000, "512GB": 1900000 } },
-      "Silver": { "image": "/src/assets/products/Iphone11ProMax-Silver.png", "prices": { "64GB": 1300000, "256GB": 1600000, "512GB": 1900000 } }
+      "MidnightGreen": {
+        "image": "/src/assets/products/Iphone11ProMax-MidnightGreen.webp",
+        "prices": {
+          "64GB": 1300000,
+          "256GB": 1600000,
+          "512GB": 1900000
+        }
+      },
+      "Gold": {
+        "image": "/src/assets/products/Iphone11ProMax-Gold.webp",
+        "prices": {
+          "64GB": 1300000,
+          "256GB": 1600000,
+          "512GB": 1900000
+        }
+      },
+      "Gray": {
+        "image": "/src/assets/products/Iphone11ProMax-Gray.webp",
+        "prices": {
+          "64GB": 1300000,
+          "256GB": 1600000,
+          "512GB": 1900000
+        }
+      },
+      "Silver": {
+        "image": "/src/assets/products/Iphone11ProMax-Silver.webp",
+        "prices": {
+          "64GB": 1300000,
+          "256GB": 1600000,
+          "512GB": 1900000
+        }
+      },
+      "Midnightgreen": {
+        "image": "/src/assets/products/Iphone11ProMax-MidnightGreen.webp",
+        "prices": {
+          "64GB": 1300000,
+          "256GB": 1300000,
+          "512GB": 1300000
+        }
+      }
     }
   },
   {
@@ -28,15 +74,61 @@
     "price": 1100000,
     "variant": "64GB",
     "description": "A transformative triple-camera system that adds tons of capability without complexity.",
-    "image": "/src/assets/products/Iphone11Pro-MidnightGreen.png",
+    "image": "/src/assets/products/Iphone11Pro-MidnightGreen.webp",
     "trending": false,
-    "colors": ["MidnightGreen", "Gold", "Gray", "Silver"],
-    "storage": ["64GB", "256GB", "512GB"],
+    "colors": [
+      "MidnightGreen",
+      "Gold",
+      "Gray",
+      "Silver",
+      "Midnightgreen"
+    ],
+    "storage": [
+      "64GB",
+      "256GB",
+      "512GB"
+    ],
     "variantData": {
-      "MidnightGreen": { "image": "/src/assets/products/Iphone11Pro-MidnightGreen.png", "prices": { "64GB": 1100000, "256GB": 1400000, "512GB": 1700000 } },
-      "Gold": { "image": "/src/assets/products/Iphone11Pro-Gold.png", "prices": { "64GB": 1100000, "256GB": 1400000, "512GB": 1700000 } },
-      "Gray": { "image": "/src/assets/products/Iphone11Pro-Gray.png", "prices": { "64GB": 1100000, "256GB": 1400000, "512GB": 1700000 } },
-      "Silver": { "image": "/src/assets/products/Iphone11Pro-Silver.png", "prices": { "64GB": 1100000, "256GB": 1400000, "512GB": 1700000 } }
+      "MidnightGreen": {
+        "image": "/src/assets/products/Iphone11Pro-MidnightGreen.webp",
+        "prices": {
+          "64GB": 1100000,
+          "256GB": 1400000,
+          "512GB": 1700000
+        }
+      },
+      "Gold": {
+        "image": "/src/assets/products/Iphone11Pro-Gold.webp",
+        "prices": {
+          "64GB": 1100000,
+          "256GB": 1400000,
+          "512GB": 1700000
+        }
+      },
+      "Gray": {
+        "image": "/src/assets/products/Iphone11Pro-Gray.webp",
+        "prices": {
+          "64GB": 1100000,
+          "256GB": 1400000,
+          "512GB": 1700000
+        }
+      },
+      "Silver": {
+        "image": "/src/assets/products/Iphone11Pro-Silver.webp",
+        "prices": {
+          "64GB": 1100000,
+          "256GB": 1400000,
+          "512GB": 1700000
+        }
+      },
+      "Midnightgreen": {
+        "image": "/src/assets/products/Iphone11Pro-MidnightGreen.webp",
+        "prices": {
+          "64GB": 1100000,
+          "256GB": 1100000,
+          "512GB": 1100000
+        }
+      }
     }
   },
   {
@@ -48,16 +140,61 @@
     "price": 850000,
     "variant": "64GB",
     "description": "A new dual-camera system captures more of what you see and love.",
-    "image": "/src/assets/products/Iphone11Plain-Purple.png",
+    "image": "/src/assets/products/Iphone11Plain-Purple.webp",
     "trending": true,
-    "colors": ["Purple", "Black", "Green", "Red", "White"],
-    "storage": ["64GB", "128GB", "256GB"],
+    "colors": [
+      "Purple",
+      "Black",
+      "Green",
+      "Red",
+      "White"
+    ],
+    "storage": [
+      "64GB",
+      "128GB",
+      "256GB"
+    ],
     "variantData": {
-      "Purple": { "image": "/src/assets/products/Iphone11Plain-Purple.png", "prices": { "64GB": 850000, "128GB": 950000, "256GB": 1100000 } },
-      "Black": { "image": "/src/assets/products/Iphone11Plain-Black.png", "prices": { "64GB": 850000, "128GB": 950000, "256GB": 1100000 } },
-      "Green": { "image": "/src/assets/products/Iphone11Plain-Green.png", "prices": { "64GB": 850000, "128GB": 950000, "256GB": 1100000 } },
-      "Red": { "image": "/src/assets/products/Iphone11Plain-Red.png", "prices": { "64GB": 850000, "128GB": 950000, "256GB": 1100000 } },
-      "White": { "image": "/src/assets/products/Iphone11Plain-White.png", "prices": { "64GB": 850000, "128GB": 950000, "256GB": 1100000 } }
+      "Purple": {
+        "image": "/src/assets/products/Iphone11Plain-Purple.webp",
+        "prices": {
+          "64GB": 850000,
+          "128GB": 950000,
+          "256GB": 1100000
+        }
+      },
+      "Black": {
+        "image": "/src/assets/products/Iphone11Plain-Black.webp",
+        "prices": {
+          "64GB": 850000,
+          "128GB": 950000,
+          "256GB": 1100000
+        }
+      },
+      "Green": {
+        "image": "/src/assets/products/Iphone11Plain-Green.webp",
+        "prices": {
+          "64GB": 850000,
+          "128GB": 950000,
+          "256GB": 1100000
+        }
+      },
+      "Red": {
+        "image": "/src/assets/products/Iphone11Plain-Red.webp",
+        "prices": {
+          "64GB": 850000,
+          "128GB": 950000,
+          "256GB": 1100000
+        }
+      },
+      "White": {
+        "image": "/src/assets/products/Iphone11Plain-White.webp",
+        "prices": {
+          "64GB": 850000,
+          "128GB": 950000,
+          "256GB": 1100000
+        }
+      }
     }
   }
 ]

@@ -8,7 +8,7 @@
     "price": 4200000,
     "variant": "512GB",
     "description": "The latest iPhone with Titanium design and A18 Pro chip.",
-    "image": "/src/assets/products/Iphone17-Orange.png",
+    "image": "/src/assets/products/Iphone17-Orange.webp",
     "trending": true,
     "colors": [
       "Orange",
@@ -21,21 +21,21 @@
     ],
     "variantData": {
       "Orange": {
-        "image": "/src/assets/products/Iphone17-Orange.png",
+        "image": "/src/assets/products/Iphone17-Orange.webp",
         "prices": {
           "256GB": 3750000,
           "512GB": 4200000
         }
       },
       "Dark Blue": {
-        "image": "/src/assets/products/Iphone-17-darkblue.png",
+        "image": "/src/assets/products/Iphone-17-darkblue.webp",
         "prices": {
           "256GB": 3750000,
           "512GB": 4200000
         }
       },
       "Silver": {
-        "image": "/src/assets/products/Iphone17-Silver.png",
+        "image": "/src/assets/products/Iphone17-Silver.webp",
         "prices": {
           "256GB": 3900000,
           "512GB": 4500000
@@ -58,38 +58,73 @@
     "price": 2400000,
     "variant": "256GB",
     "description": "Powerful performance in a colorful design. The new iPhone 17.",
-    "image": "/src/assets/products/Iphone17-Plain-Black.png",
+    "image": "/src/assets/products/Iphone17-Plain-Black.webp",
     "trending": true,
     "colors": [
       "Black",
       "White",
       "Sage",
-      "Purple"
+      "Purple",
+      "Gold",
+      "Lightblue",
+      "Orange",
+      "Blue",
+      "Silver"
     ],
     "storage": [
       "256GB"
     ],
     "variantData": {
       "Black": {
-        "image": "/src/assets/products/Iphone17-Plain-Black.png",
+        "image": "/src/assets/products/Iphone17-Plain-Black.webp",
         "prices": {
           "256GB": 2400000
         }
       },
       "White": {
-        "image": "/src/assets/products/Iphone17-Plain-White.png",
+        "image": "/src/assets/products/Iphone17-Plain-White.webp",
         "prices": {
           "256GB": 2400000
         }
       },
       "Sage": {
-        "image": "/src/assets/products/Iphone17-Plain-Sage.png",
+        "image": "/src/assets/products/Iphone17-Plain-Sage.webp",
         "prices": {
           "256GB": 2400000
         }
       },
       "Purple": {
-        "image": "/src/assets/products/Iphone17-Plain-Purple.png",
+        "image": "/src/assets/products/Iphone17-Plain-Purple.webp",
+        "prices": {
+          "256GB": 2400000
+        }
+      },
+      "Gold": {
+        "image": "/src/assets/products/Iphone17-Air-Gold.webp",
+        "prices": {
+          "256GB": 2400000
+        }
+      },
+      "Lightblue": {
+        "image": "/src/assets/products/Iphone17-Air-Lightblue.webp",
+        "prices": {
+          "256GB": 2400000
+        }
+      },
+      "Orange": {
+        "image": "/src/assets/products/Iphone17-Orange.webp",
+        "prices": {
+          "256GB": 2400000
+        }
+      },
+      "Blue": {
+        "image": "/src/assets/products/Iphone17-Plain-Blue.webp",
+        "prices": {
+          "256GB": 2400000
+        }
+      },
+      "Silver": {
+        "image": "/src/assets/products/Iphone17-Silver.webp",
         "prices": {
           "256GB": 2400000
         }
@@ -111,7 +146,7 @@
     "price": 3800000,
     "variant": "512GB",
     "description": "The pro experience in a more compact size. A18 Pro chip and Titanium design.",
-    "image": "/src/assets/products/Iphone-17-darkblue.png",
+    "image": "/src/assets/products/Iphone-17-darkblue.webp",
     "trending": true,
     "colors": [
       "Orange",
@@ -124,21 +159,21 @@
     ],
     "variantData": {
       "Orange": {
-        "image": "/src/assets/products/Iphone17-Orange.png",
+        "image": "/src/assets/products/Iphone17-Orange.webp",
         "prices": {
           "256GB": 3450000,
           "512GB": 3800000
         }
       },
       "Dark Blue": {
-        "image": "/src/assets/products/Iphone-17-darkblue.png",
+        "image": "/src/assets/products/Iphone-17-darkblue.webp",
         "prices": {
           "256GB": 3450000,
           "512GB": 3800000
         }
       },
       "Silver": {
-        "image": "/src/assets/products/Iphone17-Silver.png",
+        "image": "/src/assets/products/Iphone17-Silver.webp",
         "prices": {
           "256GB": 3450000,
           "512GB": 3800000
@@ -161,7 +196,7 @@
     "price": 3100000,
     "variant": "512GB",
     "description": "Ultra-thin. Ultra-powerful. The all-new iPhone 17 Air.",
-    "image": "/src/assets/products/Iphone17-Air-Black.png",
+    "image": "/src/assets/products/Iphone17-Air-Black.webp",
     "trending": true,
     "colors": [
       "Black",
@@ -175,28 +210,28 @@
     ],
     "variantData": {
       "Black": {
-        "image": "/src/assets/products/Iphone17-Air-Black.png",
+        "image": "/src/assets/products/Iphone17-Air-Black.webp",
         "prices": {
           "256GB": 2650000,
           "512GB": 3100000
         }
       },
       "White": {
-        "image": "/src/assets/products/Iphone17-Air-White.png",
+        "image": "/src/assets/products/Iphone17-Air-White.webp",
         "prices": {
           "256GB": 2650000,
           "512GB": 3100000
         }
       },
       "Gold": {
-        "image": "/src/assets/products/Iphone17-Air-Gold.png",
+        "image": "/src/assets/products/Iphone17-Air-Gold.webp",
         "prices": {
           "256GB": 2650000,
           "512GB": 3100000
         }
       },
       "Lightblue": {
-        "image": "/src/assets/products/Iphone17-Air-Lightblue.png",
+        "image": "/src/assets/products/Iphone17-Air-Lightblue.webp",
         "prices": {
           "256GB": 2650000,
           "512GB": 3100000

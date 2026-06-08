@@ -14,7 +14,7 @@ import sidePhoneLeft from '../assets/hero/IphoneHeroB.png';
 import sidePhoneRight from '../assets/hero/IphoneHeroC.png';
 import featureVideo from '../assets/Hero2/The handcrafted wireless to daily mastery..mp4';
 
-const INITIAL_PRODUCTS = 8;
+const INITIAL_PRODUCTS = 5;
 
 const topHeroItems = [
   { type: 'video', src: heroVideo },
@@ -40,7 +40,12 @@ const cardBounce = {
 const HERO_BG = 'linear-gradient(155deg, #13111c 0%, #1f1509 52%, #13111c 100%)';
 
 const Home = () => {
-  const trendingProducts = productsData.filter((p) => p.trending);
+  const trendingProducts = [
+    ...productsData.filter((p) => p.brand === 'iPhone' && p.trending).slice(0, 3),
+    ...productsData.filter((p) => p.brand === 'JBL').slice(0, 3),
+    ...productsData.filter((p) => p.brand === 'Samsung' && p.category === 'phones').slice(0, 2),
+    ...productsData.filter((p) => p.category === 'audio' && p.brand !== 'JBL').slice(0, 2),
+  ].slice(0, 10);
   const [showAll, setShowAll] = useState(false);
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);

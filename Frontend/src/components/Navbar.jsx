@@ -26,17 +26,16 @@ const Navbar = () => {
       dropdown: [
         { name: 'Oraimo Pods', path: '/audio/oraimo' },
         { name: 'iPhone Pods', path: '/audio/iphone' },
-        { name: 'JBL Pods', path: '/audio/jbl' },
+        { name: 'JBL', path: '/audio/jbl' },
         { name: 'Speakers', path: '/audio/speakers' },
-        { name: 'JBL Speakers', path: '/audio/jbl-speakers' },
       ],
     },
     {
-      name: 'Chargers',
-      path: '/chargers',
+      name: 'Tablets',
+      path: '/tablets',
       dropdown: [
-        { name: 'iPhone Chargers', path: '/chargers/iphone' },
-        { name: 'Android Chargers', path: '/chargers/android' },
+        { name: 'iPads', path: '/tablets/ipad' },
+        { name: 'Samsung Tablets', path: '/tablets/samsung' },
       ],
     },
 
