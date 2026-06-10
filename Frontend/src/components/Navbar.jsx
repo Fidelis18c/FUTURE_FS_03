@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiSearch, FiShoppingCart, FiMenu, FiX, FiChevronDown, FiUser } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import LoginModal from './LoginModal';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { cartCount, setIsCartOpen } = useCart();
   const navigate = useNavigate();
@@ -50,6 +52,7 @@ const Navbar = () => {
   };
 
   return (
+    <>
     <nav className="navbar-glass sticky top-0 z-50 py-0 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -115,10 +118,13 @@ const Navbar = () => {
             )}
           </button>
 
-          <Link to="/login" className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full">
+          <button
+            onClick={() => setIsLoginOpen(true)}
+            className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
+          >
             <FiUser />
             <span>Login</span>
-          </Link>
+          </button>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -169,18 +175,20 @@ const Navbar = () => {
                 </div>
               ))}
 
-              <Link
-                to="/login"
-                className="block text-center bg-brand-orange text-white py-3 rounded-lg font-medium"
-                onClick={() => setIsMenuOpen(false)}
+              <button
+                className="w-full text-center bg-brand-orange text-white py-3 rounded-lg font-medium"
+                onClick={() => { setIsMenuOpen(false); setIsLoginOpen(true); }}
               >
                 Login
-              </Link>
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </nav>
+
+    <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+    </>
   );
 };
 

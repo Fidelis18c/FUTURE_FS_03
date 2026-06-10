@@ -14,7 +14,8 @@ import sidePhoneLeft from '../assets/hero/IphoneHeroB.png';
 import sidePhoneRight from '../assets/hero/IphoneHeroC.png';
 import featureVideo from '../assets/Hero2/The handcrafted wireless to daily mastery..mp4';
 
-const INITIAL_PRODUCTS = 5;
+const INITIAL_PRODUCTS = 20;
+const STEP_SIZE = 20;
 
 const topHeroItems = [
   { type: 'video', src: heroVideo },
@@ -41,18 +42,16 @@ const HERO_BG = 'linear-gradient(155deg, #13111c 0%, #1f1509 52%, #13111c 100%)'
 
 const Home = () => {
   const trendingProducts = [
-    ...productsData.filter((p) => p.brand === 'iPhone' && p.trending).slice(0, 3),
-    ...productsData.filter((p) => p.brand === 'JBL').slice(0, 3),
-    ...productsData.filter((p) => p.brand === 'Samsung' && p.category === 'phones').slice(0, 2),
-    ...productsData.filter((p) => p.category === 'audio' && p.brand !== 'JBL').slice(0, 2),
-  ].slice(0, 10);
-  const [showAll, setShowAll] = useState(false);
+    ...productsData.filter((p) => p.brand === 'iPhone' && p.trending).slice(0, 8),
+    ...productsData.filter((p) => p.brand === 'JBL').slice(0, 8),
+    ...productsData.filter((p) => p.brand === 'Samsung' && p.category === 'phones').slice(0, 4),
+    ...productsData.filter((p) => p.category === 'audio' && p.brand !== 'JBL').slice(0, 4),
+  ];
+  const [visibleCount, setVisibleCount] = useState(INITIAL_PRODUCTS);
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  const visibleProducts = showAll
-    ? trendingProducts
-    : trendingProducts.slice(0, INITIAL_PRODUCTS);
+  const visibleProducts = trendingProducts.slice(0, visibleCount);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -213,7 +212,7 @@ const Home = () => {
       <section className="py-20 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            key={showAll ? 'all' : 'partial'}
+            key={visibleCount}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -227,14 +226,25 @@ const Home = () => {
           </motion.div>
 
           {trendingProducts.length > INITIAL_PRODUCTS && (
-            <div className="flex justify-center mt-14">
-              <button
-                onClick={() => setShowAll((v) => !v)}
-                className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
-              >
-                {showAll ? 'View Less' : 'View More'}
-                {showAll ? <FiChevronUp size={14} /> : <FiChevronDown size={14} />}
-              </button>
+            <div className="flex justify-center mt-14 gap-4">
+              {visibleCount < trendingProducts.length && (
+                <button
+                  onClick={() => setVisibleCount((c) => Math.min(c + STEP_SIZE, trendingProducts.length))}
+                  className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
+                >
+                  View More
+                  <FiChevronDown size={14} />
+                </button>
+              )}
+              {visibleCount > INITIAL_PRODUCTS && (
+                <button
+                  onClick={() => setVisibleCount(INITIAL_PRODUCTS)}
+                  className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
+                >
+                  View Less
+                  <FiChevronUp size={14} />
+                </button>
+              )}
             </div>
           )}
         </div>

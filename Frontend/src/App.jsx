@@ -6,6 +6,11 @@ import Home from './pages/Home';
 import CategoryPage from './pages/CategoryPage';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+import SupportCenter from './pages/SupportCenter';
+import ShippingPolicy from './pages/ShippingPolicy';
+import ReturnsRefunds from './pages/ReturnsRefunds';
 import CartDrawer from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
 
@@ -29,6 +34,11 @@ function App() {
               <Route path="/covers/:category" element={<CategoryPage />} />
               <Route path="/product/:slug" element={<ProductDetails />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/support" element={<SupportCenter />} />
+              <Route path="/shipping" element={<ShippingPolicy />} />
+              <Route path="/returns" element={<ReturnsRefunds />} />
               {/* Fallback for other routes */}
               <Route path="*" element={<Home />} />
             </Routes>

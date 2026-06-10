@@ -5,79 +5,37 @@
     "slug": "iphone-14-pro-max",
     "category": "phones",
     "brand": "iPhone",
-    "price": 2500000,
+    "price": 1500000,
     "variant": "128GB",
     "description": "The ultimate iPhone experience. Dynamic Island and 48MP camera.",
     "image": "/src/assets/products/Iphone14ProMax-DeepPurple.webp",
     "trending": true,
-    "colors": [
-      "DeepPurple",
-      "Gold",
-      "Silver",
-      "SpaceBlack",
-      "Deeppurple",
-      "Spaceblack"
-    ],
-    "storage": [
-      "128GB",
-      "256GB",
-      "512GB",
-      "1TB"
-    ],
+    "colors": ["DeepPurple","Gold","Silver","SpaceBlack","Deeppurple","Spaceblack"],
+    "storage": ["128GB","256GB","512GB","1TB"],
     "variantData": {
       "DeepPurple": {
         "image": "/src/assets/products/Iphone14ProMax-DeepPurple.webp",
-        "prices": {
-          "128GB": 2500000,
-          "256GB": 2800000,
-          "512GB": 3200000,
-          "1TB": 3600000
-        }
+        "prices": { "128GB": 1500000, "256GB": 1600000, "512GB": 1800000, "1TB": 2000000 }
       },
       "Gold": {
         "image": "/src/assets/products/Iphone14ProMax-Gold.webp",
-        "prices": {
-          "128GB": 2500000,
-          "256GB": 2800000,
-          "512GB": 3200000,
-          "1TB": 3600000
-        }
+        "prices": { "128GB": 1500000, "256GB": 1600000, "512GB": 1800000, "1TB": 2000000 }
       },
       "Silver": {
         "image": "/src/assets/products/Iphone14ProMax-Silver.webp",
-        "prices": {
-          "128GB": 2500000,
-          "256GB": 2800000,
-          "512GB": 3200000,
-          "1TB": 3600000
-        }
+        "prices": { "128GB": 1500000, "256GB": 1600000, "512GB": 1800000, "1TB": 2000000 }
       },
       "SpaceBlack": {
         "image": "/src/assets/products/Iphone14ProMax-SpaceBlack.webp",
-        "prices": {
-          "128GB": 2500000,
-          "256GB": 2800000,
-          "512GB": 3200000,
-          "1TB": 3600000
-        }
+        "prices": { "128GB": 1500000, "256GB": 1600000, "512GB": 1800000, "1TB": 2000000 }
       },
       "Deeppurple": {
         "image": "/src/assets/products/Iphone14ProMax-DeepPurple.webp",
-        "prices": {
-          "128GB": 2500000,
-          "256GB": 2500000,
-          "512GB": 2500000,
-          "1TB": 2500000
-        }
+        "prices": { "128GB": 1500000, "256GB": 1600000, "512GB": 1800000, "1TB": 2000000 }
       },
       "Spaceblack": {
         "image": "/src/assets/products/Iphone14ProMax-SpaceBlack.webp",
-        "prices": {
-          "128GB": 2500000,
-          "256GB": 2500000,
-          "512GB": 2500000,
-          "1TB": 2500000
-        }
+        "prices": { "128GB": 1500000, "256GB": 1600000, "512GB": 1800000, "1TB": 2000000 }
       }
     },
     "specs": {
@@ -92,69 +50,33 @@
     "slug": "iphone-14-pro",
     "category": "phones",
     "brand": "iPhone",
-    "price": 2200000,
+    "price": 1400000,
     "variant": "128GB",
     "description": "Pro. Beyond. Experience the new 48MP camera and Dynamic Island.",
     "image": "/src/assets/products/Iphone14Pro-Black.webp",
     "trending": false,
-    "colors": [
-      "Black",
-      "Gold",
-      "Purple",
-      "White",
-      "Blue"
-    ],
-    "storage": [
-      "128GB",
-      "256GB",
-      "512GB",
-      "1TB"
-    ],
+    "colors": ["Black","Gold","Purple","White","Blue"],
+    "storage": ["128GB","256GB","512GB","1TB"],
     "variantData": {
       "Black": {
         "image": "/src/assets/products/Iphone14Pro-Black.webp",
-        "prices": {
-          "128GB": 2200000,
-          "256GB": 2500000,
-          "512GB": 2900000,
-          "1TB": 3300000
-        }
+        "prices": { "128GB": 1400000, "256GB": 1450000, "512GB": 1600000, "1TB": 1800000 }
       },
       "Gold": {
         "image": "/src/assets/products/Iphone14Pro-Gold.webp",
-        "prices": {
-          "128GB": 2200000,
-          "256GB": 2500000,
-          "512GB": 2900000,
-          "1TB": 3300000
-        }
+        "prices": { "128GB": 1400000, "256GB": 1450000, "512GB": 1600000, "1TB": 1800000 }
       },
       "Purple": {
         "image": "/src/assets/products/Iphone14Pro-Purple.webp",
-        "prices": {
-          "128GB": 2200000,
-          "256GB": 2500000,
-          "512GB": 2900000,
-          "1TB": 3300000
-        }
+        "prices": { "128GB": 1400000, "256GB": 1450000, "512GB": 1600000, "1TB": 1800000 }
       },
       "White": {
         "image": "/src/assets/products/Iphone14Pro-White.webp",
-        "prices": {
-          "128GB": 2200000,
-          "256GB": 2500000,
-          "512GB": 2900000,
-          "1TB": 3300000
-        }
+        "prices": { "128GB": 1400000, "256GB": 1450000, "512GB": 1600000, "1TB": 1800000 }
       },
       "Blue": {
         "image": "/src/assets/products/Iphone14ProBlue.webp",
-        "prices": {
-          "128GB": 2200000,
-          "256GB": 2500000,
-          "512GB": 2900000,
-          "1TB": 3300000
-        }
+        "prices": { "128GB": 1400000, "256GB": 1450000, "512GB": 1600000, "1TB": 1800000 }
       }
     },
     "specs": {
@@ -168,72 +90,37 @@
     "slug": "iphone-14",
     "category": "phones",
     "brand": "iPhone",
-    "price": 1600000,
+    "price": 1100000,
     "variant": "128GB",
     "description": "Big and bigger. Amazing battery life and stunning photos.",
     "image": "/src/assets/products/Iphone14Plain-Black.webp",
     "trending": true,
-    "colors": [
-      "Black",
-      "Blue",
-      "Purple",
-      "Red",
-      "White",
-      "Yellow"
-    ],
-    "storage": [
-      "128GB",
-      "256GB",
-      "512GB"
-    ],
+    "colors": ["Black","Blue","Purple","Red","White","Yellow"],
+    "storage": ["128GB","256GB","512GB"],
     "variantData": {
       "Black": {
         "image": "/src/assets/products/Iphone14Plain-Black.webp",
-        "prices": {
-          "128GB": 1600000,
-          "256GB": 1900000,
-          "512GB": 2300000
-        }
+        "prices": { "128GB": 1100000, "256GB": 1150000, "512GB": 1300000 }
       },
       "Blue": {
         "image": "/src/assets/products/Iphone14Plain-Blue.webp",
-        "prices": {
-          "128GB": 1600000,
-          "256GB": 1900000,
-          "512GB": 2300000
-        }
+        "prices": { "128GB": 1100000, "256GB": 1150000, "512GB": 1300000 }
       },
       "Purple": {
         "image": "/src/assets/products/Iphone14Plain-Purple.webp",
-        "prices": {
-          "128GB": 1600000,
-          "256GB": 1900000,
-          "512GB": 2300000
-        }
+        "prices": { "128GB": 1100000, "256GB": 1150000, "512GB": 1300000 }
       },
       "Red": {
         "image": "/src/assets/products/Iphone14Plain-Red.webp",
-        "prices": {
-          "128GB": 1600000,
-          "256GB": 1900000,
-          "512GB": 2300000
-        }
+        "prices": { "128GB": 1100000, "256GB": 1150000, "512GB": 1300000 }
       },
       "White": {
         "image": "/src/assets/products/Iphone14Plain-White.webp",
-        "prices": {
-          "128GB": 1600000,
-          "256GB": 1900000,
-          "512GB": 2300000
-        }
+        "prices": { "128GB": 1100000, "256GB": 1150000, "512GB": 1300000 }
       },
       "Yellow": {
         "image": "/src/assets/products/Iphone14Plain-Yellow.webp",
-        "prices": {
-          "128GB": 1600000,
-          "256GB": 1900000,
-          "512GB": 2300000
-        }
+        "prices": { "128GB": 1100000, "256GB": 1150000, "512GB": 1300000 }
       }
     }
   }

@@ -1,129 +1,11 @@
 [
   {
-    "id": 3,
-    "name": "Google Pixel 9 Pro",
-    "slug": "pixel-9-pro",
-    "category": "phones",
-    "brand": "Pixel",
-    "price": 2100000,
-    "variant": "128GB",
-    "description": "The most advanced Pixel yet, with Gemini built-in.",
-    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=1000&auto=format&fit=crop",
-    "trending": false,
-    "colors": [
-      "Obsidian",
-      "Porcelain",
-      "Hazel"
-    ],
-    "storage": [
-      "128GB",
-      "256GB",
-      "512GB"
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Apple AirPods Pro",
-    "slug": "apple-airpods-pro",
-    "category": "audio",
-    "brand": "iPhone",
-    "price": 450000,
-    "variant": "MagSafe Case",
-    "description": "Magic like you've never heard.",
-    "image": "/src/assets/products/Aipods.webp",
-    "trending": true,
-    "colors": [
-      "White"
-    ],
-    "storage": [],
-    "variantData": {
-      "White": {
-        "image": "/src/assets/products/Aipods.webp",
-        "prices": {
-          "Default": 450000
-        }
-      }
-    }
-  },
-  {
-    "id": 41,
-    "name": "Apple AirPods Max",
-    "slug": "apple-airpods-max",
-    "category": "audio",
-    "brand": "iPhone",
-    "price": 1200000,
-    "variant": "Standard",
-    "description": "High-fidelity audio meets effortless AirPods magic.",
-    "image": "/src/assets/products/Aipods2.webp",
-    "trending": true,
-    "colors": [
-      "White"
-    ],
-    "storage": [],
-    "variantData": {
-      "White": {
-        "image": "/src/assets/products/Aipods2.webp",
-        "prices": {
-          "Default": 1200000
-        }
-      }
-    }
-  },
-  {
-    "id": 5,
-    "name": "JBL Tune 760NC",
-    "slug": "jbl-tune-760nc",
-    "category": "audio",
-    "brand": "JBL",
-    "price": 350000,
-    "variant": "Bluetooth",
-    "description": "Loud, crystal clear, powerful sound with Noise Cancelling.",
-    "image": "/src/assets/products/JBL Headphones.webp",
-    "trending": true,
-    "colors": [
-      "Black"
-    ],
-    "storage": [],
-    "variantData": {
-      "Black": {
-        "image": "/src/assets/products/JBL Headphones.webp",
-        "prices": {
-          "Default": 350000
-        }
-      }
-    }
-  },
-  {
-    "id": 51,
-    "name": "JBL Wave Buds",
-    "slug": "jbl-wave-buds",
-    "category": "audio",
-    "brand": "JBL",
-    "price": 150000,
-    "variant": "Bluetooth",
-    "description": "Simple, smart, everyday fun.",
-    "image": "/src/assets/products/JBL pods.webp",
-    "trending": true,
-    "colors": [
-      "Black"
-    ],
-    "storage": [],
-    "variantData": {
-      "Black": {
-        "image": "/src/assets/products/JBL pods.webp",
-        "prices": {
-          "Default": 150000
-        }
-      }
-    }
-  },
-  {
     "id": 5000,
     "name": "ANKER  LIBERTY 4NC",
     "slug": "anker-liberty-4nc",
     "category": "accessories",
     "brand": "Other",
-    "price": 1000000,
+    "price": 250000,
     "variant": "256GB",
     "description": "Experience the new ANKER  LIBERTY 4NC from Other.",
     "image": "/src/assets/products/ANKER  LIBERTY 4NC.webp",
@@ -139,56 +21,8 @@
       "Default": {
         "image": "/src/assets/products/ANKER  LIBERTY 4NC.webp",
         "prices": {
-          "256GB": 1000000,
-          "512GB": 1200000
-        }
-      }
-    }
-  },
-  {
-    "id": 5001,
-    "name": "Aipods",
-    "slug": "aipods",
-    "category": "audio",
-    "brand": "iPhone",
-    "price": 150000,
-    "variant": "Standard",
-    "description": "Experience the new Aipods from iPhone.",
-    "image": "/src/assets/products/Aipods.webp",
-    "trending": true,
-    "colors": [
-      "Default"
-    ],
-    "storage": [],
-    "variantData": {
-      "Default": {
-        "image": "/src/assets/products/Aipods.webp",
-        "prices": {
-          "Standard": 150000
-        }
-      }
-    }
-  },
-  {
-    "id": 5002,
-    "name": "Aipods2",
-    "slug": "aipods2",
-    "category": "audio",
-    "brand": "iPhone",
-    "price": 150000,
-    "variant": "Standard",
-    "description": "Experience the new Aipods2 from iPhone.",
-    "image": "/src/assets/products/Aipods2.webp",
-    "trending": true,
-    "colors": [
-      "Default"
-    ],
-    "storage": [],
-    "variantData": {
-      "Default": {
-        "image": "/src/assets/products/Aipods2.webp",
-        "prices": {
-          "Standard": 150000
+          "256GB": 250000,
+          "512GB": 300000
         }
       }
     }
@@ -223,7 +57,7 @@
     "slug": "apple-11-inch-ipad-air-m3-chip-wi-fi",
     "category": "tablets",
     "brand": "iPhone",
-    "price": 800000,
+    "price": 1870000,
     "variant": "256GB",
     "description": "Experience the new Apple 11-Inch iPad Air M3 Chip Wi-Fi from iPhone.",
     "image": "/src/assets/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi BLUE.webp",
@@ -240,15 +74,15 @@
       "Blue": {
         "image": "/src/assets/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi BLUE.webp",
         "prices": {
-          "256GB": 800000,
-          "512GB": 1000000
+          "256GB": 1870000,
+          "512GB": 2200000
         }
       },
       "Gray": {
         "image": "/src/assets/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi GRAY.webp",
         "prices": {
-          "256GB": 800000,
-          "512GB": 1000000
+          "256GB": 1870000,
+          "512GB": 2200000
         }
       }
     }
@@ -343,7 +177,7 @@
     "slug": "ipad-pro-m5-wifi-cellular",
     "category": "tablets",
     "brand": "iPhone",
-    "price": 800000,
+    "price": 3300000,
     "variant": "256GB",
     "description": "Experience the new IPAD PRO M5 WIFI +CELLULAR from iPhone.",
     "image": "/src/assets/products/IPAD PRO M5 WIFI +CELLULAR.webp",
@@ -359,8 +193,8 @@
       "Default": {
         "image": "/src/assets/products/IPAD PRO M5 WIFI +CELLULAR.webp",
         "prices": {
-          "256GB": 800000,
-          "512GB": 1000000
+          "256GB": 3300000,
+          "512GB": 3800000
         }
       }
     }
@@ -371,7 +205,7 @@
     "slug": "jbl-boom-box-3",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 100000,
     "variant": "Standard",
     "description": "Experience the new JBL BOOM BOX 3 from JBL.",
     "image": "/src/assets/products/JBL BOOM BOX 3.webp",
@@ -384,7 +218,7 @@
       "Default": {
         "image": "/src/assets/products/JBL BOOM BOX 3.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 100000
         }
       }
     }
@@ -395,7 +229,7 @@
     "slug": "jbl-boom-box-4",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 1380000,
     "variant": "Standard",
     "description": "Experience the new JBL BOOM BOX 4 from JBL.",
     "image": "/src/assets/products/JBL BOOM BOX 4.webp",
@@ -408,31 +242,7 @@
       "Default": {
         "image": "/src/assets/products/JBL BOOM BOX 4.webp",
         "prices": {
-          "Standard": 150000
-        }
-      }
-    }
-  },
-  {
-    "id": 5011,
-    "name": "JBL Headphones",
-    "slug": "jbl-headphones",
-    "category": "audio",
-    "brand": "JBL",
-    "price": 150000,
-    "variant": "Standard",
-    "description": "Experience the new JBL Headphones from JBL.",
-    "image": "/src/assets/products/JBL Headphones.webp",
-    "trending": true,
-    "colors": [
-      "Default"
-    ],
-    "storage": [],
-    "variantData": {
-      "Default": {
-        "image": "/src/assets/products/JBL Headphones.webp",
-        "prices": {
-          "Standard": 150000
+          "Standard": 1380000
         }
       }
     }
@@ -443,7 +253,7 @@
     "slug": "jbl-partybox-320",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 1420000,
     "variant": "Standard",
     "description": "Experience the new JBL PARTYBOX 320 from JBL.",
     "image": "/src/assets/products/JBL PARTYBOX 320.webp",
@@ -456,7 +266,7 @@
       "Default": {
         "image": "/src/assets/products/JBL PARTYBOX 320.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 1420000
         }
       }
     }
@@ -467,7 +277,7 @@
     "slug": "jbl-partybox-710",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 1650000,
     "variant": "Standard",
     "description": "Experience the new JBL PARTYBOX 710 from JBL.",
     "image": "/src/assets/products/JBL PARTYBOX 710.webp",
@@ -480,7 +290,7 @@
       "Default": {
         "image": "/src/assets/products/JBL PARTYBOX 710.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 1650000
         }
       }
     }
@@ -491,7 +301,7 @@
     "slug": "jbl-tune-770nc",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 290000,
     "variant": "Standard",
     "description": "Experience the new JBL TUNE 770NC from JBL.",
     "image": "/src/assets/products/JBL TUNE 770NC .webp",
@@ -504,7 +314,7 @@
       "Default": {
         "image": "/src/assets/products/JBL TUNE 770NC .webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 290000
         }
       }
     }
@@ -515,7 +325,7 @@
     "slug": "jbl-tune-780nc",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 380000,
     "variant": "Standard",
     "description": "Experience the new JBL TUNE 780NC from JBL.",
     "image": "/src/assets/products/JBL TUNE 780NC.webp",
@@ -528,7 +338,7 @@
       "Default": {
         "image": "/src/assets/products/JBL TUNE 780NC.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 380000
         }
       }
     }
@@ -539,7 +349,7 @@
     "slug": "jbl-wave-beam-2",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 300000,
     "variant": "Standard",
     "description": "Experience the new JBL WAVE BEAM 2 from JBL.",
     "image": "/src/assets/products/JBL WAVE BEAM 2.webp",
@@ -552,7 +362,7 @@
       "Default": {
         "image": "/src/assets/products/JBL WAVE BEAM 2.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 300000
         }
       }
     }
@@ -563,7 +373,7 @@
     "slug": "jbl-wave-beam",
     "category": "audio",
     "brand": "JBL",
-    "price": 150000,
+    "price": 250000,
     "variant": "Standard",
     "description": "Experience the new JBL WAVE BEAM from JBL.",
     "image": "/src/assets/products/JBL WAVE BEAM.webp",
@@ -576,31 +386,7 @@
       "Default": {
         "image": "/src/assets/products/JBL WAVE BEAM.webp",
         "prices": {
-          "Standard": 150000
-        }
-      }
-    }
-  },
-  {
-    "id": 5018,
-    "name": "JBL pods",
-    "slug": "jbl-pods",
-    "category": "audio",
-    "brand": "JBL",
-    "price": 150000,
-    "variant": "Standard",
-    "description": "Experience the new JBL pods from JBL.",
-    "image": "/src/assets/products/JBL pods.webp",
-    "trending": true,
-    "colors": [
-      "Default"
-    ],
-    "storage": [],
-    "variantData": {
-      "Default": {
-        "image": "/src/assets/products/JBL pods.webp",
-        "prices": {
-          "Standard": 150000
+          "Standard": 250000
         }
       }
     }
@@ -611,7 +397,7 @@
     "slug": "ldnio-airpods-t06",
     "category": "audio",
     "brand": "iPhone",
-    "price": 150000,
+    "price": 50000,
     "variant": "Standard",
     "description": "Experience the new LDNIO AIRPODS T06 from iPhone.",
     "image": "/src/assets/products/LDNIO AIRPODS T06.webp",
@@ -624,7 +410,7 @@
       "Default": {
         "image": "/src/assets/products/LDNIO AIRPODS T06.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 50000
         }
       }
     }
@@ -635,7 +421,7 @@
     "slug": "ldnio-neckband",
     "category": "accessories",
     "brand": "Other",
-    "price": 1000000,
+    "price": 40000,
     "variant": "256GB",
     "description": "Experience the new LDNIO NECKBAND from Other.",
     "image": "/src/assets/products/LDNIO NECKBAND .webp",
@@ -651,8 +437,8 @@
       "Default": {
         "image": "/src/assets/products/LDNIO NECKBAND .webp",
         "prices": {
-          "256GB": 1000000,
-          "512GB": 1200000
+          "256GB": 40000,
+          "512GB": 50000
         }
       }
     }
@@ -687,7 +473,7 @@
     "slug": "sound-core-h30i",
     "category": "audio",
     "brand": "Sound Core",
-    "price": 150000,
+    "price": 170000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE H30i from Sound Core.",
     "image": "/src/assets/products/SOUND CORE H30i.webp",
@@ -700,7 +486,7 @@
       "Default": {
         "image": "/src/assets/products/SOUND CORE H30i.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 170000
         }
       }
     }
@@ -711,7 +497,7 @@
     "slug": "sound-core-k20i",
     "category": "audio",
     "brand": "Sound Core",
-    "price": 150000,
+    "price": 140000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE K20i from Sound Core.",
     "image": "/src/assets/products/SOUND CORE K20i.webp",
@@ -724,7 +510,7 @@
       "Default": {
         "image": "/src/assets/products/SOUND CORE K20i.webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 140000
         }
       }
     }
@@ -735,7 +521,7 @@
     "slug": "sound-core-q11i",
     "category": "audio",
     "brand": "Sound Core",
-    "price": 150000,
+    "price": 190000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE Q11i from Sound Core.",
     "image": "/src/assets/products/SOUND CORE Q11i .webp",
@@ -748,7 +534,7 @@
       "Default": {
         "image": "/src/assets/products/SOUND CORE Q11i .webp",
         "prices": {
-          "Standard": 150000
+          "Standard": 190000
         }
       }
     }
@@ -783,7 +569,7 @@
     "slug": "sony-wh-ch720n",
     "category": "accessories",
     "brand": "Other",
-    "price": 1000000,
+    "price": 350000,
     "variant": "256GB",
     "description": "Experience the new Sony WH-CH720N from Other.",
     "image": "/src/assets/products/Sony WH-CH720N.webp",
@@ -799,8 +585,8 @@
       "Default": {
         "image": "/src/assets/products/Sony WH-CH720N.webp",
         "prices": {
-          "256GB": 1000000,
-          "512GB": 1200000
+          "256GB": 350000,
+          "512GB": 420000
         }
       }
     }
@@ -975,7 +761,7 @@
     "slug": "ipad-a16",
     "category": "tablets",
     "brand": "iPhone",
-    "price": 800000,
+    "price": 1200000,
     "variant": "256GB",
     "description": "Experience the new iPAD (A16) from iPhone.",
     "image": "/src/assets/products/iPAD (A16).webp",
@@ -991,8 +777,8 @@
       "Default": {
         "image": "/src/assets/products/iPAD (A16).webp",
         "prices": {
-          "256GB": 800000,
-          "512GB": 1000000
+          "256GB": 1200000,
+          "512GB": 1400000
         }
       }
     }
