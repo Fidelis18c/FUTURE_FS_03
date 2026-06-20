@@ -10,7 +10,6 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import SupportCenter from './pages/SupportCenter';
 import ShippingPolicy from './pages/ShippingPolicy';
-import ReturnsRefunds from './pages/ReturnsRefunds';
 import CartDrawer from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
 
@@ -38,7 +37,6 @@ function App() {
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/support" element={<SupportCenter />} />
               <Route path="/shipping" element={<ShippingPolicy />} />
-              <Route path="/returns" element={<ReturnsRefunds />} />
               {/* Fallback for other routes */}
               <Route path="*" element={<Home />} />
             </Routes>

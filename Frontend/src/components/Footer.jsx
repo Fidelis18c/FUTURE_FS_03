@@ -8,7 +8,6 @@ const quickLinks = [
   { label: 'Contact Us', path: '/contact' },
   { label: 'Support Center', path: '/support' },
   { label: 'Shipping Policy', path: '/shipping' },
-  { label: 'Returns & Refunds', path: '/returns' },
 ];
 
 const categories = [
@@ -93,7 +92,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.path}
-                    className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-dark active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
+                    className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {link.label}
                   </Link>
@@ -109,7 +108,7 @@ const Footer = () => {
                 <li key={cat.label}>
                   <Link
                     to={cat.path}
-                    className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-dark active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
+                    className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {cat.label}
                   </Link>
@@ -142,8 +141,8 @@ const Footer = () => {
             © {new Date().getFullYear()} HS STORE. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link to="#" className="text-xs text-gray-400 hover:text-brand-dark transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-xs text-gray-400 hover:text-brand-dark transition-colors">Terms of Service</Link>
+            <Link to="#" className="text-xs text-gray-400 hover:text-brand-orange transition-colors">Privacy Policy</Link>
+            <Link to="#" className="text-xs text-gray-400 hover:text-brand-orange transition-colors">Terms of Service</Link>
           </div>
         </div>
 

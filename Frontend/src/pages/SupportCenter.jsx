@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiShoppingBag, FiTruck, FiRefreshCw, FiSmartphone, FiChevronDown, FiMail, FiPhone } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import about5 from '../assets/AboutImage/About5.mp4';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -65,20 +66,23 @@ const FaqItem = ({ q, a }) => {
 const SupportCenter = () => (
   <div className="bg-white">
 
-    {/* Hero */}
-    <section className="bg-gradient-to-br from-[#13111c] to-[#1f1509] py-28 px-6 md:px-12 text-center">
+    {/* Hero Video */}
+    <section className="relative w-full h-screen">
+      <video src={about5} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6">
       <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
         className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-4">
         We're Here to Help
       </motion.p>
       <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-        className="text-4xl md:text-5xl font-bold text-white mb-6">
+        className="text-4xl md:text-6xl font-bold text-white mb-6">
         Support Center
       </motion.h1>
       <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-        className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed">
+        className="text-white/80 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
         Find answers to your questions or reach out to our team. We're available 7 days a week.
       </motion.p>
+      </div>
     </section>
 
     {/* Help Categories */}
