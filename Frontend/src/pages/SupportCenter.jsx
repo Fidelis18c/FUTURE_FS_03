@@ -85,27 +85,6 @@ const SupportCenter = () => (
       </div>
     </section>
 
-    {/* Help Categories */}
-    <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} className="text-center mb-12">
-          <h2 className="text-2xl font-bold text-gray-900">Browse by Topic</h2>
-        </motion.div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {categories.map((c, i) => (
-            <motion.div key={c.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
-              <div className="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-orange transition-colors">
-                <c.icon size={22} className="text-brand-orange group-hover:text-white transition-colors" />
-              </div>
-              <h3 className="text-sm font-bold text-gray-900 mb-1">{c.title}</h3>
-              <p className="text-xs text-gray-500">{c.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
     {/* FAQs */}
     <section className="py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-3xl mx-auto">

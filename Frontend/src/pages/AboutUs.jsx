@@ -172,9 +172,27 @@ const AboutUs = () => {
       {/* Product Carousel — Samsung & iPhone */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
-            Experience <span className="text-brand-orange">Tomorrow</span> Today
-          </h2>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.8 }}
+            variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+          >
+            {'Experience Tomorrow Today'.split('').map((char, i) => (
+              <motion.span
+                key={i}
+                variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
+                className={char === ' ' ? 'inline-block w-3' : (
+                  'Experience Tomorrow Today'.indexOf('Tomorrow') <= i &&
+                  i < 'Experience Tomorrow Today'.indexOf('Tomorrow') + 'Tomorrow'.length
+                    ? 'text-brand-orange' : ''
+                )}
+              >
+                {char === ' ' ? ' ' : char}
+              </motion.span>
+            ))}
+          </motion.h2>
         </div>
 
         <div className="flex items-center justify-center gap-6">
@@ -217,16 +235,6 @@ const AboutUs = () => {
           </button>
         </div>
 
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-2 mt-8">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setSlide([i, i > index ? 1 : -1])}
-              className={`h-2 rounded-full transition-all duration-300 ${i === index ? 'bg-brand-orange w-6' : 'bg-gray-300 w-2'}`}
-            />
-          ))}
-        </div>
       </section>
 
       {/* About3 & About4 videos */}

@@ -263,9 +263,9 @@ const Home = () => {
           <motion.div
             whileHover={cardBounce.whileHover}
             transition={cardBounce.transition}
-            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white shadow-md cursor-default"
+            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white border border-orange-300 cursor-default"
           >
-            <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-6">
+            <div className="mb-6">
               <FiTruck size={30} className="text-brand-orange" />
             </div>
             <h3 className="text-lg font-bold text-brand-dark mb-2">Fast Delivery</h3>
@@ -278,9 +278,9 @@ const Home = () => {
           <motion.div
             whileHover={cardBounce.whileHover}
             transition={cardBounce.transition}
-            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white shadow-md cursor-default"
+            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white border border-orange-300 cursor-default"
           >
-            <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-6">
+            <div className="mb-6">
               <FiLock size={30} className="text-brand-orange" />
             </div>
             <h3 className="text-lg font-bold text-brand-dark mb-2">Secure Payments</h3>
@@ -293,9 +293,9 @@ const Home = () => {
           <motion.div
             whileHover={cardBounce.whileHover}
             transition={cardBounce.transition}
-            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white shadow-md cursor-default"
+            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white border border-orange-300 cursor-default"
           >
-            <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mb-6">
+            <div className="mb-6">
               <FiAward size={30} className="text-brand-orange" />
             </div>
             <h3 className="text-lg font-bold text-brand-dark mb-2">Quality Guarantee</h3>

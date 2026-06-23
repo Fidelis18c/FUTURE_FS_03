@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FiPackage, FiTruck, FiMapPin, FiClock, FiAlertCircle } from 'react-icons/fi';
+import about6 from '../assets/AboutImage/About6.mp4';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -21,20 +22,23 @@ const zones = [
 const ShippingPolicy = () => (
   <div className="bg-white">
 
-    {/* Hero */}
-    <section className="bg-gradient-to-br from-[#13111c] to-[#1f1509] py-28 px-6 md:px-12 text-center">
-      <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-        className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-4">
-        Delivery Information
-      </motion.p>
-      <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-        className="text-4xl md:text-5xl font-bold text-white mb-6">
-        Shipping Policy
-      </motion.h1>
-      <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-        className="text-gray-400 text-base max-w-2xl mx-auto leading-relaxed">
-        We deliver across Tanzania. Here's everything you need to know about how we get your order to your door.
-      </motion.p>
+    {/* Hero Video */}
+    <section className="relative w-full h-screen">
+      <video src={about6} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center px-6">
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+          className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-4">
+          Delivery Information
+        </motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+          className="text-4xl md:text-6xl font-bold text-white mb-6">
+          Shipping Policy
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+          className="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          We deliver across Tanzania. Here's everything you need to know about how we get your order to your door.
+        </motion.p>
+      </div>
     </section>
 
     {/* Process Steps */}
@@ -92,21 +96,28 @@ const ShippingPolicy = () => (
     </section>
 
     {/* Notes */}
-    <section className="py-20 px-6 md:px-12 lg:px-24">
+    <section className="py-20 px-6 md:px-12 lg:px-24 bg-white">
       <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-8">
+          <FiAlertCircle size={28} className="text-brand-orange mx-auto mb-3" />
+          <h3 className="text-2xl font-bold text-gray-900">Important Notes</h3>
+        </div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}
-          className="bg-orange-50 border border-orange-100 rounded-2xl p-8 flex gap-5">
-          <FiAlertCircle size={22} className="text-brand-orange shrink-0 mt-0.5" />
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-3">Important Notes</h3>
-            <ul className="space-y-2 text-sm text-gray-600 list-disc list-inside">
-              <li>Orders placed before 12:00 PM on business days are processed the same day.</li>
-              <li>Delivery times are estimates and may vary during public holidays or unforeseen circumstances.</li>
-              <li>You will be contacted by our delivery team before arrival.</li>
-              <li>Someone must be available at the delivery address to receive the order.</li>
-              <li>HS Store is not responsible for delays caused by incorrect address information.</li>
-            </ul>
-          </div>
+          className="bg-white border border-orange-300 rounded-2xl p-8 shadow-sm">
+          <ul className="space-y-3 text-sm text-gray-600">
+            {[
+              'Orders placed before 12:00 PM on business days are processed the same day.',
+              'Delivery times are estimates and may vary during public holidays or unforeseen circumstances.',
+              'You will be contacted by our delivery team before arrival.',
+              'Someone must be available at the delivery address to receive the order.',
+              'HS Store is not responsible for delays caused by incorrect address information.',
+            ].map((note, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-1 w-2 h-2 rounded-full bg-brand-orange shrink-0" />
+                {note}
+              </li>
+            ))}
+          </ul>
         </motion.div>
       </div>
     </section>
