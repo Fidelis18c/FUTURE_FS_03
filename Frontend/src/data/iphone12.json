@@ -8,7 +8,7 @@
     "price": 1700000,
     "variant": "128GB",
     "description": "Ceramic Shield. 5G. LiDAR Scanner. The biggest iPhone camera system.",
-    "image": "/src/assets/products/Iphone12ProMax-Blue.webp",
+    "image": "/products/Iphone12ProMax-Blue.webp",
     "trending": false,
     "colors": [
       "Blue",
@@ -23,7 +23,7 @@
     ],
     "variantData": {
       "Blue": {
-        "image": "/src/assets/products/Iphone12ProMax-Blue.webp",
+        "image": "/products/Iphone12ProMax-Blue.webp",
         "prices": {
           "128GB": 1700000,
           "256GB": 2000000,
@@ -31,7 +31,7 @@
         }
       },
       "Gold": {
-        "image": "/src/assets/products/Iphone12ProMax-Gold.webp",
+        "image": "/products/Iphone12ProMax-Gold.webp",
         "prices": {
           "128GB": 1700000,
           "256GB": 2000000,
@@ -39,7 +39,7 @@
         }
       },
       "Grahite": {
-        "image": "/src/assets/products/Iphone12ProMax-Grahite.webp",
+        "image": "/products/Iphone12ProMax-Grahite.webp",
         "prices": {
           "128GB": 1700000,
           "256GB": 2000000,
@@ -47,7 +47,7 @@
         }
       },
       "White": {
-        "image": "/src/assets/products/Iphone12ProMax-White.webp",
+        "image": "/products/Iphone12ProMax-White.webp",
         "prices": {
           "128GB": 1700000,
           "256GB": 2000000,
@@ -65,7 +65,7 @@
     "price": 1400000,
     "variant": "128GB",
     "description": "5G. A14 Bionic. Pro camera system. Stunning night mode.",
-    "image": "/src/assets/products/Iphone12Pro-Black.webp",
+    "image": "/products/Iphone12Pro-Black.webp",
     "trending": false,
     "colors": [
       "Black",
@@ -80,7 +80,7 @@
     ],
     "variantData": {
       "Black": {
-        "image": "/src/assets/products/Iphone12Pro-Black.webp",
+        "image": "/products/Iphone12Pro-Black.webp",
         "prices": {
           "128GB": 1400000,
           "256GB": 1700000,
@@ -88,7 +88,7 @@
         }
       },
       "Blue": {
-        "image": "/src/assets/products/Iphone12Pro-Blue.webp",
+        "image": "/products/Iphone12Pro-Blue.webp",
         "prices": {
           "128GB": 1400000,
           "256GB": 1700000,
@@ -96,7 +96,7 @@
         }
       },
       "Green": {
-        "image": "/src/assets/products/Iphone12Pro-Green.webp",
+        "image": "/products/Iphone12Pro-Green.webp",
         "prices": {
           "128GB": 1400000,
           "256GB": 1700000,
@@ -104,7 +104,7 @@
         }
       },
       "Silver": {
-        "image": "/src/assets/products/Iphone12Pro-Silver.webp",
+        "image": "/products/Iphone12Pro-Silver.webp",
         "prices": {
           "128GB": 1400000,
           "256GB": 1700000,
@@ -122,7 +122,7 @@
     "price": 1100000,
     "variant": "128GB",
     "description": "Super Retina XDR display. A14 Bionic chip. 5G speed.",
-    "image": "/src/assets/products/Iphone12Plain-Blue.webp",
+    "image": "/products/Iphone12Plain-Blue.webp",
     "trending": true,
     "colors": [
       "Blue",
@@ -139,7 +139,7 @@
     ],
     "variantData": {
       "Blue": {
-        "image": "/src/assets/products/Iphone12Plain-Blue.webp",
+        "image": "/products/Iphone12Plain-Blue.webp",
         "prices": {
           "64GB": 1000000,
           "128GB": 1100000,
@@ -147,7 +147,7 @@
         }
       },
       "Black": {
-        "image": "/src/assets/products/Iphone12Plain-Black.webp",
+        "image": "/products/Iphone12Plain-Black.webp",
         "prices": {
           "64GB": 1000000,
           "128GB": 1100000,
@@ -155,7 +155,7 @@
         }
       },
       "Green": {
-        "image": "/src/assets/products/Iphone12Plain-Green.webp",
+        "image": "/products/Iphone12Plain-Green.webp",
         "prices": {
           "64GB": 1000000,
           "128GB": 1100000,
@@ -163,7 +163,7 @@
         }
       },
       "Purple": {
-        "image": "/src/assets/products/Iphone12Plain-Purple.webp",
+        "image": "/products/Iphone12Plain-Purple.webp",
         "prices": {
           "64GB": 1000000,
           "128GB": 1100000,
@@ -171,7 +171,7 @@
         }
       },
       "Red": {
-        "image": "/src/assets/products/Iphone12Plain-Red.webp",
+        "image": "/products/Iphone12Plain-Red.webp",
         "prices": {
           "64GB": 1000000,
           "128GB": 1100000,
@@ -179,7 +179,7 @@
         }
       },
       "White": {
-        "image": "/src/assets/products/Iphone12Plain-White.webp",
+        "image": "/products/Iphone12Plain-White.webp",
         "prices": {
           "64GB": 1000000,
           "128GB": 1100000,

@@ -8,7 +8,7 @@
     "price": 250000,
     "variant": "256GB",
     "description": "Experience the new ANKER  LIBERTY 4NC from Other.",
-    "image": "/src/assets/products/ANKER  LIBERTY 4NC.webp",
+    "image": "/products/ANKER  LIBERTY 4NC.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -19,7 +19,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/ANKER  LIBERTY 4NC.webp",
+        "image": "/products/ANKER  LIBERTY 4NC.webp",
         "prices": {
           "256GB": 250000,
           "512GB": 300000
@@ -36,7 +36,7 @@
     "price": 150000,
     "variant": "Standard",
     "description": "Experience the new Airpods Pro 3 Original from iPhone.",
-    "image": "/src/assets/products/Airpods Pro 3 Original.webp",
+    "image": "/products/Airpods Pro 3 Original.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -44,7 +44,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Airpods Pro 3 Original.webp",
+        "image": "/products/Airpods Pro 3 Original.webp",
         "prices": {
           "Standard": 150000
         }
@@ -60,7 +60,7 @@
     "price": 1870000,
     "variant": "256GB",
     "description": "Experience the new Apple 11-Inch iPad Air M3 Chip Wi-Fi from iPhone.",
-    "image": "/src/assets/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi BLUE.webp",
+    "image": "/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi BLUE.webp",
     "trending": true,
     "colors": [
       "Blue",
@@ -72,14 +72,14 @@
     ],
     "variantData": {
       "Blue": {
-        "image": "/src/assets/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi BLUE.webp",
+        "image": "/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi BLUE.webp",
         "prices": {
           "256GB": 1870000,
           "512GB": 2200000
         }
       },
       "Gray": {
-        "image": "/src/assets/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi GRAY.webp",
+        "image": "/products/Apple 11-Inch iPad Air M3 Chip Wi-Fi GRAY.webp",
         "prices": {
           "256GB": 1870000,
           "512GB": 2200000
@@ -96,7 +96,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new Apple Series 11 Black from Other.",
-    "image": "/src/assets/products/Apple Series 11 Black.webp",
+    "image": "/products/Apple Series 11 Black.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -107,7 +107,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Apple Series 11 Black.webp",
+        "image": "/products/Apple Series 11 Black.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
@@ -124,7 +124,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new Apple Series 11 Gray from Other.",
-    "image": "/src/assets/products/Apple Series 11 Gray.webp",
+    "image": "/products/Apple Series 11 Gray.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -135,7 +135,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Apple Series 11 Gray.webp",
+        "image": "/products/Apple Series 11 Gray.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
@@ -152,7 +152,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new Apple Series 11 White from Other.",
-    "image": "/src/assets/products/Apple Series 11 White.webp",
+    "image": "/products/Apple Series 11 White.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -163,7 +163,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Apple Series 11 White.webp",
+        "image": "/products/Apple Series 11 White.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
@@ -180,7 +180,7 @@
     "price": 3300000,
     "variant": "256GB",
     "description": "Experience the new IPAD PRO M5 WIFI +CELLULAR from iPhone.",
-    "image": "/src/assets/products/IPAD PRO M5 WIFI +CELLULAR.webp",
+    "image": "/products/IPAD PRO M5 WIFI +CELLULAR.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -191,7 +191,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/IPAD PRO M5 WIFI +CELLULAR.webp",
+        "image": "/products/IPAD PRO M5 WIFI +CELLULAR.webp",
         "prices": {
           "256GB": 3300000,
           "512GB": 3800000
@@ -208,7 +208,7 @@
     "price": 100000,
     "variant": "Standard",
     "description": "Experience the new JBL BOOM BOX 3 from JBL.",
-    "image": "/src/assets/products/JBL BOOM BOX 3.webp",
+    "image": "/products/JBL BOOM BOX 3.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -216,7 +216,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL BOOM BOX 3.webp",
+        "image": "/products/JBL BOOM BOX 3.webp",
         "prices": {
           "Standard": 100000
         }
@@ -232,7 +232,7 @@
     "price": 1380000,
     "variant": "Standard",
     "description": "Experience the new JBL BOOM BOX 4 from JBL.",
-    "image": "/src/assets/products/JBL BOOM BOX 4.webp",
+    "image": "/products/JBL BOOM BOX 4.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -240,7 +240,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL BOOM BOX 4.webp",
+        "image": "/products/JBL BOOM BOX 4.webp",
         "prices": {
           "Standard": 1380000
         }
@@ -256,7 +256,7 @@
     "price": 1420000,
     "variant": "Standard",
     "description": "Experience the new JBL PARTYBOX 320 from JBL.",
-    "image": "/src/assets/products/JBL PARTYBOX 320.webp",
+    "image": "/products/JBL PARTYBOX 320.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -264,7 +264,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL PARTYBOX 320.webp",
+        "image": "/products/JBL PARTYBOX 320.webp",
         "prices": {
           "Standard": 1420000
         }
@@ -280,7 +280,7 @@
     "price": 1650000,
     "variant": "Standard",
     "description": "Experience the new JBL PARTYBOX 710 from JBL.",
-    "image": "/src/assets/products/JBL PARTYBOX 710.webp",
+    "image": "/products/JBL PARTYBOX 710.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -288,7 +288,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL PARTYBOX 710.webp",
+        "image": "/products/JBL PARTYBOX 710.webp",
         "prices": {
           "Standard": 1650000
         }
@@ -304,7 +304,7 @@
     "price": 290000,
     "variant": "Standard",
     "description": "Experience the new JBL TUNE 770NC from JBL.",
-    "image": "/src/assets/products/JBL TUNE 770NC .webp",
+    "image": "/products/JBL TUNE 770NC .webp",
     "trending": true,
     "colors": [
       "Default"
@@ -312,7 +312,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL TUNE 770NC .webp",
+        "image": "/products/JBL TUNE 770NC .webp",
         "prices": {
           "Standard": 290000
         }
@@ -328,7 +328,7 @@
     "price": 380000,
     "variant": "Standard",
     "description": "Experience the new JBL TUNE 780NC from JBL.",
-    "image": "/src/assets/products/JBL TUNE 780NC.webp",
+    "image": "/products/JBL TUNE 780NC.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -336,7 +336,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL TUNE 780NC.webp",
+        "image": "/products/JBL TUNE 780NC.webp",
         "prices": {
           "Standard": 380000
         }
@@ -352,7 +352,7 @@
     "price": 300000,
     "variant": "Standard",
     "description": "Experience the new JBL WAVE BEAM 2 from JBL.",
-    "image": "/src/assets/products/JBL WAVE BEAM 2.webp",
+    "image": "/products/JBL WAVE BEAM 2.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -360,7 +360,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL WAVE BEAM 2.webp",
+        "image": "/products/JBL WAVE BEAM 2.webp",
         "prices": {
           "Standard": 300000
         }
@@ -376,7 +376,7 @@
     "price": 250000,
     "variant": "Standard",
     "description": "Experience the new JBL WAVE BEAM from JBL.",
-    "image": "/src/assets/products/JBL WAVE BEAM.webp",
+    "image": "/products/JBL WAVE BEAM.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -384,7 +384,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/JBL WAVE BEAM.webp",
+        "image": "/products/JBL WAVE BEAM.webp",
         "prices": {
           "Standard": 250000
         }
@@ -400,7 +400,7 @@
     "price": 50000,
     "variant": "Standard",
     "description": "Experience the new LDNIO AIRPODS T06 from iPhone.",
-    "image": "/src/assets/products/LDNIO AIRPODS T06.webp",
+    "image": "/products/LDNIO AIRPODS T06.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -408,7 +408,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/LDNIO AIRPODS T06.webp",
+        "image": "/products/LDNIO AIRPODS T06.webp",
         "prices": {
           "Standard": 50000
         }
@@ -424,7 +424,7 @@
     "price": 40000,
     "variant": "256GB",
     "description": "Experience the new LDNIO NECKBAND from Other.",
-    "image": "/src/assets/products/LDNIO NECKBAND .webp",
+    "image": "/products/LDNIO NECKBAND .webp",
     "trending": true,
     "colors": [
       "Default"
@@ -435,7 +435,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/LDNIO NECKBAND .webp",
+        "image": "/products/LDNIO NECKBAND .webp",
         "prices": {
           "256GB": 40000,
           "512GB": 50000
@@ -452,7 +452,7 @@
     "price": 150000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE A30i from Sound Core.",
-    "image": "/src/assets/products/SOUND CORE A30i .webp",
+    "image": "/products/SOUND CORE A30i .webp",
     "trending": true,
     "colors": [
       "Default"
@@ -460,7 +460,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/SOUND CORE A30i .webp",
+        "image": "/products/SOUND CORE A30i .webp",
         "prices": {
           "Standard": 150000
         }
@@ -476,7 +476,7 @@
     "price": 170000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE H30i from Sound Core.",
-    "image": "/src/assets/products/SOUND CORE H30i.webp",
+    "image": "/products/SOUND CORE H30i.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -484,7 +484,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/SOUND CORE H30i.webp",
+        "image": "/products/SOUND CORE H30i.webp",
         "prices": {
           "Standard": 170000
         }
@@ -500,7 +500,7 @@
     "price": 140000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE K20i from Sound Core.",
-    "image": "/src/assets/products/SOUND CORE K20i.webp",
+    "image": "/products/SOUND CORE K20i.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -508,7 +508,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/SOUND CORE K20i.webp",
+        "image": "/products/SOUND CORE K20i.webp",
         "prices": {
           "Standard": 140000
         }
@@ -524,7 +524,7 @@
     "price": 190000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE Q11i from Sound Core.",
-    "image": "/src/assets/products/SOUND CORE Q11i .webp",
+    "image": "/products/SOUND CORE Q11i .webp",
     "trending": true,
     "colors": [
       "Default"
@@ -532,7 +532,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/SOUND CORE Q11i .webp",
+        "image": "/products/SOUND CORE Q11i .webp",
         "prices": {
           "Standard": 190000
         }
@@ -548,7 +548,7 @@
     "price": 150000,
     "variant": "Standard",
     "description": "Experience the new SOUND CORE R50i NC from Sound Core.",
-    "image": "/src/assets/products/SOUND CORE R50i NC.webp",
+    "image": "/products/SOUND CORE R50i NC.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -556,7 +556,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/SOUND CORE R50i NC.webp",
+        "image": "/products/SOUND CORE R50i NC.webp",
         "prices": {
           "Standard": 150000
         }
@@ -572,7 +572,7 @@
     "price": 350000,
     "variant": "256GB",
     "description": "Experience the new Sony WH-CH720N from Other.",
-    "image": "/src/assets/products/Sony WH-CH720N.webp",
+    "image": "/products/Sony WH-CH720N.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -583,7 +583,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Sony WH-CH720N.webp",
+        "image": "/products/Sony WH-CH720N.webp",
         "prices": {
           "256GB": 350000,
           "512GB": 420000
@@ -600,7 +600,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new Untitled design (5) from Other.",
-    "image": "/src/assets/products/Untitled design (5).webp",
+    "image": "/products/Untitled design (5).webp",
     "trending": true,
     "colors": [
       "Default"
@@ -611,7 +611,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Untitled design (5).webp",
+        "image": "/products/Untitled design (5).webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
@@ -628,7 +628,7 @@
     "price": 150000,
     "variant": "Standard",
     "description": "Experience the new VIDVIE Headphone from Other.",
-    "image": "/src/assets/products/VIDVIE Headphone .webp",
+    "image": "/products/VIDVIE Headphone .webp",
     "trending": true,
     "colors": [
       "Default"
@@ -636,7 +636,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/VIDVIE Headphone .webp",
+        "image": "/products/VIDVIE Headphone .webp",
         "prices": {
           "Standard": 150000
         }
@@ -652,7 +652,7 @@
     "price": 150000,
     "variant": "Standard",
     "description": "Experience the new Wired C-C apple earpods from iPhone.",
-    "image": "/src/assets/products/Wired C-C apple earpods.webp",
+    "image": "/products/Wired C-C apple earpods.webp",
     "trending": true,
     "colors": [
       "Default"
@@ -660,7 +660,7 @@
     "storage": [],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/Wired C-C apple earpods.webp",
+        "image": "/products/Wired C-C apple earpods.webp",
         "prices": {
           "Standard": 150000
         }
@@ -676,7 +676,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new apple watch SE GE from iPhone.",
-    "image": "/src/assets/products/apple watch SE GE Black.webp",
+    "image": "/products/apple watch SE GE Black.webp",
     "trending": true,
     "colors": [
       "Black",
@@ -689,21 +689,21 @@
     ],
     "variantData": {
       "Black": {
-        "image": "/src/assets/products/apple watch SE GE Black.webp",
+        "image": "/products/apple watch SE GE Black.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
         }
       },
       "Gray": {
-        "image": "/src/assets/products/apple watch SE GE Gray.webp",
+        "image": "/products/apple watch SE GE Gray.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
         }
       },
       "White": {
-        "image": "/src/assets/products/apple watch SE GE White.webp",
+        "image": "/products/apple watch SE GE White.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
@@ -720,7 +720,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new apple watch ultra 3 from iPhone.",
-    "image": "/src/assets/products/apple watch ultra 3 Black.webp",
+    "image": "/products/apple watch ultra 3 Black.webp",
     "trending": true,
     "colors": [
       "Black",
@@ -733,21 +733,21 @@
     ],
     "variantData": {
       "Black": {
-        "image": "/src/assets/products/apple watch ultra 3 Black.webp",
+        "image": "/products/apple watch ultra 3 Black.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
         }
       },
       "Gray": {
-        "image": "/src/assets/products/apple watch ultra 3 Gray.webp",
+        "image": "/products/apple watch ultra 3 Gray.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
         }
       },
       "White": {
-        "image": "/src/assets/products/apple watch ultra 3 White.webp",
+        "image": "/products/apple watch ultra 3 White.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
@@ -764,7 +764,7 @@
     "price": 1200000,
     "variant": "256GB",
     "description": "Experience the new iPAD (A16) from iPhone.",
-    "image": "/src/assets/products/iPAD (A16).webp",
+    "image": "/products/iPAD (A16).webp",
     "trending": true,
     "colors": [
       "Default"
@@ -775,7 +775,7 @@
     ],
     "variantData": {
       "Default": {
-        "image": "/src/assets/products/iPAD (A16).webp",
+        "image": "/products/iPAD (A16).webp",
         "prices": {
           "256GB": 1200000,
           "512GB": 1400000

@@ -70,7 +70,7 @@ const Footer = () => {
           {/* Brand — always fully visible */}
           <div className="space-y-5 pb-8 lg:pb-0 border-b border-gray-100 lg:border-none mb-2 lg:mb-0">
             <Link to="/" className="flex items-center justify-center lg:justify-start">
-              <img src="/src/assets/HSSTORELOGO.png" alt="HS STORE" className="h-20 md:h-24 object-contain" />
+              <img src="/HSSTORELOGO.png" alt="HS STORE" className="h-20 md:h-24 object-contain" />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed text-center lg:text-left max-w-xs mx-auto lg:mx-0">
               Premium devices and accessories for the smart generation. Quality you can trust, service you'll love.

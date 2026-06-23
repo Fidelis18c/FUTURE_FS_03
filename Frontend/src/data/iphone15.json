@@ -8,29 +8,29 @@
     "price": 2200000,
     "variant": "256GB",
     "description": "Titanium design, A17 Pro chip, and a powerful camera system.",
-    "image": "/src/assets/products/Iphone15ProMax-DarkBlue.webp",
+    "image": "/products/Iphone15ProMax-DarkBlue.webp",
     "trending": true,
     "colors": ["DarkBlue","Blue","Silver","White","Darkblue"],
     "storage": ["256GB","512GB","1TB"],
     "variantData": {
       "DarkBlue": {
-        "image": "/src/assets/products/Iphone15ProMax-DarkBlue.webp",
+        "image": "/products/Iphone15ProMax-DarkBlue.webp",
         "prices": { "256GB": 2200000, "512GB": 3300000, "1TB": 3800000 }
       },
       "Blue": {
-        "image": "/src/assets/products/Iphone15ProMax-Blue.webp",
+        "image": "/products/Iphone15ProMax-Blue.webp",
         "prices": { "256GB": 2200000, "512GB": 3300000, "1TB": 3800000 }
       },
       "Silver": {
-        "image": "/src/assets/products/Iphone15ProMax-Silver.webp",
+        "image": "/products/Iphone15ProMax-Silver.webp",
         "prices": { "256GB": 2200000, "512GB": 3300000, "1TB": 3800000 }
       },
       "White": {
-        "image": "/src/assets/products/Iphone15ProMax-White.webp",
+        "image": "/products/Iphone15ProMax-White.webp",
         "prices": { "256GB": 2200000, "512GB": 3300000, "1TB": 3800000 }
       },
       "Darkblue": {
-        "image": "/src/assets/products/Iphone15ProMax-DarkBlue.webp",
+        "image": "/products/Iphone15ProMax-DarkBlue.webp",
         "prices": { "256GB": 2200000, "512GB": 3300000, "1TB": 3800000 }
       }
     },
@@ -50,21 +50,21 @@
     "price": 1950000,
     "variant": "256GB",
     "description": "The first iPhone with an aerospace-grade titanium design.",
-    "image": "/src/assets/products/Iphone15Pro-black.webp",
+    "image": "/products/Iphone15Pro-black.webp",
     "trending": false,
     "colors": ["Black","Darkblue","Silver"],
     "storage": ["128GB","256GB","512GB"],
     "variantData": {
       "Black": {
-        "image": "/src/assets/products/Iphone15Pro-black.webp",
+        "image": "/products/Iphone15Pro-black.webp",
         "prices": { "128GB": 2500000, "256GB": 1950000, "512GB": 3200000 }
       },
       "Darkblue": {
-        "image": "/src/assets/products/Iphone15ProDarkblue.webp",
+        "image": "/products/Iphone15ProDarkblue.webp",
         "prices": { "128GB": 2500000, "256GB": 1950000, "512GB": 3200000 }
       },
       "Silver": {
-        "image": "/src/assets/products/Iphone15ProSilver.webp",
+        "image": "/products/Iphone15ProSilver.webp",
         "prices": { "128GB": 2500000, "256GB": 1950000, "512GB": 3200000 }
       }
     },
@@ -84,15 +84,15 @@
     "price": 1480000,
     "variant": "128GB",
     "description": "New 48MP camera. Dynamic Island. USB-C.",
-    "image": "/src/assets/products/Iphone15-black.webp",
+    "image": "/products/Iphone15-black.webp",
     "trending": true,
     "colors": ["Black","White","Lightblue","Pink"],
     "storage": ["128GB","256GB","512GB"],
     "variantData": {
-      "Black":      { "image": "/src/assets/products/Iphone15-black.webp",      "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } },
-      "White":      { "image": "/src/assets/products/Iphone15-White.webp",      "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } },
-      "Lightblue":  { "image": "/src/assets/products/Iphone15-lightblue.webp", "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } },
-      "Pink":       { "image": "/src/assets/products/Iphone15-pink.webp",      "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } }
+      "Black":      { "image": "/products/Iphone15-black.webp",      "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } },
+      "White":      { "image": "/products/Iphone15-White.webp",      "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } },
+      "Lightblue":  { "image": "/products/Iphone15-lightblue.webp", "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } },
+      "Pink":       { "image": "/products/Iphone15-pink.webp",      "prices": { "128GB": 1480000, "256GB": 2100000, "512GB": 2500000 } }
     },
     "specs": {
       "Display": "6.1-inch Super Retina XDR",

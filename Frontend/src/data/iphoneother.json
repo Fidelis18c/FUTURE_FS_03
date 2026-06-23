@@ -8,7 +8,7 @@
     "price": 1000000,
     "variant": "256GB",
     "description": "Experience the new iPhone from iPhone.",
-    "image": "/src/assets/products/Iphone-17-darkblue.webp",
+    "image": "/products/Iphone-17-darkblue.webp",
     "trending": true,
     "colors": [
       "Darkblue"
@@ -19,7 +19,7 @@
     ],
     "variantData": {
       "Darkblue": {
-        "image": "/src/assets/products/Iphone-17-darkblue.webp",
+        "image": "/products/Iphone-17-darkblue.webp",
         "prices": {
           "256GB": 1000000,
           "512GB": 1200000
