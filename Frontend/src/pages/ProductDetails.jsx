@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import productsData from '../data/products';
 import { useCart } from '../context/CartContext';
 import { FiMinus, FiPlus, FiShoppingCart, FiShield, FiTruck, FiRefreshCw } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 import CheckoutDrawer from '../components/CheckoutDrawer';
 
@@ -60,37 +60,35 @@ const ProductDetails = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left: Image Gallery */}
-          <div className="space-y-4 max-w-md mx-auto lg:mx-0">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="rounded-3xl bg-brand-gray flex items-center justify-center p-12 overflow-hidden"
-              style={{ height: '520px' }}
-            >
-              <img
-                src={currentImage}
-                alt={product.name}
-                className="w-full h-full object-contain mix-blend-multiply"
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/600x600?text=Product'; }}
-              />
-            </motion.div>
+          <div className="space-y-4 w-full mx-auto lg:mx-0">
+            <div className="relative overflow-hidden" style={{ height: '620px' }}>
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentImage}
+                  src={currentImage}
+                  alt={product.name}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  className="w-full h-full object-contain"
+                  onError={(e) => { e.target.src = 'https://via.placeholder.com/600x600?text=Product'; }}
+                />
+              </AnimatePresence>
+            </div>
             <div className="grid grid-cols-4 gap-3">
               {product.variantData ? (
                 Object.entries(product.variantData).map(([color, data]) => (
                   <div
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`rounded-2xl bg-brand-gray cursor-pointer border transition-all overflow-hidden flex items-center justify-center p-2 ${selectedColor === color ? 'border-brand-dark opacity-100' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                    className={`cursor-pointer transition-all overflow-hidden flex items-center justify-center ${selectedColor === color ? 'opacity-100 scale-105' : 'opacity-50 hover:opacity-80'}`}
                     style={{ height: '90px' }}
                   >
-                    <img src={data.image} alt={color} className="w-full h-full object-contain mix-blend-multiply" />
+                    <img src={data.image} alt={color} className="w-full h-full object-contain" />
                   </div>
                 ))
-              ) : (
-                [1, 2, 3, 4].map((i) => (
-                  <div key={i} className="rounded-2xl bg-brand-gray cursor-pointer border border-transparent hover:border-brand-dark transition-all opacity-60 hover:opacity-100" style={{ height: '90px' }}></div>
-                ))
-              )}
+              ) : null}
             </div>
           </div>
 
