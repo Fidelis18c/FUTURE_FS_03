@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiSearch, FiShoppingCart, FiMenu, FiX, FiChevronDown, FiUser } from 'react-icons/fi';
+import { Search, ShoppingCart, Menu, X, ChevronDown, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import LoginModal from './LoginModal';
@@ -69,7 +69,7 @@ const Navbar = () => {
                 className="flex items-center text-sm font-semibold text-black hover:text-brand-orange transition-colors relative"
               >
                 {link.name}
-                <FiChevronDown className="ml-1 text-xs transition-transform group-hover:rotate-180" />
+                <ChevronDown className="ml-1 text-xs transition-transform group-hover:rotate-180" />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
@@ -102,7 +102,7 @@ const Navbar = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button type="submit" className="text-gray-500 hover:text-brand-dark">
-              <FiSearch />
+              <Search />
             </button>
           </form>
 
@@ -110,7 +110,7 @@ const Navbar = () => {
             onClick={() => setIsCartOpen(true)}
             className="relative p-2 text-gray-600 hover:text-brand-dark transition-colors"
           >
-            <FiShoppingCart size={22} />
+            <ShoppingCart size={22} />
             {cartCount > 0 && (
               <span className="absolute top-0 right-0 bg-brand-dark text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full">
                 {cartCount}
@@ -122,7 +122,7 @@ const Navbar = () => {
             onClick={() => setIsLoginOpen(true)}
             className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
           >
-            <FiUser />
+            <User />
             <span>Login</span>
           </button>
 
@@ -131,7 +131,7 @@ const Navbar = () => {
             className="lg:hidden p-2 text-gray-600"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -154,7 +154,7 @@ const Navbar = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button type="submit"><FiSearch /></button>
+                <button type="submit"><Search /></button>
               </form>
 
               {navLinks.map((link) => (

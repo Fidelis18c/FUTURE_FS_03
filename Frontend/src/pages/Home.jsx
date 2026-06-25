@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import productsData from '../data/products';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight, FiChevronDown, FiChevronUp, FiTruck, FiLock, FiAward } from 'react-icons/fi';
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
 
 import heroVideo from '../assets/Hero1/HSSTOREVideo.mp4';
 import heroImg1 from '../assets/Hero1/HSSTOREHero1.jpeg';
@@ -32,6 +32,8 @@ const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: { y: 0, opacity: 1 },
 };
+const cardFromLeft = { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } };
+const cardFromRight = { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } };
 const cardBounce = {
   whileHover: { y: -12, scale: 1.03 },
   transition: { type: 'spring', stiffness: 350, damping: 12 },
@@ -139,14 +141,14 @@ const Home = () => {
                 <video
                   src={topHeroItems[slide].src}
                   autoPlay muted loop playsInline
-                  style={{ width: 'auto', height: '100%', maxWidth: '100%', objectFit: 'contain', display: 'block' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
               ) : (
                 <img
                   src={topHeroItems[slide].src}
                   alt="HS Store"
                   draggable="false"
-                  style={{ width: 'auto', height: '100%', maxWidth: '100%', objectFit: 'contain', display: 'block' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
               )}
 
@@ -160,21 +162,13 @@ const Home = () => {
           {/* Arrows */}
           <button onClick={prev}
             className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-white/15 hover:bg-white/35 text-white backdrop-blur-sm transition-all">
-            <FiChevronLeft size={20} />
+            <ChevronLeft size={20} />
           </button>
           <button onClick={next}
             className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-white/15 hover:bg-white/35 text-white backdrop-blur-sm transition-all">
-            <FiChevronRight size={20} />
+            <ChevronRight size={20} />
           </button>
 
-          {/* Dots */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-            {topHeroItems.map((_, i) => (
-              <button key={i} onClick={() => goTo(i)}
-                className={`rounded-full h-1.5 transition-all duration-300 ${i === slide ? 'w-8 bg-brand-orange' : 'w-2 bg-white/50 hover:bg-white'}`}
-              />
-            ))}
-          </div>
         </div>
 
         {/* ── RIGHT PANEL ── */}
@@ -218,13 +212,22 @@ const Home = () => {
             animate="visible"
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            {visibleProducts.map((product) => (
-              <motion.div key={product.id} variants={itemVariants}>
+            {visibleProducts.map((product, i) => (
+              <motion.div
+                key={product.id}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, amount: 0.2 }}
+                variants={i % 2 === 0 ? cardFromLeft : cardFromRight}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: (i % 4) * 0.07 }}
+                className={i >= 3 ? 'hidden sm:block' : ''}
+              >
                 <ProductCard product={product} />
               </motion.div>
             ))}
           </motion.div>
 
+          {/* View More / View Less */}
           {trendingProducts.length > INITIAL_PRODUCTS && (
             <div className="flex justify-center mt-14 gap-4">
               {visibleCount < trendingProducts.length && (
@@ -233,7 +236,7 @@ const Home = () => {
                   className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
                 >
                   View More
-                  <FiChevronDown size={14} />
+                  <ChevronDown size={14} />
                 </button>
               )}
               {visibleCount > INITIAL_PRODUCTS && (
@@ -242,7 +245,7 @@ const Home = () => {
                   className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
                 >
                   View Less
-                  <FiChevronUp size={14} />
+                  <ChevronUp size={14} />
                 </button>
               )}
             </div>
@@ -256,17 +259,17 @@ const Home = () => {
           Icons from react-icons/fi (Feather Icons)
           No borders, no emoji, no photo
       ══════════════════════════════════════════ */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="pt-4 md:pt-8 pb-0 md:pb-0 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
 
           {/* Fast Delivery */}
           <motion.div
             whileHover={cardBounce.whileHover}
             transition={cardBounce.transition}
-            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white border border-orange-300 cursor-default"
+            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <div className="mb-6">
-              <FiTruck size={30} className="text-brand-orange" />
+            <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+              <Truck size={26} className="text-white" />
             </div>
             <h3 className="text-lg font-bold text-brand-dark mb-2">Fast Delivery</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -278,10 +281,10 @@ const Home = () => {
           <motion.div
             whileHover={cardBounce.whileHover}
             transition={cardBounce.transition}
-            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white border border-orange-300 cursor-default"
+            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <div className="mb-6">
-              <FiLock size={30} className="text-brand-orange" />
+            <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+              <Lock size={26} className="text-white" />
             </div>
             <h3 className="text-lg font-bold text-brand-dark mb-2">Secure Payments</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -293,10 +296,10 @@ const Home = () => {
           <motion.div
             whileHover={cardBounce.whileHover}
             transition={cardBounce.transition}
-            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white border border-orange-300 cursor-default"
+            className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <div className="mb-6">
-              <FiAward size={30} className="text-brand-orange" />
+            <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center mb-6">
+              <Award size={26} className="text-white" />
             </div>
             <h3 className="text-lg font-bold text-brand-dark mb-2">Quality Guarantee</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
@@ -314,7 +317,7 @@ const Home = () => {
       {/* ══════════════════════════════════════════
           FEATURE VIDEO SECTION
       ══════════════════════════════════════════ */}
-      <section className="py-20 px-6 md:px-8 lg:px-12 bg-white">
+      <section className="pt-44 pb-20 md:pt-56 md:pb-20 px-6 md:px-8 lg:px-12 bg-white">
         <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 items-center">
           {/* Video (3/4 on large screens) */}
           <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-2xl">
@@ -324,12 +327,12 @@ const Home = () => {
               muted
               loop
               playsInline
-              className="w-full h-auto object-cover"
+              className="w-full min-h-[280px] h-auto object-cover"
             />
           </div>
 
           {/* Text Content (1/4 on large screens) */}
-          <div className="lg:col-span-1 flex flex-col justify-center">
+          <div className="lg:col-span-1 flex flex-col justify-center px-6 lg:px-0">
             <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark leading-tight mb-4">
               The Feeling of Finding Exactly What You Need.
             </h2>

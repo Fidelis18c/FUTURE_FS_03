@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import productsData from '../data/products';
 import { useCart } from '../context/CartContext';
-import { FiMinus, FiPlus, FiShoppingCart, FiShield, FiTruck, FiRefreshCw } from 'react-icons/fi';
+import { Minus, Plus, ShoppingCart, Shield, Truck, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
 import CheckoutDrawer from '../components/CheckoutDrawer';
@@ -57,11 +57,17 @@ const ProductDetails = () => {
 
   return (
     <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-6 pb-12 md:py-12">
+        {/* Mobile-only: name above image */}
+        <div className="block lg:hidden mb-1">
+          <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">{product.brand}</div>
+          <h1 className="text-2xl font-bold text-brand-dark tracking-tighter">{product.name}</h1>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16">
           {/* Left: Image Gallery */}
           <div className="space-y-4 w-full mx-auto lg:mx-0">
-            <div className="relative overflow-hidden" style={{ height: '620px' }}>
+            <div className="relative overflow-hidden h-[340px] md:h-[620px]">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentImage}
@@ -76,7 +82,7 @@ const ProductDetails = () => {
                 />
               </AnimatePresence>
             </div>
-            <div className="grid grid-cols-4 gap-3">
+            <div className={`grid grid-cols-4 gap-3 ${product.category === 'audio' ? 'hidden lg:grid' : ''}`}>
               {product.variantData ? (
                 Object.entries(product.variantData).map(([color, data]) => (
                   <div
@@ -94,25 +100,25 @@ const ProductDetails = () => {
 
           {/* Right: Info */}
           <div className="flex flex-col">
-            <div className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">{product.brand}</div>
-            <h1 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tighter mb-4">{product.name}</h1>
-            <div className="text-3xl font-bold text-brand-dark mb-8">Tshs {currentPrice.toLocaleString()}</div>
+            <div className="hidden lg:block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">{product.brand}</div>
+            <h1 className="hidden lg:block text-4xl md:text-5xl font-bold text-brand-dark tracking-tighter mb-4">{product.name}</h1>
+            <div className="text-xl md:text-3xl font-bold text-brand-dark mb-2 md:mb-8">Tshs {currentPrice.toLocaleString()}</div>
 
-            <p className="text-gray-500 leading-relaxed mb-10">
+            <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-3 md:mb-10">
               {product.description}
             </p>
 
             {/* Selectors */}
-            <div className="space-y-8 mb-10">
+            <div className="space-y-3 md:space-y-8 mb-3 md:mb-10">
               {product.storage?.length > 0 && (
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">Storage</h4>
-                  <div className="flex flex-wrap gap-3">
+                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 md:mb-4">Storage</h4>
+                  <div className="flex flex-wrap gap-2">
                     {product.storage.map((s) => (
                       <button
                         key={s}
                         onClick={() => setSelectedStorage(s)}
-                        className={`px-6 py-2 text-sm border font-medium rounded-full transition-all ${selectedStorage === s ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
+                        className={`px-3 py-1 md:px-6 md:py-2 text-xs md:text-sm border font-medium rounded-full transition-all ${selectedStorage === s ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
                       >
                         {s}
                       </button>
@@ -123,13 +129,13 @@ const ProductDetails = () => {
 
               {product.colors?.length > 0 && (
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">Color</h4>
-                  <div className="flex flex-wrap gap-3">
+                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 md:mb-4">Color</h4>
+                  <div className="flex flex-wrap gap-2">
                     {product.colors.map((c) => (
                       <button
                         key={c}
                         onClick={() => setSelectedColor(c)}
-                        className={`px-6 py-2 text-sm border font-medium rounded-full transition-all ${selectedColor === c ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
+                        className={`px-3 py-1 md:px-6 md:py-2 text-xs md:text-sm border font-medium rounded-full transition-all ${selectedColor === c ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
                       >
                         {c}
                       </button>
@@ -139,41 +145,41 @@ const ProductDetails = () => {
               )}
 
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">Quantity</h4>
+                <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 md:mb-4">Quantity</h4>
                 <div className="flex items-center border border-gray-200 w-fit">
-                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-3 hover:bg-gray-50"><FiMinus /></button>
-                  <span className="w-12 text-center font-bold">{quantity}</span>
-                  <button onClick={() => setQuantity(quantity + 1)} className="p-3 hover:bg-gray-50"><FiPlus /></button>
+                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-2 md:p-3 hover:bg-gray-50"><Minus size={16} /></button>
+                  <span className="w-10 md:w-12 text-center text-sm font-bold">{quantity}</span>
+                  <button onClick={() => setQuantity(quantity + 1)} className="p-2 md:p-3 hover:bg-gray-50"><Plus size={16} /></button>
                 </div>
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            <div className="grid grid-cols-2 gap-3 mb-6 md:mb-12">
               <button
                 onClick={() => addToCart({ ...product, price: currentPrice }, quantity, selectedStorage, selectedColor)}
-                className="flex items-center justify-center rounded-full bg-brand-dark text-white py-4 px-8 font-bold uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
+                className="flex items-center justify-center rounded-full bg-brand-dark text-white py-3 md:py-4 px-4 md:px-8 font-bold uppercase tracking-wide md:tracking-widest text-xs md:text-sm hover:bg-gray-800 transition-all"
               >
-                <FiShoppingCart className="mr-2" /> Add To Cart
+                <ShoppingCart className="mr-1 md:mr-2" size={15} /> Add To Cart
               </button>
               <button
                 onClick={() => setIsCheckoutOpen(true)}
-                className="flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 font-bold uppercase tracking-widest text-sm transition-all"
+                className="flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white py-3 md:py-4 px-4 md:px-8 font-bold uppercase tracking-wide md:tracking-widest text-xs md:text-sm transition-all"
               >
                 Buy Now
               </button>
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-gray-100">
+            <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-6 pt-5 md:pt-10 border-t border-gray-100">
               <div className="flex items-center text-xs text-gray-500 font-medium">
-                <FiTruck className="text-brand-dark mr-3" size={18} /> Free Delivery
+                <Truck className="text-brand-dark mr-3" size={18} /> Free Delivery
               </div>
               <div className="flex items-center text-xs text-gray-500 font-medium">
-                <FiShield className="text-brand-dark mr-3" size={18} /> 1 Year Warranty
+                <Shield className="text-brand-dark mr-3" size={18} /> 1 Year Warranty
               </div>
               <div className="flex items-center text-xs text-gray-500 font-medium">
-                <FiRefreshCw className="text-brand-dark mr-3" size={18} /> Easy Returns
+                <RefreshCw className="text-brand-dark mr-3" size={18} /> Easy Returns
               </div>
             </div>
           </div>

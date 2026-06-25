@@ -118,7 +118,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Info Area */}
-      <div className="px-5 pb-6 pt-4 flex flex-col gap-4">
+      <div className="px-3 md:px-5 pb-4 pt-3 flex flex-col gap-3">
         {/* Name */}
         <h3 className="text-sm font-semibold text-brand-dark group-hover:text-gray-600 transition-colors leading-relaxed tracking-wide">
           {product.name}
@@ -182,7 +182,7 @@ const ProductCard = ({ product }) => {
             Tshs {displayPrice.toLocaleString()}
           </span>
           <button
-            className="text-xs font-semibold text-white px-10 py-2 rounded-full transition-opacity hover:opacity-80"
+            className="text-xs font-semibold text-white px-4 py-2 rounded-full transition-opacity hover:opacity-80 whitespace-nowrap"
             style={{ backgroundColor: '#000000' }}
             onClick={() => {
               navigate(getTargetUrl());

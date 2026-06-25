@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiMinus, FiPlus, FiTrash2, FiShoppingBag } from 'react-icons/fi';
+import { FiTrash2 } from 'react-icons/fi';
+import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 
@@ -30,13 +31,13 @@ const CartDrawer = () => {
           >
             <div className="p-6 border-b border-gray-100 flex items-center justify-between">
               <h2 className="text-xl font-bold flex items-center">
-                <FiShoppingBag className="mr-2" /> Your Cart
+                <ShoppingBag className="mr-2" /> Your Cart
               </h2>
               <button
                 onClick={() => setIsCartOpen(false)}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors"
               >
-                <FiX size={24} />
+                <X size={24} />
               </button>
             </div>
 
@@ -44,7 +45,7 @@ const CartDrawer = () => {
               {cart.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center">
                   <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <FiShoppingBag size={32} className="text-gray-300" />
+                    <ShoppingBag size={32} className="text-gray-300" />
                   </div>
                   <h3 className="text-lg font-medium text-gray-900">Your cart is empty</h3>
                   <p className="text-gray-500 mt-2">Looks like you haven't added anything yet.</p>
@@ -80,14 +81,14 @@ const CartDrawer = () => {
                             onClick={() => updateQuantity(item.id, item.variant, item.color, item.quantity - 1)}
                             className="p-1 hover:bg-gray-50"
                           >
-                            <FiMinus size={14} />
+                            <Minus size={14} />
                           </button>
                           <span className="w-8 text-center text-sm font-medium">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, item.variant, item.color, item.quantity + 1)}
                             className="p-1 hover:bg-gray-50"
                           >
-                            <FiPlus size={14} />
+                            <Plus size={14} />
                           </button>
                         </div>
                         <span className="text-sm font-bold">${(item.price * item.quantity).toLocaleString()}</span>

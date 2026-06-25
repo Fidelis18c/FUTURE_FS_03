@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
-import { FiCheckCircle, FiChevronLeft } from 'react-icons/fi';
+import { FiCheckCircle } from 'react-icons/fi';
+import { ChevronLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Checkout = () => {
@@ -67,7 +68,7 @@ const Checkout = () => {
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
           <Link to="/" className="flex items-center text-sm text-gray-500 hover:text-brand-dark mb-6">
-            <FiChevronLeft className="mr-1" /> Back to store
+            <ChevronLeft className="mr-1" /> Back to store
           </Link>
           <h1 className="text-4xl font-bold text-brand-dark tracking-tighter">Checkout</h1>
         </div>

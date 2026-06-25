@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { FiPackage, FiTruck, FiMapPin, FiClock, FiAlertCircle } from 'react-icons/fi';
+import { Package, Truck, MapPin, Clock, AlertCircle } from 'lucide-react';
 import about6 from '../assets/AboutImage/About6.mp4';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const steps = [
-  { icon: FiPackage, title: 'Order Placed', desc: 'Your order is confirmed and payment is received. You will get an email and SMS confirmation immediately.' },
-  { icon: FiPackage, title: 'Processing', desc: 'Our team picks, checks, and carefully packs your item. This usually takes a few hours on business days.' },
-  { icon: FiTruck, title: 'Dispatched', desc: 'Your order leaves our warehouse. A tracking number is sent to you via SMS and email.' },
-  { icon: FiMapPin, title: 'Delivered', desc: 'Your package arrives at your door. Enjoy your new device!' },
+  { icon: Package, title: 'Order Placed', desc: 'Your order is confirmed and payment is received. You will get an email and SMS confirmation immediately.' },
+  { icon: Package, title: 'Processing', desc: 'Our team picks, checks, and carefully packs your item. This usually takes a few hours on business days.' },
+  { icon: Truck, title: 'Dispatched', desc: 'Your order leaves our warehouse. A tracking number is sent to you via SMS and email.' },
+  { icon: MapPin, title: 'Delivered', desc: 'Your package arrives at your door. Enjoy your new device!' },
 ];
 
 const zones = [
@@ -86,7 +86,7 @@ const ShippingPolicy = () => (
             <div key={z.zone} className={`grid grid-cols-3 px-6 py-4 text-sm ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
               <span className="font-medium text-gray-900">{z.zone}</span>
               <span className="text-center text-gray-500 flex items-center justify-center gap-1">
-                <FiClock size={13} className="text-brand-orange" /> {z.time}
+                <Clock size={13} className="text-brand-orange" /> {z.time}
               </span>
               <span className="text-right text-gray-500">{z.fee}</span>
             </div>
@@ -99,11 +99,10 @@ const ShippingPolicy = () => (
     <section className="py-20 px-6 md:px-12 lg:px-24 bg-white">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
-          <FiAlertCircle size={28} className="text-brand-orange mx-auto mb-3" />
           <h3 className="text-2xl font-bold text-gray-900">Important Notes</h3>
         </div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}
-          className="bg-white border border-orange-300 rounded-2xl p-8 shadow-sm">
+          className="bg-white rounded-2xl p-8 shadow-sm">
           <ul className="space-y-3 text-sm text-gray-600">
             {[
               'Orders placed before 12:00 PM on business days are processed the same day.',

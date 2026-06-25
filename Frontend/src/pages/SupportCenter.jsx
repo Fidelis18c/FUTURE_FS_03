@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiShoppingBag, FiTruck, FiRefreshCw, FiSmartphone, FiChevronDown, FiMail, FiPhone } from 'react-icons/fi';
+import { ShoppingBag, Truck, RefreshCw, Smartphone, ChevronDown, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import about5 from '../assets/AboutImage/About5.mp4';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const categories = [
-  { icon: FiShoppingBag, title: 'Orders', desc: 'Track, modify, or cancel your order' },
-  { icon: FiTruck, title: 'Shipping', desc: 'Delivery times, costs, and tracking info' },
-  { icon: FiRefreshCw, title: 'Returns', desc: 'How to return or exchange a product' },
-  { icon: FiSmartphone, title: 'Products', desc: 'Product info, specs, and compatibility' },
+  { icon: ShoppingBag, title: 'Orders', desc: 'Track, modify, or cancel your order' },
+  { icon: Truck, title: 'Shipping', desc: 'Delivery times, costs, and tracking info' },
+  { icon: RefreshCw, title: 'Returns', desc: 'How to return or exchange a product' },
+  { icon: Smartphone, title: 'Products', desc: 'Product info, specs, and compatibility' },
 ];
 
 const faqs = [
@@ -48,7 +48,7 @@ const FaqItem = ({ q, a }) => {
         className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
         <span className="text-sm font-semibold text-gray-900 pr-4">{q}</span>
         <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.25 }}>
-          <FiChevronDown className="text-brand-orange shrink-0" size={18} />
+          <ChevronDown className="text-brand-orange shrink-0" size={18} />
         </motion.span>
       </button>
       <AnimatePresence initial={false}>
@@ -107,11 +107,11 @@ const SupportCenter = () => (
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact"
               className="inline-flex items-center justify-center gap-2 bg-brand-orange text-white px-8 py-3 rounded-full text-sm font-bold hover:bg-orange-700 transition-colors">
-              <FiMail size={15} /> Email Support
+              <Mail size={15} /> Email Support
             </Link>
             <a href="tel:+255700000000"
               className="inline-flex items-center justify-center gap-2 border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-full text-sm font-bold hover:bg-gray-100 transition-colors">
-              <FiPhone size={15} /> Call Us
+              <Phone size={15} /> Call Us
             </a>
           </div>
         </motion.div>

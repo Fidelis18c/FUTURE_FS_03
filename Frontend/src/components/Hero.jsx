@@ -40,7 +40,7 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-[75vh] min-h-125 bg-transparent overflow-hidden flex flex-col justify-between pt-0 pb-52 px-6 md:px-12 lg:px-24">
+    <section className="relative w-full h-[35vh] md:h-[60vh] bg-transparent overflow-visible flex flex-col justify-between pt-0 pb-0 px-6 md:px-12 lg:px-24">
 
       {/* SHOWROOM AREA */}
       <div className="relative flex-1 flex items-center justify-center">
@@ -66,10 +66,10 @@ const Hero = () => {
                 initial={false}
                 animate={{
                   x: distance * (window.innerWidth < 768 ? 140 : 400),
-                  scale: isActive ? 1.3 : 0.8,
+                  scale: isActive ? 1.15 : 0.75,
                   opacity: isVisible ? (isActive ? 1 : 0.4) : 0,
                   zIndex: isActive ? 30 : 20 - absDistance,
-                  y: isActive ? 50 : 100, // Move down to make arm flush with bottom
+                  y: isActive ? 0 : 60,
                   pointerEvents: isVisible ? 'auto' : 'none',
                 }}
                 transition={{
@@ -87,7 +87,7 @@ const Hero = () => {
                     alt={slide.category}
                     loading="eager"
                     fetchpriority="high"
-                    className={`w-64 md:w-96 lg:w-[40rem] h-auto object-contain transition-all duration-700 ${isActive ? 'drop-shadow-[0_40px_60px_rgba(0,0,0,0.3)]' : ''}`}
+                    className={`w-72 md:w-96 lg:w-[40rem] h-auto object-contain transition-all duration-700 ${isActive ? 'drop-shadow-[0_40px_60px_rgba(0,0,0,0.3)]' : ''}`}
                     style={{ mixBlendMode: 'multiply' }}
                     draggable="false"
                   />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiTarget, FiHeart, FiShield, FiStar, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { Target, Heart, Shield, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import about1 from '../assets/AboutImage/About1.mp4';
 import about3 from '../assets/AboutImage/About3.mp4';
 import about4 from '../assets/AboutImage/About4.mp4';
@@ -22,10 +22,10 @@ const slideLeft = { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 
 const slideRight = { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } };
 
 const values = [
-  { icon: FiTarget, title: 'Our Mission', body: 'To make premium technology accessible to every Tanzanian — delivering genuine products at honest prices.' },
-  { icon: FiHeart, title: 'Our Passion', body: 'We love what we do. Every device we sell is carefully selected to meet the needs of modern life.' },
-  { icon: FiShield, title: 'Our Promise', body: 'Authenticity guaranteed. Every product comes with a 1-year store warranty and full after-sales support.' },
-  { icon: FiStar, title: 'Our Standard', body: 'From packaging to delivery, we hold ourselves to the highest standard so you always receive the best.' },
+  { icon: Target, title: 'Our Mission', body: 'To make premium technology accessible to every Tanzanian — delivering genuine products at honest prices.' },
+  { icon: Heart, title: 'Our Passion', body: 'We love what we do. Every device we sell is carefully selected to meet the needs of modern life.' },
+  { icon: Shield, title: 'Our Promise', body: 'Authenticity guaranteed. Every product comes with a 1-year store warranty and full after-sales support.' },
+  { icon: Star, title: 'Our Standard', body: 'From packaging to delivery, we hold ourselves to the highest standard so you always receive the best.' },
 ];
 
 const stats = [
@@ -170,8 +170,8 @@ const AboutUs = () => {
       </section>
 
       {/* Product Carousel — Samsung & iPhone */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="text-center mb-10">
+      <section className="pt-0 md:pt-8 pb-0 md:pb-6 px-6 bg-gray-50">
+        <div className="text-center mb-0 md:mb-10">
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
             initial="hidden"
@@ -195,17 +195,17 @@ const AboutUs = () => {
           </motion.h2>
         </div>
 
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-6 -mt-16 md:mt-0">
           {/* Left arrow */}
           <button
             onClick={() => paginate(-1)}
             className="flex-shrink-0 w-12 h-12 rounded-full bg-white border border-gray-200 shadow flex items-center justify-center text-gray-700 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-300"
           >
-            <FiChevronLeft size={24} />
+            <ChevronLeft size={24} />
           </button>
 
           {/* Image frame */}
-          <div className="relative w-full max-w-4xl" style={{ height: '680px' }}>
+          <div className="relative w-full max-w-4xl h-[680px] md:h-[680px]">
             <AnimatePresence initial={false} custom={dir} mode="popLayout">
               <motion.div
                 key={index}
@@ -231,14 +231,14 @@ const AboutUs = () => {
             onClick={() => paginate(1)}
             className="flex-shrink-0 w-12 h-12 rounded-full bg-white border border-gray-200 shadow flex items-center justify-center text-gray-700 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-300"
           >
-            <FiChevronRight size={24} />
+            <ChevronRight size={24} />
           </button>
         </div>
 
       </section>
 
       {/* About3 & About4 videos */}
-      <section className="hidden md:block py-20 px-6 md:px-12 lg:px-24 bg-white">
+      <section className="hidden md:block pt-6 pb-8 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
           <motion.div
             initial="hidden"
@@ -294,7 +294,7 @@ const AboutUs = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="pt-0 md:pt-8 pb-16 px-6 md:px-12 lg:px-24 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-3">What Drives Us</p>
@@ -304,11 +304,15 @@ const AboutUs = () => {
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
-                initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-orange-300"
+                initial={{ opacity: 0, y: -40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: i * 0.1 }}
+                whileHover={{ y: -12, scale: 1.03, transition: { type: 'spring', stiffness: 300, damping: 15 } }}
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="mb-5">
-                  <v.icon size={26} className="text-brand-orange" />
+                <div className="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center mb-5">
+                  <v.icon size={22} className="text-white" />
                 </div>
                 <h3 className="text-base font-bold text-gray-900 mb-3">{v.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{v.body}</p>

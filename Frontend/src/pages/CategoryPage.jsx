@@ -39,12 +39,12 @@ const CategoryPage = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen py-12 px-6 md:px-12 lg:px-24">
+    <div className="bg-white min-h-screen py-12 px-3 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-12">
           <h1 className="text-4xl font-bold text-brand-dark tracking-tighter capitalize">
-            {category || location.pathname.split('/')[1] || 'All Products'} <span className="text-gray-300 font-light">Collection</span>
+            {category || location.pathname.split('/')[1] || 'All Products'}
           </h1>
 
           <div className="mt-6 md:mt-0 flex items-center space-x-4">
@@ -66,7 +66,7 @@ const CategoryPage = () => {
 
         {/* Product Grid — 4 columns */}
         {products.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 md:gap-x-6 gap-y-6 md:gap-y-10">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

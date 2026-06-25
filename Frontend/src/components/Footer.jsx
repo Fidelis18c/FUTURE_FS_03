@@ -92,6 +92,7 @@ const Footer = () => {
                 <li key={link.label}>
                   <Link
                     to={link.path}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {link.label}

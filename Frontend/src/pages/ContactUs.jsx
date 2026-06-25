@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiClock } from 'react-icons/fi';
+import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
 import about2 from '../assets/AboutImage/About2.mp4';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const info = [
-  { icon: FiMail, title: 'Email Us', value: 'support@hsstore.com', sub: 'We reply within 24 hours' },
-  { icon: FiPhone, title: 'Call Us', value: '+255 700 000 000', sub: 'Mon – Sat, 8am – 8pm' },
-  { icon: FiMapPin, title: 'Visit Us', value: 'Dar es Salaam, Tanzania', sub: 'P.O. Box 1234' },
-  { icon: FiClock, title: 'Working Hours', value: 'Mon – Sat: 8am – 8pm', sub: 'Sunday: 10am – 5pm' },
+  { icon: Mail, title: 'Email Us', value: 'support@hsstore.com', sub: 'We reply within 24 hours' },
+  { icon: Phone, title: 'Call Us', value: '+255 700 000 000', sub: 'Mon – Sat, 8am – 8pm' },
+  { icon: MapPin, title: 'Visit Us', value: 'Dar es Salaam, Tanzania', sub: 'P.O. Box 1234' },
+  { icon: Clock, title: 'Working Hours', value: 'Mon – Sat: 8am – 8pm', sub: 'Sunday: 10am – 5pm' },
 ];
 
 const ContactUs = () => {
@@ -70,9 +70,11 @@ const ContactUs = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {info.map((item, i) => (
             <motion.div key={item.title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-sm text-center border border-orange-300">
-              <div className="mx-auto mb-4">
-                <item.icon size={24} className="text-brand-orange mx-auto" />
+              whileHover={{ y: -12, scale: 1.03 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+              className="bg-white rounded-2xl p-6 shadow-sm text-center">
+              <div className="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                <item.icon size={22} className="text-white" />
               </div>
               <h3 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h3>
               <p className="text-sm text-gray-700 font-medium">{item.value}</p>
@@ -94,7 +96,7 @@ const ContactUs = () => {
             {sent ? (
               <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
                 className="bg-green-50 border border-green-200 rounded-2xl p-10 text-center">
-                <FiSend size={36} className="text-green-500 mx-auto mb-4" />
+                <Send size={36} className="text-green-500 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Message Sent!</h3>
                 <p className="text-sm text-gray-500">Thank you for reaching out. We'll be in touch within 24 hours.</p>
               </motion.div>
@@ -124,7 +126,7 @@ const ContactUs = () => {
                 </div>
                 <button type="submit"
                   className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors">
-                  <FiSend size={15} />
+                  <Send size={15} />
                   Send Message
                 </button>
               </form>
@@ -134,7 +136,7 @@ const ContactUs = () => {
           {/* Right — Map */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} transition={{ delay: 0.15 }}
-            className="w-full h-full min-h-96 rounded-3xl overflow-hidden border border-orange-300 shadow-lg"
+            className="w-full h-full min-h-96 rounded-3xl overflow-hidden shadow-lg"
             style={{ minHeight: '520px' }}
           >
             <iframe
