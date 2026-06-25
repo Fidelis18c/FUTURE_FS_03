@@ -32,8 +32,10 @@ const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: { y: 0, opacity: 1 },
 };
-const cardFromLeft = { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } };
-const cardFromRight = { hidden: { opacity: 0, x: 60 }, visible: { opacity: 1, x: 0 } };
+const cardFromLeft  = { hidden: { opacity: 0, x: -60 }, visible: { opacity: 1, x: 0 } };
+const cardFromRight = { hidden: { opacity: 0, x: 60 },  visible: { opacity: 1, x: 0 } };
+const cardAngleLeft  = { hidden: { opacity: 0, y: 60, x: -40, rotate: -10 }, visible: { opacity: 1, y: 0, x: 0, rotate: 0 } };
+const cardAngleRight = { hidden: { opacity: 0, y: 60, x: 40,  rotate: 10  }, visible: { opacity: 1, y: 0, x: 0, rotate: 0 } };
 const cardBounce = {
   whileHover: { y: -12, scale: 1.03 },
   transition: { type: 'spring', stiffness: 350, damping: 12 },
@@ -52,6 +54,13 @@ const Home = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_PRODUCTS);
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const visibleProducts = trendingProducts.slice(0, visibleCount);
 
@@ -218,8 +227,12 @@ const Home = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.2 }}
-                variants={i % 2 === 0 ? cardFromLeft : cardFromRight}
-                transition={{ duration: 0.5, ease: 'easeOut', delay: (i % 4) * 0.07 }}
+                variants={
+                  isMobile
+                    ? (i % 2 === 0 ? cardAngleLeft : cardAngleRight)
+                    : (i % 2 === 0 ? cardFromLeft  : cardFromRight)
+                }
+                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: (i % 4) * 0.07 }}
                 className={i >= 3 ? 'hidden sm:block' : ''}
               >
                 <ProductCard product={product} />
