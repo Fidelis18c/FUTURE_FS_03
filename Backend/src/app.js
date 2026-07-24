@@ -12,6 +12,10 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Swagger API Documentation
+const swaggerDocs = require('./config/swagger');
+swaggerDocs(app);
+
 // Health Check
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', timestamp: new Date() });
