@@ -32,6 +32,10 @@ const swaggerDocs = (app) => {
     swaggerUi.serve,
     swaggerUi.setup(swaggerSpec, {
       customCssUrl: CSS_URL,
+      customJs: [
+        'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui-bundle.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui-standalone-preset.js',
+      ],
       customSiteTitle: 'HSSTORE API Docs',
     })
   );
