@@ -22,7 +22,6 @@ const getAllProducts = async (req, res, next) => {
             'name', v.name,
             'attributes', v.attributes,
             'price', v.price,
-            'sku', v.sku,
             'available', COALESCE(i.available, 0)
           ))
           FROM product_variants v 
@@ -41,6 +40,7 @@ const getAllProducts = async (req, res, next) => {
       params.push(category);
       query += ` AND c.slug = $${params.length}`;
     }
+
 
     if (search) {
       params.push(`%${search}%`);
@@ -80,7 +80,7 @@ const getProductBySlug = async (req, res, next) => {
       WHERE p.slug = $1
     `;
     const result = await db.query(query, [slug]);
-    
+
     if (result.rows.length === 0) return res.status(404).json({ error: 'Product not found' });
     res.json(result.rows[0]);
   } catch (err) {
