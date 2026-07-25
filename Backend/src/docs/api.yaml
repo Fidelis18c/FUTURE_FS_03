@@ -1,0 +1,261 @@
+openapi: 3.0.0
+info:
+  title: HSSTORE API
+  version: 1.0.0
+  description: API Documentation for the HSSTORE Backend
+servers:
+  - url: https://future-fs-03-vert.vercel.app
+    description: Production server
+  - url: http://localhost:5000
+    description: Development server
+
+tags:
+  - name: Auth
+    description: User authentication
+  - name: Products
+    description: Product management
+  - name: Categories
+    description: Category management
+  - name: Cart
+    description: Shopping cart operations
+  - name: Orders
+    description: Order processing
+  - name: Shipping
+    description: Shipping and tracking
+  - name: Users
+    description: User profile and address management
+  - name: Payments
+    description: Payment processing webhooks
+
+paths:
+  /api/auth/register:
+    post:
+      summary: Register a new user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, phone_number, password, full_name]
+              properties:
+                email: { type: string }
+                phone_number: { type: string }
+                password: { type: string }
+                full_name: { type: string }
+      responses:
+        '201': { description: User registered successfully }
+        '400': { description: Invalid input or user already exists }
+
+  /api/auth/login:
+    post:
+      summary: Login a user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200': { description: Login successful }
+        '401': { description: Invalid credentials }
+
+  /api/products:
+    get:
+      summary: Get all products
+      tags: [Products]
+      responses:
+        '200': { description: A list of products }
+
+  /api/products/{slug}:
+    get:
+      summary: Get product by slug
+      tags: [Products]
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Product details }
+
+  /api/categories:
+    get:
+      summary: Get all categories
+      tags: [Categories]
+      responses:
+        '200': { description: A list of categories }
+
+  /api/categories/{slug}:
+    get:
+      summary: Get category by slug
+      tags: [Categories]
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Category details }
+
+  /api/cart:
+    get:
+      summary: Get user cart
+      tags: [Cart]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: User cart details }
+    post:
+      summary: Add item to cart
+      tags: [Cart]
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productId: { type: integer }
+                quantity: { type: integer }
+      responses:
+        '201': { description: Item added to cart }
+
+  /api/cart/{id}:
+    put:
+      summary: Update cart item quantity
+      tags: [Cart]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity: { type: integer }
+      responses:
+        '200': { description: Cart item updated }
+    delete:
+      summary: Remove item from cart
+      tags: [Cart]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200': { description: Cart item removed }
+
+  /api/orders:
+    post:
+      summary: Create a new order
+      tags: [Orders]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '201': { description: Order created }
+
+  /api/orders/me:
+    get:
+      summary: Get my orders
+      tags: [Orders]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: List of user orders }
+
+  /api/orders/{id}:
+    get:
+      summary: Get order details
+      tags: [Orders]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      responses:
+        '200': { description: Order details }
+
+  /api/shipping/order/{orderId}:
+    get:
+      summary: Get shipment details by order ID
+      tags: [Shipping]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: orderId
+          required: true
+          schema: { type: integer }
+      responses:
+        '200': { description: Shipment details }
+
+  /api/shipping/{id}/status:
+    patch:
+      summary: Update shipment status (Admin only)
+      tags: [Shipping]
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status: { type: string }
+      responses:
+        '200': { description: Shipment status updated }
+
+  /api/user/addresses:
+    get:
+      summary: Get my addresses
+      tags: [Users]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: List of user addresses }
+    post:
+      summary: Add a new address
+      tags: [Users]
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                address_line1: { type: string }
+                city: { type: string }
+                country: { type: string }
+      responses:
+        '201': { description: Address added }
+
+  /api/payments/webhook:
+    post:
+      summary: Handle Zenopay webhook
+      tags: [Payments]
+      responses:
+        '200': { description: Webhook received }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
