@@ -70,6 +70,23 @@ paths:
     get:
       summary: Get all products
       tags: [Products]
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer, default: 20 }
+          description: Number of items to return
+        - in: query
+          name: offset
+          schema: { type: integer, default: 0 }
+          description: Number of items to skip
+        - in: query
+          name: category
+          schema: { type: string }
+          description: Filter by category slug
+        - in: query
+          name: search
+          schema: { type: string }
+          description: Search by product name or description
       responses:
         '200': { description: A list of products }
 
@@ -164,6 +181,16 @@ paths:
       summary: Create a new order
       tags: [Orders]
       security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [address_id, payment_phone]
+              properties:
+                address_id: { type: integer }
+                payment_phone: { type: string }
       responses:
         '201': { description: Order created }
 
@@ -217,8 +244,11 @@ paths:
           application/json:
             schema:
               type: object
+              required: [status]
               properties:
-                status: { type: string }
+                status: 
+                  type: string
+                  enum: [pending, shipped, delivered]
       responses:
         '200': { description: Shipment status updated }
 
