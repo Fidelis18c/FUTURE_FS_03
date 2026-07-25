@@ -68,7 +68,6 @@ const getProductBySlug = async (req, res, next) => {
           'name', v.name,
           'attributes', v.attributes,
           'price', v.price,
-          'sku', v.sku,
           'available', i.available
         ))
         FROM product_variants v 
