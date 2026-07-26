@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
-import productsData from '../data/products';
+import api from '../api';
+import productsData from '../data/products'; // fallback
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
 
@@ -45,16 +46,32 @@ const cardBounce = {
 const HERO_BG = 'linear-gradient(155deg, #13111c 0%, #1f1509 52%, #13111c 100%)';
 
 const Home = () => {
-  const trendingProducts = [
-    ...productsData.filter((p) => p.brand === 'iPhone' && p.trending).slice(0, 8),
-    ...productsData.filter((p) => p.brand === 'JBL').slice(0, 8),
-    ...productsData.filter((p) => p.brand === 'Samsung' && p.category === 'phones').slice(0, 4),
-    ...productsData.filter((p) => p.category === 'audio' && p.brand !== 'JBL').slice(0, 4),
-  ];
+  const [allProducts, setAllProducts] = useState([]);
+  const [productsLoading, setProductsLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(INITIAL_PRODUCTS);
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await api.get('/products', { params: { limit: 100 } });
+        if (data && data.length > 0) {
+          setAllProducts(data);
+        } else {
+          setAllProducts(productsData);
+        }
+      } catch {
+        setAllProducts(productsData);
+      } finally {
+        setProductsLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const trendingProducts = allProducts.length > 0 ? allProducts : productsData.slice(0, 24);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);

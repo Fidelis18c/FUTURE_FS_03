@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, Menu, X, ChevronDown, User } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X, ChevronDown, User, LogOut } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import LoginModal from './LoginModal';
 
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { cartCount, setIsCartOpen } = useCart();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const navLinks = [
@@ -118,13 +120,26 @@ const Navbar = () => {
             )}
           </button>
 
-          <button
-            onClick={() => setIsLoginOpen(true)}
-            className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
-          >
-            <User />
-            <span>Login</span>
-          </button>
+          {user ? (
+            <div className="hidden md:flex items-center gap-2">
+              <span className="text-sm font-semibold text-brand-dark">{user.full_name?.split(' ')[0]}</span>
+              <button
+                onClick={logout}
+                className="flex items-center gap-1 text-sm text-gray-500 hover:text-red-500 transition-colors px-3 py-2 rounded-full hover:bg-red-50"
+              >
+                <LogOut size={16} />
+                <span>Logout</span>
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
+            >
+              <User />
+              <span>Login</span>
+            </Link>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -175,12 +190,24 @@ const Navbar = () => {
                 </div>
               ))}
 
-              <button
-                className="w-full text-center bg-brand-orange text-white py-3 rounded-lg font-medium"
-                onClick={() => { setIsMenuOpen(false); setIsLoginOpen(true); }}
-              >
-                Login
-              </button>
+              {user ? (
+                <div className="flex items-center justify-between pt-2">
+                  <span className="text-sm font-bold text-brand-dark">{user.full_name}</span>
+                  <button
+                    onClick={() => { logout(); setIsMenuOpen(false); }}
+                    className="text-sm text-red-500 font-semibold"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="w-full text-center bg-brand-orange text-white py-3 rounded-lg font-medium"
+                  onClick={() => { setIsMenuOpen(false); setIsLoginOpen(true); }}
+                >
+                  Login
+                </button>
+              )}
             </div>
           </motion.div>
         )}

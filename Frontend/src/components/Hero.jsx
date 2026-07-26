@@ -86,7 +86,7 @@ const Hero = () => {
                     src={slide.image}
                     alt={slide.category}
                     loading="eager"
-                    fetchpriority="high"
+                    fetchPriority="high"
                     className={`w-72 md:w-96 lg:w-[40rem] h-auto object-contain transition-all duration-700 ${isActive ? 'drop-shadow-[0_40px_60px_rgba(0,0,0,0.3)]' : ''}`}
                     style={{ mixBlendMode: 'multiply' }}
                     draggable="false"

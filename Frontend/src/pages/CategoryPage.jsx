@@ -1,40 +1,57 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
-import productsData from '../data/products';
+import productsData from '../data/products'; // fallback
+import api from '../api';
 import { FiFilter } from 'react-icons/fi';
 
 const CategoryPage = () => {
-  const { category, brand } = useParams();
+  const { category } = useParams();
   const location = useLocation();
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState('newest');
 
-  useEffect(() => {
-    let filtered = productsData;
-
-    // Filter by main category if exists in URL (e.g., /phones, /audio)
+  const fetchProducts = useCallback(async () => {
+    setLoading(true);
     const mainCategory = location.pathname.split('/')[1];
-    if (mainCategory && mainCategory !== 'phones' && mainCategory !== 'audio' && mainCategory !== 'chargers' && mainCategory !== 'covers') {
-        // Fallback for general paths
-    } else if (mainCategory) {
-        filtered = filtered.filter(p => p.category === mainCategory);
-    }
+    try {
+      const params = { limit: 100 };
+      // Map frontend URL paths to backend category slugs
+      if (category) params.category = category;
+      else if (mainCategory) params.category = mainCategory;
 
-    // Filter by brand or subcategory (e.g., /phones/iphone)
-    if (category) {
-        filtered = filtered.filter(p => p.brand.toLowerCase() === category.toLowerCase());
+      const { data } = await api.get('/products', { params });
+      if (data && data.length > 0) {
+        setProducts(data);
+      } else {
+        // Fallback to static data filtered by path
+        let filtered = productsData;
+        if (mainCategory) filtered = filtered.filter((p) => p.category === mainCategory);
+        if (category) filtered = filtered.filter((p) => p.brand.toLowerCase() === category.toLowerCase());
+        setProducts(filtered);
+      }
+    } catch {
+      // Fallback to static data
+      let filtered = productsData;
+      if (mainCategory) filtered = filtered.filter((p) => p.category === mainCategory);
+      if (category) filtered = filtered.filter((p) => p.brand.toLowerCase() === category.toLowerCase());
+      setProducts(filtered);
+    } finally {
+      setLoading(false);
     }
-
-    setProducts(filtered);
   }, [category, location.pathname]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   const handleSort = (e) => {
     const value = e.target.value;
     setSortBy(value);
     const sorted = [...products];
-    if (value === 'price-low') sorted.sort((a, b) => a.price - b.price);
-    if (value === 'price-high') sorted.sort((a, b) => b.price - a.price);
+    if (value === 'price-low') sorted.sort((a, b) => (a.price || 0) - (b.price || 0));
+    if (value === 'price-high') sorted.sort((a, b) => (b.price || 0) - (a.price || 0));
     setProducts(sorted);
   };
 
@@ -64,8 +81,13 @@ const CategoryPage = () => {
           </div>
         </div>
 
-        {/* Product Grid — 4 columns */}
-        {products.length > 0 ? (
+        {loading ? (
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 md:gap-x-6 gap-y-6 md:gap-y-10">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="h-80 bg-gray-100 rounded-xl animate-pulse" />
+            ))}
+          </div>
+        ) : products.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 md:gap-x-6 gap-y-6 md:gap-y-10">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />

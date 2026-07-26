@@ -1,22 +1,40 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiMail, FiLock, FiEye, FiEyeOff } from 'react-icons/fi';
-import { FcGoogle } from 'react-icons/fc';
+import { FiX, FiMail, FiLock, FiEye, FiEyeOff, FiPhone, FiUser } from 'react-icons/fi';
+import { useAuth } from '../context/AuthContext';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const [mode, setMode] = useState('login'); // 'login' | 'signup'
   const [showPassword, setShowPassword] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ full_name: '', email: '', phone_number: '', password: '' });
+  const [localError, setLocalError] = useState('');
+  const { login, register, loading } = useAuth();
 
-  const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: wire up to backend
+  const handleChange = (e) => {
+    setLocalError('');
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const handleGoogleAuth = () => {
-    // TODO: wire up to Google OAuth
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLocalError('');
+    let result;
+    if (mode === 'login') {
+      result = await login(form.email, form.password);
+    } else {
+      result = await register(form.full_name, form.email, form.phone_number, form.password);
+    }
+    if (result.success) {
+      onClose();
+    } else {
+      setLocalError(result.error);
+    }
+  };
+
+  const switchMode = (newMode) => {
+    setMode(newMode);
+    setLocalError('');
+    setForm({ full_name: '', email: '', phone_number: '', password: '' });
   };
 
   return (
@@ -64,39 +82,52 @@ const LoginModal = ({ isOpen, onClose }) => {
                 </p>
               </div>
 
-              {/* Google */}
-              <button
-                onClick={handleGoogleAuth}
-                className="w-full flex items-center justify-center gap-3 border border-gray-200 rounded-full py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors mb-5"
-              >
-                <FcGoogle size={20} />
-                Continue with Google
-              </button>
-
-              {/* Divider */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="flex-1 h-px bg-gray-200" />
-                <span className="text-xs text-gray-400 font-medium">or</span>
-                <div className="flex-1 h-px bg-gray-200" />
-              </div>
+              {/* Error Message */}
+              {localError && (
+                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600 text-center">
+                  {localError}
+                </div>
+              )}
 
               {/* Form */}
               <form onSubmit={handleSubmit} className="space-y-4">
                 {mode === 'signup' && (
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-600 mb-1.5 tracking-wide uppercase">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                      className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange transition-colors"
-                    />
-                  </div>
+                  <>
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-600 mb-1.5 tracking-wide uppercase">
+                        Full Name
+                      </label>
+                      <div className="relative">
+                        <FiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" size={15} />
+                        <input
+                          type="text"
+                          name="full_name"
+                          value={form.full_name}
+                          onChange={handleChange}
+                          placeholder="John Doe"
+                          required
+                          className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange transition-colors"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-600 mb-1.5 tracking-wide uppercase">
+                        Phone Number
+                      </label>
+                      <div className="relative">
+                        <FiPhone className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" size={15} />
+                        <input
+                          type="tel"
+                          name="phone_number"
+                          value={form.phone_number}
+                          onChange={handleChange}
+                          placeholder="+255 --- --- ---"
+                          required
+                          className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:border-brand-orange transition-colors"
+                        />
+                      </div>
+                    </div>
+                  </>
                 )}
 
                 <div>
@@ -154,9 +185,10 @@ const LoginModal = ({ isOpen, onClose }) => {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-orange text-white py-3 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors mt-2"
+                  disabled={loading}
+                  className="w-full bg-brand-orange text-white py-3 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {mode === 'login' ? 'Sign In' : 'Create Account'}
+                  {loading ? 'Please wait...' : (mode === 'login' ? 'Sign In' : 'Create Account')}
                 </button>
               </form>
 
@@ -164,7 +196,7 @@ const LoginModal = ({ isOpen, onClose }) => {
               <p className="text-center text-sm text-gray-500 mt-6">
                 {mode === 'login' ? "Don't have an account?" : 'Already have an account?'}{' '}
                 <button
-                  onClick={() => setMode(mode === 'login' ? 'signup' : 'login')}
+                  onClick={() => switchMode(mode === 'login' ? 'signup' : 'login')}
                   className="text-brand-orange font-semibold hover:underline"
                 >
                   {mode === 'login' ? 'Sign Up' : 'Sign In'}

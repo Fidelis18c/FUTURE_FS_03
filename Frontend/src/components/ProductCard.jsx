@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import productsData from '../data/products';
 
 // Map color names to CSS colors for swatches
 const COLOR_MAP = {
@@ -61,18 +62,29 @@ const getPrice = (product, selectedColor, selectedStorage) => {
 };
 
 const getImage = (product, selectedColor) => {
-  if (product.variantData && selectedColor) {
-    if (product.variantData[selectedColor]?.image) {
-      return product.variantData[selectedColor].image;
+  const staticMatch = productsData.find(
+    (p) => p.slug === product.slug || p.name?.toLowerCase() === product.name?.toLowerCase()
+  );
+
+  const target = (product.variantData && Object.keys(product.variantData).length > 0) ? product : staticMatch;
+
+  if (target && target.variantData && selectedColor) {
+    if (target.variantData[selectedColor]?.image) {
+      return target.variantData[selectedColor].image;
     }
-    const key = Object.keys(product.variantData).find(
+    const key = Object.keys(target.variantData).find(
       k => k.toLowerCase() === selectedColor.toLowerCase()
     );
-    if (key && product.variantData[key]?.image) {
-      return product.variantData[key].image;
+    if (key && target.variantData[key]?.image) {
+      return target.variantData[key].image;
     }
   }
-  return product.image;
+
+  if (product.image) return product.image;
+  if (product.image_url) return product.image_url;
+  if (staticMatch?.image) return staticMatch.image;
+
+  return '/HSSTORELOGO.png';
 };
 
 const ProductCard = ({ product }) => {
@@ -113,7 +125,7 @@ const ProductCard = ({ product }) => {
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => { e.target.src = 'https://via.placeholder.com/400x400?text=Product'; }}
+          onError={(e) => { e.target.src = '/HSSTORELOGO.png'; }}
         />
       </div>
 
@@ -179,7 +191,7 @@ const ProductCard = ({ product }) => {
         {/* Price + Buy */}
         <div className="flex items-center justify-between mt-1" onClick={(e) => e.stopPropagation()}>
           <span className="text-sm font-bold text-brand-dark">
-            Tshs {displayPrice.toLocaleString()}
+            Tshs {Number(displayPrice || 0).toLocaleString()}
           </span>
           <button
             className="text-xs font-semibold text-white px-4 py-2 rounded-full transition-opacity hover:opacity-80 whitespace-nowrap"
