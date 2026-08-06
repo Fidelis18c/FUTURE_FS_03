@@ -84,7 +84,7 @@ const getImage = (product, selectedColor) => {
   if (product.image_url) return product.image_url;
   if (staticMatch?.image) return staticMatch.image;
 
-  return '/HSSTORELOGO.png';
+  return '/HSMOBILESTORElogo.png';
 };
 
 const ProductCard = ({ product }) => {
@@ -125,7 +125,7 @@ const ProductCard = ({ product }) => {
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => { e.target.src = '/HSSTORELOGO.png'; }}
+          onError={(e) => { e.target.src = '/HSMOBILESTORElogo.png'; }}
         />
       </div>
 

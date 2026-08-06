@@ -8,7 +8,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { login, loading } = useAuth();
   
-  // Get redirect target (e.g. /checkout)
   const redirectTo = searchParams.get('redirect') || '/';
 
   const [email, setEmail] = useState('');
@@ -22,7 +21,6 @@ const Login = () => {
 
     const result = await login(email, password);
     if (result.success) {
-      // Redirect back to Checkout (or original target)
       navigate(redirectTo);
     } else {
       setError(result.error || 'Invalid email or password. Please try again.');
@@ -34,17 +32,12 @@ const Login = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center mb-4">
           <Link to="/">
-            <img src="/HSSTORELOGO.png" alt="HS STORE" className="h-16 object-contain" />
+            <img src="/HSMOBILESTORElogo.png" alt="HS MOBILE STORE" className="h-16 object-contain" />
           </Link>
         </div>
         <h2 className="text-center text-3xl font-extrabold text-brand-dark tracking-tight">
           Sign in to your account
         </h2>
-        {redirectTo.includes('checkout') && (
-          <p className="mt-2 text-center text-sm text-gray-600 bg-orange-50 border border-orange-100 p-3 rounded-xl">
-            <span className="font-semibold text-brand-orange">Checking out?</span> Log in to access your pre-filled saved addresses.
-          </p>
-        )}
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -119,9 +112,9 @@ const Login = () => {
 
           <div className="mt-8 pt-6 border-t border-gray-100 text-center">
             <p className="text-xs text-gray-500">
-              Prefer guest checkout?{' '}
-              <Link to="/checkout" className="font-bold text-brand-dark hover:underline">
-                Continue as Guest
+              Just browsing?{' '}
+              <Link to="/" className="font-bold text-brand-dark hover:underline">
+                Continue to Store
               </Link>
             </p>
           </div>

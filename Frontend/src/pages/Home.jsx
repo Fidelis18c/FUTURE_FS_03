@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import api from '../api';
 import productsData from '../data/products'; // fallback
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
 
 import heroVideo from '../assets/Hero1/HSSTOREVideo.mp4';
@@ -14,9 +14,20 @@ import heroImg3 from '../assets/Hero1/HSSTOREHero3.jpeg';
 import sidePhoneLeft from '../assets/hero/IphoneHeroB.png';
 import sidePhoneRight from '../assets/hero/IphoneHeroC.png';
 import featureVideo from '../assets/Hero2/The handcrafted wireless to daily mastery..mp4';
+import aboutUsVideo from '../assets/AboutImage/About1.mp4';
+import contactUsVideo from '../assets/AboutImage/About2.mp4';
+import supportCenterVideo from '../assets/AboutImage/About5.mp4';
+import shippingVideo from '../assets/AboutImage/About6.mp4';
 
 const INITIAL_PRODUCTS = 20;
 const STEP_SIZE = 20;
+
+const exploreCards = [
+  { title: 'About Us', video: aboutUsVideo, to: '/about' },
+  { title: 'Contact Us', video: contactUsVideo, to: '/contact' },
+  { title: 'Shipping', video: shippingVideo, to: '/shipping' },
+  { title: 'Support Center', video: supportCenterVideo, to: '/support' },
+];
 
 const topHeroItems = [
   { type: 'video', src: heroVideo },
@@ -52,6 +63,17 @@ const Home = () => {
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+  const [exploreHidden, setExploreHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const diff = latest - lastScrollY.current;
+    if (Math.abs(diff) > 4) {
+      setExploreHidden(diff < 0);
+      lastScrollY.current = latest;
+    }
+  });
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -107,8 +129,8 @@ const Home = () => {
           Left panel | Center slider | Right panel
       ══════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden flex"
-        style={{ height: '88vh', minHeight: '500px', background: HERO_BG }}
+        className="relative overflow-hidden flex -mt-16"
+        style={{ height: 'calc(88vh + 4rem)', minHeight: 'calc(500px + 4rem)', background: HERO_BG }}
       >
 
         {/* ── LEFT PANEL ── */}
@@ -129,9 +151,7 @@ const Home = () => {
 
           {/* Text + CTA */}
           <div className="relative z-10 px-7 pb-14">
-            <p className="text-brand-orange text-[10px] tracking-[0.35em] uppercase font-semibold mb-3">
-              New Arrivals · 2025
-            </p>
+           
             <h2 className="text-white text-2xl font-bold leading-snug mb-3">
               The Future of<br />Mobile Is Here.
             </h2>
@@ -381,6 +401,48 @@ const Home = () => {
               Explore the Collection &rarr;
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          EXPLORE HS STORE — 4 portrait video cards
+      ══════════════════════════════════════════ */}
+      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark leading-snug max-w-2xl mx-auto">
+              Every device on HS Store carries a{' '}
+              <span
+                className="italic font-normal text-brand-orange"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                story worth discovering
+              </span>
+              .
+            </h2>
+          </div>
+
+          <motion.div
+            animate={{ y: exploreHidden ? -60 : 0, opacity: exploreHidden ? 0 : 1 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {exploreCards.map((card) => (
+              <div
+                key={card.title}
+                className="relative rounded-2xl overflow-hidden shadow-xl aspect-[9/16]"
+              >
+                <video
+                  src={card.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

@@ -17,7 +17,6 @@ const Navbar = () => {
   const navLinks = [
     {
       name: 'Phones',
-      path: '/phones',
       dropdown: [
         { name: 'iPhones', path: '/phones/iphone' },
         { name: 'Samsung', path: '/phones/samsung' },
@@ -26,7 +25,6 @@ const Navbar = () => {
     },
     {
       name: 'Pods & Audio',
-      path: '/audio',
       dropdown: [
         { name: 'Oraimo Pods', path: '/audio/oraimo' },
         { name: 'iPhone Pods', path: '/audio/iphone' },
@@ -36,7 +34,6 @@ const Navbar = () => {
     },
     {
       name: 'Tablets',
-      path: '/tablets',
       dropdown: [
         { name: 'iPads', path: '/tablets/ipad' },
         { name: 'Samsung Tablets', path: '/tablets/samsung' },
@@ -55,28 +52,29 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className="navbar-glass sticky top-0 z-50 py-0 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <nav className="sticky top-3 z-50 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+      <div className="navbar-glass flex items-center justify-between rounded-2xl shadow-lg shadow-black/5 px-5 md:px-8 h-16">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="/HSSTORELOGO.png" alt="HS STORE" className="h-15 w-15 md:h-40 md:w-40 object-contain" />
+          <img src="/HSMOBILESTORElogo.png" alt="HS MOBILE STORE" className="h-8 md:h-10 w-auto object-contain" />
         </Link>
 
         {/* Desktop Nav Links */}
         <div className="hidden lg:flex items-center space-x-8">
           {navLinks.map((link) => (
             <div key={link.name} className="relative group">
-              <Link
-                to={link.path}
-                className="flex items-center text-sm font-semibold text-black hover:text-brand-orange transition-colors relative"
+              <button
+                type="button"
+                className="flex items-center text-sm font-semibold text-black hover:text-brand-orange transition-colors relative cursor-default"
               >
                 {link.name}
-                <ChevronDown className="ml-1 text-xs transition-transform group-hover:rotate-180" />
+                <ChevronDown size={13} className="ml-1 transition-transform group-hover:rotate-180" />
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+              </button>
 
               {/* Dropdown */}
-              <div className="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-100 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
+              <div className="absolute top-full left-0 mt-6 w-48 bg-white border border-gray-100 rounded-2xl shadow-xl overflow-hidden opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
                 <div className="py-2">
                   {link.dropdown.map((sub) => (
                     <Link
@@ -134,7 +132,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="hidden md:flex items-center space-x-1 bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
+              className="hidden md:flex items-center space-x-1 bg-blue-600 text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
             >
               <User />
               <span>Login</span>
@@ -158,7 +156,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
+            className="lg:hidden navbar-glass rounded-2xl shadow-lg shadow-black/5 mt-2 overflow-hidden"
           >
             <div className="py-4 space-y-4 px-6">
               <form onSubmit={handleSearch} className="flex items-center bg-gray-100 rounded-lg px-4 py-2">
@@ -202,7 +200,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <button
-                  className="w-full text-center bg-brand-orange text-white py-3 rounded-lg font-medium"
+                  className="w-full text-center bg-blue-600 text-white py-3 rounded-lg font-medium"
                   onClick={() => { setIsMenuOpen(false); setIsLoginOpen(true); }}
                 >
                   Login
@@ -212,6 +210,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </nav>
 
     <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />

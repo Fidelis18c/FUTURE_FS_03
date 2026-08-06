@@ -5,8 +5,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import CategoryPage from './pages/CategoryPage';
 import ProductDetails from './pages/ProductDetails';
-import Checkout from './pages/Checkout';
-import Payment from './pages/Payment';
 import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
@@ -36,8 +34,6 @@ function App() {
                 <Route path="/covers" element={<CategoryPage />} />
                 <Route path="/covers/:category" element={<CategoryPage />} />
                 <Route path="/product/:slug" element={<ProductDetails />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/payment" element={<Payment />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/contact" element={<ContactUs />} />

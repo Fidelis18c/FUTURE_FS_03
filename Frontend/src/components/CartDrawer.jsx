@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiTrash2 } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { Link } from 'react-router-dom';
+import { openWhatsAppOrder } from '../utils/whatsapp';
 
 const CartDrawer = () => {
   const { isCartOpen, setIsCartOpen, cart, updateQuantity, removeFromCart, cartTotal } = useCart();
@@ -106,13 +107,12 @@ const CartDrawer = () => {
                   <span className="text-xl font-bold text-brand-dark">${cartTotal.toLocaleString()}</span>
                 </div>
                 <div className="grid grid-cols-1 gap-3">
-                  <Link
-                    to="/checkout"
-                    onClick={() => setIsCartOpen(false)}
-                    className="w-full py-4 bg-brand-dark text-white text-center text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors"
+                  <button
+                    onClick={() => { openWhatsAppOrder(cart); setIsCartOpen(false); }}
+                    className="w-full py-4 bg-green-600 text-white text-sm font-bold uppercase tracking-widest hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
                   >
-                    Checkout
-                  </Link>
+                    <FaWhatsapp size={18} /> Order via WhatsApp
+                  </button>
                   <button
                     onClick={() => setIsCartOpen(false)}
                     className="w-full py-4 bg-white border border-brand-dark text-brand-dark text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors"

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Import assets from the provided asset folder
-import logo from '../assets/HSSTORELOGO.png';
+import logo from '../assets/HSMOBILESTORElogo.png';
 import iphoneHero2image from '../assets/hero/IphoneHeroB.png';
 import iphoneHero3image from '../assets/hero/IphoneHeroC.png';
 import iphoneHero4image from '../assets/hero/IphoneHeroD.png';

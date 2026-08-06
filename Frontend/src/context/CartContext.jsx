@@ -16,56 +16,82 @@ export const CartProvider = ({ children }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartLoading, setCartLoading] = useState(false);
 
+  const isUUID = (str) =>
+    typeof str === 'string' &&
+    /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(str);
+
   // --- Fetch cart from API if logged in, else load from localStorage ---
   const fetchCart = useCallback(async () => {
+    // Read any existing local cart items from localStorage or current state
+    const savedLocalRaw = localStorage.getItem('hs_cart');
+    let localItems = [];
+    try {
+      if (savedLocalRaw) localItems = JSON.parse(savedLocalRaw);
+    } catch (e) {}
+
     if (!token) {
-      const saved = localStorage.getItem('hs_cart');
-      setCart(saved ? JSON.parse(saved) : []);
+      setCart(localItems);
       return;
     }
+
     try {
       setCartLoading(true);
 
-      // Check if there are local guest items in localStorage that need syncing to the DB cart
-      const saved = localStorage.getItem('hs_cart');
-      if (saved) {
-        try {
-          const localItems = JSON.parse(saved);
-          if (Array.isArray(localItems) && localItems.length > 0) {
-            for (const item of localItems) {
-              const variantId = item.variant_id || item.id;
-              if (variantId) {
-                try {
-                  await api.post('/cart', { variant_id: variantId, quantity: item.quantity });
-                } catch (e) {
-                  // Silently ignore non-database items or duplicate conflicts
-                }
-              }
+      const unSyncedItems = [];
+
+      // 1. Attempt DB sync for items with valid UUID variant IDs
+      if (localItems.length > 0) {
+        for (const item of localItems) {
+          const vId = item.variant_id || item.id;
+          if (isUUID(vId)) {
+            try {
+              await api.post('/cart', { variant_id: vId, quantity: item.quantity });
+            } catch (e) {
+              unSyncedItems.push(item);
             }
+          } else {
+            unSyncedItems.push(item);
           }
-        } catch (e) {
-          console.warn('Local cart sync error:', e);
-        } finally {
-          localStorage.removeItem('hs_cart');
         }
       }
 
-      const { data } = await api.get('/cart');
-      // Normalize API cart items to match UI shape
-      const normalized = data.map((item) => ({
-        cartItemId: item.id,
-        id: item.variant_id,
-        variant_id: item.variant_id,
-        name: item.product_name,
-        variant: item.variant_name,
-        color: item.attributes?.color || '',
-        price: parseFloat(item.variant_price),
-        image: item.image_url || '',
-        quantity: item.quantity,
-      }));
-      setCart(normalized);
+      // 2. Fetch DB cart
+      let dbItemsNormalized = [];
+      try {
+        const { data } = await api.get('/cart');
+        if (Array.isArray(data)) {
+          dbItemsNormalized = data.map((item) => ({
+            cartItemId: item.id,
+            id: item.variant_id,
+            variant_id: item.variant_id,
+            name: item.product_name,
+            variant: item.variant_name,
+            color: item.attributes?.color || '',
+            price: parseFloat(item.variant_price),
+            image: item.image_url || '',
+            quantity: item.quantity,
+          }));
+        }
+      } catch (e) {
+        console.warn('Could not fetch backend cart:', e);
+      }
+
+      // 3. Merge DB items with any un-synced/local items without duplicates
+      const merged = [...dbItemsNormalized];
+      for (const localItem of unSyncedItems) {
+        const exists = merged.some(
+          (m) =>
+            m.id === (localItem.variant_id || localItem.id) ||
+            (m.name === localItem.name && m.color === localItem.color && m.variant === localItem.variant)
+        );
+        if (!exists) {
+          merged.push(localItem);
+        }
+      }
+
+      setCart(merged);
     } catch (err) {
-      console.error('Failed to fetch cart:', err);
+      console.error('Failed to sync/fetch cart:', err);
     } finally {
       setCartLoading(false);
     }
@@ -75,25 +101,25 @@ export const CartProvider = ({ children }) => {
     fetchCart();
   }, [fetchCart]);
 
-  // --- Save to localStorage when not logged in ---
+  // --- Sync cart to localStorage whenever cart state updates ---
   useEffect(() => {
-    if (!token) {
+    if (cart.length > 0) {
       localStorage.setItem('hs_cart', JSON.stringify(cart));
     }
-  }, [cart, token]);
+  }, [cart]);
 
   // --- Add to cart ---
   const addToCart = async (product, quantity = 1, variant = '', color = '') => {
-    if (token && product.variant_id) {
-      // Use API (expects variant_id from the live product data)
+    const vId = product.variant_id || product.id;
+    if (token && isUUID(vId)) {
       try {
-        await api.post('/cart', { variant_id: product.variant_id, quantity });
+        await api.post('/cart', { variant_id: vId, quantity });
         await fetchCart();
       } catch (err) {
-        console.error('Failed to add to cart:', err);
+        console.error('Failed to add to API cart, using local state:', err);
+        setCart((prev) => [...prev, { ...product, quantity, variant, color }]);
       }
     } else {
-      // Local cart (guest or static data products)
       setCart((prev) => {
         const existingIdx = prev.findIndex(
           (item) => item.id === product.id && item.variant === variant && item.color === color

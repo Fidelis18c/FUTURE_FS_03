@@ -4,9 +4,10 @@ import productsData from '../data/products'; // fallback
 import api from '../api';
 import { useCart } from '../context/CartContext';
 import { Minus, Plus, ShoppingCart, Shield, Truck, RefreshCw } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
-import CheckoutDrawer from '../components/CheckoutDrawer';
+import { openWhatsAppOrder } from '../utils/whatsapp';
 
 const ProductDetails = () => {
   const { slug } = useParams();
@@ -18,7 +19,6 @@ const ProductDetails = () => {
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [selectedStorage, setSelectedStorage] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
@@ -113,7 +113,7 @@ const ProductDetails = () => {
     product.image ||
     staticMatch?.variantData?.[selectedColor]?.image ||
     staticMatch?.image ||
-    '/HSSTORELOGO.png';
+    '/HSMOBILESTORElogo.png';
 
   // Derive colors and storages from variants if available
   const variantColors = product.variants
@@ -146,7 +146,7 @@ const ProductDetails = () => {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.35, ease: 'easeInOut' }}
                   className="w-full h-full object-contain"
-                  onError={(e) => { e.target.src = '/HSSTORELOGO.png'; }}
+                  onError={(e) => { e.target.src = '/HSMOBILESTORElogo.png'; }}
                 />
               </AnimatePresence>
             </div>
@@ -242,10 +242,16 @@ const ProductDetails = () => {
                 <ShoppingCart className="mr-1 md:mr-2" size={15} /> Add To Cart
               </button>
               <button
-                onClick={() => setIsCheckoutOpen(true)}
-                className="flex items-center justify-center rounded-full bg-blue-600 hover:bg-blue-700 text-white py-3 md:py-4 px-4 md:px-8 font-bold uppercase tracking-wide md:tracking-widest text-xs md:text-sm transition-all"
+                onClick={() => openWhatsAppOrder([{
+                  name: product.name,
+                  variant: selectedStorage,
+                  color: selectedColor,
+                  price: currentPrice,
+                  quantity,
+                }])}
+                className="flex items-center justify-center rounded-full bg-green-600 hover:bg-green-700 text-white py-3 md:py-4 px-4 md:px-8 font-bold uppercase tracking-wide md:tracking-widest text-xs md:text-sm transition-all"
               >
-                Buy Now
+                <FaWhatsapp className="mr-1 md:mr-2" size={15} /> Buy Now
               </button>
             </div>
 
@@ -278,18 +284,6 @@ const ProductDetails = () => {
             </div>
           </div>
         )}
-
-        <CheckoutDrawer
-          isOpen={isCheckoutOpen}
-          onClose={() => setIsCheckoutOpen(false)}
-          product={{
-            name: product.name,
-            image: currentImage,
-            price: currentPrice,
-            color: selectedColor,
-            storage: selectedStorage,
-          }}
-        />
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
