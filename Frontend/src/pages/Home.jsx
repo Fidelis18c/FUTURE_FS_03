@@ -19,14 +19,14 @@ import contactUsVideo from '../assets/AboutImage/About2.mp4';
 import supportCenterVideo from '../assets/AboutImage/About5.mp4';
 import shippingVideo from '../assets/AboutImage/About6.mp4';
 
-const INITIAL_PRODUCTS = 20;
-const STEP_SIZE = 20;
+const INITIAL_PRODUCTS = 8;
+const STEP_SIZE = 8;
 
 const exploreCards = [
-  { title: 'About Us', video: aboutUsVideo, to: '/about' },
-  { title: 'Contact Us', video: contactUsVideo, to: '/contact' },
-  { title: 'Shipping', video: shippingVideo, to: '/shipping' },
-  { title: 'Support Center', video: supportCenterVideo, to: '/support' },
+  { title: 'About Us', video: aboutUsVideo },
+  { title: 'Contact Us', video: contactUsVideo },
+  { title: 'Shipping', video: shippingVideo },
+  { title: 'Support Center', video: supportCenterVideo },
 ];
 
 const topHeroItems = [
@@ -277,25 +277,51 @@ const Home = () => {
             ))}
           </motion.div>
 
-          {/* View More / View Less */}
+          {/* More / Less toggle */}
           {trendingProducts.length > INITIAL_PRODUCTS && (
-            <div className="flex justify-center mt-14 gap-4">
+            <div className="flex justify-center mt-14 gap-12">
               {visibleCount < trendingProducts.length && (
                 <button
                   onClick={() => setVisibleCount((c) => Math.min(c + STEP_SIZE, trendingProducts.length))}
-                  className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
+                  className="group flex flex-col items-center gap-2.5"
                 >
-                  View More
-                  <ChevronDown size={14} />
+                  <span className="w-14 h-14 rounded-full navbar-glass shadow-lg flex flex-col items-center justify-center overflow-hidden group-hover:bg-white/60 transition-colors">
+                    <motion.span
+                      animate={{ y: [0, 5, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                      <ChevronDown size={14} className="text-black -mb-2.5" />
+                    </motion.span>
+                    <motion.span
+                      animate={{ y: [0, 5, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+                    >
+                      <ChevronDown size={14} className="text-black" />
+                    </motion.span>
+                  </span>
+                  <span className="text-[9px] font-semibold tracking-[0.25em] uppercase text-black">More</span>
                 </button>
               )}
               {visibleCount > INITIAL_PRODUCTS && (
                 <button
                   onClick={() => setVisibleCount(INITIAL_PRODUCTS)}
-                  className="inline-flex items-center gap-2 px-10 py-3 rounded-full border-2 border-black text-black text-xs font-semibold tracking-[0.3em] uppercase hover:bg-gray-100 transition-colors"
+                  className="group flex flex-col items-center gap-2.5"
                 >
-                  View Less
-                  <ChevronUp size={14} />
+                  <span className="w-14 h-14 rounded-full navbar-glass shadow-lg flex flex-col items-center justify-center overflow-hidden group-hover:bg-white/60 transition-colors">
+                    <motion.span
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                      <ChevronUp size={14} className="text-black" />
+                    </motion.span>
+                    <motion.span
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
+                    >
+                      <ChevronUp size={14} className="text-black -mt-2.5" />
+                    </motion.span>
+                  </span>
+                  <span className="text-[9px] font-semibold tracking-[0.25em] uppercase text-black">Less</span>
                 </button>
               )}
             </div>
@@ -309,7 +335,7 @@ const Home = () => {
           Icons from react-icons/fi (Feather Icons)
           No borders, no emoji, no photo
       ══════════════════════════════════════════ */}
-      <section className="pt-4 md:pt-8 pb-0 md:pb-0 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="pt-4 md:pt-8 pb-8 md:pb-12 px-6 md:px-12 lg:px-24 bg-brand-orange">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
 
           {/* Fast Delivery */}
@@ -318,9 +344,7 @@ const Home = () => {
             transition={cardBounce.transition}
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center mb-6">
-              <Truck size={26} className="text-white" />
-            </div>
+            <Truck size={32} className="text-brand-dark mb-6" />
             <h3 className="text-lg font-bold text-brand-dark mb-2">Fast Delivery</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
               Free shipping on all orders over Tshs&nbsp;1,000,000 across Tanzania.
@@ -333,9 +357,7 @@ const Home = () => {
             transition={cardBounce.transition}
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center mb-6">
-              <Lock size={26} className="text-white" />
-            </div>
+            <Lock size={32} className="text-brand-dark mb-6" />
             <h3 className="text-lg font-bold text-brand-dark mb-2">Secure Payments</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
               Mobile money and bank transfers accepted — fully encrypted and safe.
@@ -348,9 +370,7 @@ const Home = () => {
             transition={cardBounce.transition}
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <div className="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center mb-6">
-              <Award size={26} className="text-white" />
-            </div>
+            <Award size={32} className="text-brand-dark mb-6" />
             <h3 className="text-lg font-bold text-brand-dark mb-2">Quality Guarantee</h3>
             <p className="text-gray-500 text-sm leading-relaxed">
               Every product comes with a 1-year store warranty and genuine authenticity.

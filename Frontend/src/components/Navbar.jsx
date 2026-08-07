@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, ShoppingCart, Menu, X, ChevronDown, User, LogOut } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X, ChevronDown, LogOut } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import LoginModal from './LoginModal';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const { cartCount, setIsCartOpen } = useCart();
   const { user, logout } = useAuth();
@@ -118,7 +116,11 @@ const Navbar = () => {
             )}
           </button>
 
-          {user ? (
+          <div className="hidden md:flex items-center bg-brand-orange text-white px-5 py-2 text-sm font-semibold rounded-full">
+            Welcome
+          </div>
+
+          {user && (
             <div className="hidden md:flex items-center gap-2">
               <span className="text-sm font-semibold text-brand-dark">{user.full_name?.split(' ')[0]}</span>
               <button
@@ -129,14 +131,6 @@ const Navbar = () => {
                 <span>Logout</span>
               </button>
             </div>
-          ) : (
-            <Link
-              to="/login"
-              className="hidden md:flex items-center space-x-1 bg-blue-600 text-white px-5 py-2 text-sm font-medium hover:bg-orange-700 transition-colors rounded-full"
-            >
-              <User />
-              <span>Login</span>
-            </Link>
           )}
 
           {/* Mobile Menu Toggle */}
@@ -188,7 +182,11 @@ const Navbar = () => {
                 </div>
               ))}
 
-              {user ? (
+              <div className="w-full text-center bg-brand-orange text-white py-3 rounded-lg font-semibold">
+                Welcome
+              </div>
+
+              {user && (
                 <div className="flex items-center justify-between pt-2">
                   <span className="text-sm font-bold text-brand-dark">{user.full_name}</span>
                   <button
@@ -198,13 +196,6 @@ const Navbar = () => {
                     Logout
                   </button>
                 </div>
-              ) : (
-                <button
-                  className="w-full text-center bg-blue-600 text-white py-3 rounded-lg font-medium"
-                  onClick={() => { setIsMenuOpen(false); setIsLoginOpen(true); }}
-                >
-                  Login
-                </button>
               )}
             </div>
           </motion.div>
@@ -212,8 +203,6 @@ const Navbar = () => {
       </AnimatePresence>
       </div>
     </nav>
-
-    <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
   );
 };

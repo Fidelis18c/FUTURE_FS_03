@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
 import about2 from '../assets/AboutImage/About2.mp4';
+import api from '../api';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -13,22 +14,32 @@ const info = [
 ];
 
 const ContactUs = () => {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: wire up to backend
-    setSent(true);
+    setError('');
+    setSending(true);
+    try {
+      await api.post('/contact', form);
+      setSent(true);
+    } catch (err) {
+      setError(err.response?.data?.error || 'Something went wrong. Please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="bg-white">
 
       {/* Hero Video */}
-      <section className="relative w-full h-screen">
+      <section className="relative w-full -mt-16" style={{ height: 'calc(100vh + 4rem)' }}>
         <video
           src={about2}
           autoPlay
@@ -102,6 +113,11 @@ const ContactUs = () => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600">
+                    {error}
+                  </div>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Full Name</label>
@@ -115,19 +131,14 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Subject</label>
-                  <input type="text" name="subject" value={form.subject} onChange={handleChange} required placeholder="How can we help?"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
-                </div>
-                <div>
                   <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Message</label>
                   <textarea name="message" value={form.message} onChange={handleChange} required rows={6} placeholder="Tell us more..."
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none" />
                 </div>
-                <button type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors">
+                <button type="submit" disabled={sending}
+                  className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
                   <Send size={15} />
-                  Send Message
+                  {sending ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

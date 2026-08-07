@@ -6,8 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 const quickLinks = [
   { label: 'About Us', path: '/about' },
   { label: 'Contact Us', path: '/contact' },
-  { label: 'Support Center', path: '/support' },
-  { label: 'Shipping Policy', path: '/shipping' },
 ];
 
 const categories = [

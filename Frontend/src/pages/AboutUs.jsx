@@ -67,7 +67,7 @@ const AboutUs = () => {
     <div className="bg-white">
 
       {/* Full-screen video hero */}
-      <section className="relative w-full h-screen">
+      <section className="relative w-full -mt-16" style={{ height: 'calc(100vh + 4rem)' }}>
         <video
           src={about1}
           autoPlay

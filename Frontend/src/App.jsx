@@ -5,11 +5,8 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import CategoryPage from './pages/CategoryPage';
 import ProductDetails from './pages/ProductDetails';
-import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
-import SupportCenter from './pages/SupportCenter';
-import ShippingPolicy from './pages/ShippingPolicy';
 import CartDrawer from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
@@ -34,11 +31,8 @@ function App() {
                 <Route path="/covers" element={<CategoryPage />} />
                 <Route path="/covers/:category" element={<CategoryPage />} />
                 <Route path="/product/:slug" element={<ProductDetails />} />
-                <Route path="/login" element={<Login />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/contact" element={<ContactUs />} />
-                <Route path="/support" element={<SupportCenter />} />
-                <Route path="/shipping" element={<ShippingPolicy />} />
                 <Route path="*" element={<Home />} />
               </Routes>
             </main>
