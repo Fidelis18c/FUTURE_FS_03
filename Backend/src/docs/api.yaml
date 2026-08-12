@@ -286,6 +286,31 @@ paths:
       responses:
         '200': { description: Webhook received }
 
+  /api/contact:
+    post:
+      summary: Send a contact message
+      tags: [Contact]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, email, message]
+              properties:
+                name: { type: string }
+                email: { type: string }
+                message: { type: string }
+      responses:
+        '201': { description: Message received }
+        '400': { description: Missing or invalid fields }
+    get:
+      summary: List contact messages (admin only)
+      tags: [Contact]
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: List of contact messages }
+
 components:
   securitySchemes:
     bearerAuth:

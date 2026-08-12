@@ -14,7 +14,8 @@ const getAllProducts = async (req, res, next) => {
 
   try {
     let query = `
-      SELECT p.id, p.name, p.slug, p.description, p.category_id, p.created_at, c.name as category_name, 
+      SELECT p.id, p.name, p.slug, p.description, p.category_id, p.image_url as image, p.created_at, c.name as category_name,
+      (SELECT MIN(v.price) FROM product_variants v WHERE v.product_id = p.id) as price,
       COALESCE(
         (
           SELECT json_agg(json_build_object(
@@ -22,15 +23,16 @@ const getAllProducts = async (req, res, next) => {
             'name', v.name,
             'attributes', v.attributes,
             'price', v.price,
+            'image_url', v.image_url,
             'available', COALESCE(i.available, 0)
           ))
-          FROM product_variants v 
+          FROM product_variants v
           LEFT JOIN inventory i ON v.id = i.variant_id
           WHERE v.product_id = p.id
-        ), 
+        ),
         '[]'::json
       ) as variants
-      FROM products p 
+      FROM products p
       LEFT JOIN categories c ON p.category_id = c.id
       WHERE 1=1
     `;
@@ -61,20 +63,22 @@ const getProductBySlug = async (req, res, next) => {
   const { slug } = req.params;
   try {
     const query = `
-      SELECT p.*, c.name as category_name, 
+      SELECT p.*, p.image_url as image, c.name as category_name,
+      (SELECT MIN(v.price) FROM product_variants v WHERE v.product_id = p.id) as price,
       (
         SELECT json_agg(json_build_object(
           'id', v.id,
           'name', v.name,
           'attributes', v.attributes,
           'price', v.price,
+          'image_url', v.image_url,
           'available', i.available
         ))
-        FROM product_variants v 
+        FROM product_variants v
         LEFT JOIN inventory i ON v.id = i.variant_id
         WHERE v.product_id = p.id
       ) as variants
-      FROM products p 
+      FROM products p
       LEFT JOIN categories c ON p.category_id = c.id
       WHERE p.slug = $1
     `;

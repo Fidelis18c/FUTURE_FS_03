@@ -30,6 +30,7 @@ app.use('/api/orders', require('./modules/orders/routes'));
 app.use('/api/shipping', require('./modules/shipping/routes'));
 app.use('/api/user', require('./modules/users/routes'));
 app.use('/api/payments', require('./modules/payments/routes'));
+app.use('/api/contact', require('./modules/contact/routes'));
 
 // Error Handler
 app.use((err, req, res, next) => {
