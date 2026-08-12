@@ -20,8 +20,9 @@ const sendContactNotification = async ({ name, email, message }) => {
   const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'onboarding@resend.dev';
 
   if (!RESEND_API_KEY || !ADMIN_EMAIL) {
-    console.warn('⚠️ RESEND_API_KEY or ADMIN_EMAIL not set — skipping contact email notification');
-    return;
+    const msg = 'RESEND_API_KEY or ADMIN_EMAIL not set';
+    console.warn(`⚠️ ${msg} — skipping contact email notification`);
+    return { success: false, error: msg };
   }
 
   try {
@@ -46,9 +47,11 @@ const sendContactNotification = async ({ name, email, message }) => {
         },
       }
     );
+    return { success: true };
   } catch (error) {
     const errorData = error.response ? JSON.stringify(error.response.data) : error.message;
     console.error('❌ Resend email error:', errorData);
+    return { success: false, error: errorData };
   }
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
 import about2 from '../assets/AboutImage/About2.mp4';
 import api from '../api';
@@ -27,7 +27,9 @@ const ContactUs = () => {
     setSending(true);
     try {
       await api.post('/contact', form);
+      setForm({ name: '', email: '', message: '' });
       setSent(true);
+      setTimeout(() => setSent(false), 3000);
     } catch (err) {
       setError(err.response?.data?.error || 'Something went wrong. Please try again.');
     } finally {
@@ -104,42 +106,48 @@ const ContactUs = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Send Us a Message</h2>
             <p className="text-gray-500 text-sm mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
 
-            {sent ? (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                className="text-sm font-medium text-gray-700">
-                Message sent successfully.
-              </motion.p>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {error && (
-                  <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600">
-                    {error}
-                  </div>
-                )}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Full Name</label>
-                    <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="John Doe"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Email</label>
-                    <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="you@example.com"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
-                  </div>
+            <AnimatePresence>
+              {sent && (
+                <motion.p
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  className="text-sm font-medium text-gray-700 mb-4"
+                >
+                  Message sent successfully.
+                </motion.p>
+              )}
+            </AnimatePresence>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600">
+                  {error}
+                </div>
+              )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Full Name</label>
+                  <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="John Doe"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Message</label>
-                  <textarea name="message" value={form.message} onChange={handleChange} required rows={6} placeholder="Tell us more..."
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none" />
+                  <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Email</label>
+                  <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="you@example.com"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
                 </div>
-                <button type="submit" disabled={sending}
-                  className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
-                  <Send size={15} />
-                  {sending ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
-            )}
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Message</label>
+                <textarea name="message" value={form.message} onChange={handleChange} required rows={6} placeholder="Tell us more..."
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none" />
+              </div>
+              <button type="submit" disabled={sending}
+                className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+                <Send size={15} />
+                {sending ? 'Sending...' : 'Send Message'}
+              </button>
+            </form>
           </motion.div>
 
           {/* Right — Map */}
