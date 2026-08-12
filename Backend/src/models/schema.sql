@@ -54,7 +54,6 @@ CREATE TABLE product_variants (
     name VARCHAR(255) NOT NULL, -- e.g., "iPhone 13 - Blue"
     attributes JSONB DEFAULT '{}', -- e.g., {"storage": "256 GB", "color": "Blue"}
     price DECIMAL(15, 2) NOT NULL,
-    sku VARCHAR(100) UNIQUE NOT NULL,
     image_url TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

@@ -18,11 +18,9 @@ const loadJsonFile = (filename) => {
 
 const getAllProductsData = () => {
   const files = [
-    'iphone17.json',
-    'iphone16.json',
-    'iphone15.json',
-    'iphone14.json',
-    'iphone13.json',
+    // iphone13.json - iphone17.json intentionally excluded here: those products
+    // already exist in the DB under differently-cased/worded slugs, so seeding
+    // them would create duplicates instead of updating the existing rows.
     'iphone12.json',
     'iphone11.json',
     'samsung.json',
@@ -74,11 +72,11 @@ const seed = async () => {
 
       // B. Upsert Product
       const prodResult = await db.query(
-        `INSERT INTO products (category_id, name, slug, description, image_url)
-         VALUES ($1, $2, $3, $4, $5)
-         ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, description = EXCLUDED.description, image_url = EXCLUDED.image_url
+        `INSERT INTO products (category_id, name, slug, description, image_url, price)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (slug) DO UPDATE SET name = EXCLUDED.name, description = EXCLUDED.description, image_url = EXCLUDED.image_url, price = EXCLUDED.price
          RETURNING id`,
-        [categoryId, p.name, p.slug, p.description || `${p.name} - High quality product.`, p.image || null]
+        [categoryId, p.name, p.slug, p.description || `${p.name} - High quality product.`, p.image || null, parseFloat(p.price) || 0]
       );
       const productId = prodResult.rows[0].id;
 
@@ -95,7 +93,6 @@ const seed = async () => {
                 storage,
                 price: parseFloat(price) || p.price || 0,
                 image: colorData.image || p.image || null,
-                sku: `${p.slug}-${color}-${storage}`.toLowerCase().replace(/[^a-z0-9-]/g, ''),
               });
             }
           } else {
@@ -105,7 +102,6 @@ const seed = async () => {
               storage: '',
               price: parseFloat(p.price) || 0,
               image: colorData.image || p.image || null,
-              sku: `${p.slug}-${color}`.toLowerCase().replace(/[^a-z0-9-]/g, ''),
             });
           }
         }
@@ -117,36 +113,49 @@ const seed = async () => {
           storage: p.variant || '',
           price: parseFloat(p.price) || 0,
           image: p.image || null,
-          sku: `${p.slug}-standard`.toLowerCase().replace(/[^a-z0-9-]/g, ''),
         });
       }
 
-      // D. Insert Variants and Inventory
+      // D. Insert or Update Variants and Inventory
+      // No unique constraint exists on product_variants beyond its primary key,
+      // so upserts are done manually (match by product_id + attributes) instead
+      // of relying on ON CONFLICT.
       for (const v of variantsToCreate) {
-        const variantResult = await db.query(
-          `INSERT INTO product_variants (product_id, name, attributes, price, sku, image_url)
-           VALUES ($1, $2, $3, $4, $5, $6)
-           ON CONFLICT (sku) DO UPDATE SET price = EXCLUDED.price, name = EXCLUDED.name, image_url = EXCLUDED.image_url
-           RETURNING id`,
-          [
-            productId,
-            v.name,
-            JSON.stringify({ color: v.color, storage: v.storage }),
-            v.price,
-            v.sku,
-            v.image,
-          ]
+        const attributes = JSON.stringify({ color: v.color, storage: v.storage });
+
+        const existing = await db.query(
+          `SELECT id FROM product_variants WHERE product_id = $1 AND attributes = $2::jsonb`,
+          [productId, attributes]
         );
 
-        const variantId = variantResult.rows[0].id;
+        let variantId;
+        if (existing.rows.length > 0) {
+          variantId = existing.rows[0].id;
+          await db.query(
+            `UPDATE product_variants SET name = $1, price = $2, image_url = $3 WHERE id = $4`,
+            [v.name, v.price, v.image, variantId]
+          );
+        } else {
+          const inserted = await db.query(
+            `INSERT INTO product_variants (product_id, name, attributes, price, image_url)
+             VALUES ($1, $2, $3, $4, $5)
+             RETURNING id`,
+            [productId, v.name, attributes, v.price, v.image]
+          );
+          variantId = inserted.rows[0].id;
+        }
 
-        // E. Insert Inventory
-        await db.query(
-          `INSERT INTO inventory (variant_id, available)
-           VALUES ($1, 50)
-           ON CONFLICT (variant_id) DO UPDATE SET available = EXCLUDED.available`,
+        // E. Insert or Update Inventory
+        // Same story: inventory.variant_id has no unique constraint to upsert against.
+        const existingInventory = await db.query(
+          `SELECT variant_id FROM inventory WHERE variant_id = $1`,
           [variantId]
         );
+        if (existingInventory.rows.length > 0) {
+          await db.query(`UPDATE inventory SET available = 50 WHERE variant_id = $1`, [variantId]);
+        } else {
+          await db.query(`INSERT INTO inventory (variant_id, available) VALUES ($1, 50)`, [variantId]);
+        }
       }
     }
 
