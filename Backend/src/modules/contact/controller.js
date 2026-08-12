@@ -18,9 +18,13 @@ const createContactMessage = async (req, res, next) => {
       'INSERT INTO contact_messages (name, email, message) VALUES ($1, $2, $3) RETURNING id, name, email, message, created_at',
       [name.trim(), email.trim(), message.trim()]
     );
-    res.status(201).json(result.rows[0]);
 
-    sendContactNotification(result.rows[0]);
+    // Awaited (not fire-and-forget): on Vercel's serverless runtime, the function
+    // can freeze right after the response is sent, killing any un-awaited async
+    // work before it completes — which was silently dropping this email.
+    await sendContactNotification(result.rows[0]);
+
+    res.status(201).json(result.rows[0]);
   } catch (err) {
     next(err);
   }
