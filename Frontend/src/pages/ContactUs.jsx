@@ -105,12 +105,10 @@ const ContactUs = () => {
             <p className="text-gray-500 text-sm mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
 
             {sent ? (
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
-                className="bg-green-50 border border-green-200 rounded-2xl p-10 text-center">
-                <Send size={36} className="text-green-500 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Message Sent!</h3>
-                <p className="text-sm text-gray-500">Thank you for reaching out. We'll be in touch within 24 hours.</p>
-              </motion.div>
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                className="text-sm font-medium text-gray-700">
+                Message sent successfully.
+              </motion.p>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {error && (
