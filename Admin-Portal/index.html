@@ -5,6 +5,13 @@
     <link rel="icon" type="image/png" href="/HSMOBILESTORElogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HS Store Admin</title>
+    <script>
+      // Applied before React mounts, so there's no white flash on load
+      // when the saved preference is dark.
+      if (localStorage.getItem('hs_admin_theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

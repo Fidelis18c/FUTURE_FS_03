@@ -39,8 +39,8 @@ const Categories = () => {
 
   return (
     <div className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold text-brand-dark tracking-tight mb-1">Categories</h1>
-      <p className="text-sm text-gray-500 mb-8">Products are organized under these when you create or edit them.</p>
+      <h1 className="text-2xl font-bold text-brand-dark dark:text-zinc-100 tracking-tight mb-1">Categories</h1>
+      <p className="text-sm text-gray-500 dark:text-zinc-400 mb-8">Products are organized under these when you create or edit them.</p>
 
       <form onSubmit={handleCreate} className="flex items-center gap-3 mb-8">
         <input
@@ -48,7 +48,7 @@ const Categories = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="New category name"
-          className="flex-1 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark transition-colors bg-white"
+          className="flex-1 border border-gray-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors bg-white dark:bg-zinc-800 dark:text-zinc-100"
         />
         <button
           type="submit"
@@ -60,18 +60,18 @@ const Categories = () => {
         </button>
       </form>
 
-      {error && <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">{error}</div>}
+      {error && <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-xl text-sm text-red-600 dark:text-red-400">{error}</div>}
 
-      <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden">
+      <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl overflow-hidden">
         {loading ? (
-          <div className="p-16 text-center text-sm text-gray-400">Loading categories...</div>
+          <div className="p-16 text-center text-sm text-gray-400 dark:text-zinc-500">Loading categories...</div>
         ) : categories.length === 0 ? (
-          <div className="p-16 text-center text-sm text-gray-400">No categories yet.</div>
+          <div className="p-16 text-center text-sm text-gray-400 dark:text-zinc-500">No categories yet.</div>
         ) : (
           categories.map((c) => (
-            <div key={c.id} className="flex items-center justify-between px-6 py-4 border-b border-gray-50 last:border-0">
-              <span className="font-semibold text-brand-dark">{c.name}</span>
-              <span className="text-xs text-gray-400 font-mono">{c.slug}</span>
+            <div key={c.id} className="flex items-center justify-between px-6 py-4 border-b border-gray-50 dark:border-zinc-700/60 last:border-0">
+              <span className="font-semibold text-brand-dark dark:text-zinc-100">{c.name}</span>
+              <span className="text-xs text-gray-400 dark:text-zinc-500 font-mono">{c.slug}</span>
             </div>
           ))
         )}

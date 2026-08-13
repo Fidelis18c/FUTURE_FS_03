@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-stone-100 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-stone-100 dark:bg-zinc-900 flex items-center justify-center px-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -42,18 +42,18 @@ const Login = () => {
           <img src="/HSMOBILESTORElogo.png" alt="HS Store" className="h-14 object-contain" />
         </div>
 
-        <div className="bg-white border border-gray-100 shadow-xl rounded-2xl p-8">
+        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 shadow-xl rounded-2xl p-8">
           <h1 className="text-xl font-bold text-brand-orange text-center mb-8">Admin Portal</h1>
 
           {error && (
-            <div className="mb-5 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600 text-center font-medium">
+            <div className="mb-5 p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-xl text-sm text-red-600 dark:text-red-400 text-center font-medium">
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold tracking-wider text-gray-500 mb-2">
+              <label className="block text-xs font-bold tracking-wider text-gray-500 dark:text-zinc-400 mb-2">
                 email
               </label>
               <div className="relative">
@@ -64,13 +64,13 @@ const Login = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@example.com"
-                  className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                  className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold tracking-wider text-gray-500 mb-2">
+              <label className="block text-xs font-bold tracking-wider text-gray-500 dark:text-zinc-400 mb-2">
                 password
               </label>
               <div className="relative">
@@ -81,7 +81,7 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full border border-gray-200 rounded-xl pl-10 pr-10 py-3 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                  className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 rounded-xl pl-10 pr-10 py-3 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                 />
                 <button
                   type="button"

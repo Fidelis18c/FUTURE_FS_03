@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
+/* Manual (class-based) dark mode toggle instead of following system preference */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-gray: #D2D2D2;
   --color-brand-white: #FFFFFF;
@@ -31,6 +34,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* Soft dark theme — zinc tones, not pure black */
+.dark body {
+  background-color: #18181b;
+  color: #f4f4f5;
 }
 
 ::-webkit-scrollbar {

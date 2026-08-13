@@ -32,13 +32,13 @@ const ImageUploadField = ({ value, onChange, label = 'Image' }) => {
 
   return (
     <div>
-      {label && <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">{label}</label>}
+      {label && <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">{label}</label>}
       <div className="flex items-center gap-3">
-        <div className="w-20 h-20 rounded-xl border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden shrink-0">
+        <div className="w-20 h-20 rounded-xl border border-gray-200 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden shrink-0">
           {resolved && !broken ? (
             <img src={resolved} alt="" className="w-full h-full object-contain" onError={() => setBroken(true)} />
           ) : (
-            <ImageOff size={20} className="text-gray-300" />
+            <ImageOff size={20} className="text-gray-300 dark:text-zinc-600" />
           )}
         </div>
 
@@ -54,7 +54,7 @@ const ImageUploadField = ({ value, onChange, label = 'Image' }) => {
             type="button"
             onClick={() => inputRef.current?.click()}
             disabled={uploading}
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full border border-gray-200 hover:border-brand-dark transition-colors disabled:opacity-50"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full border border-gray-200 dark:border-zinc-600 dark:text-zinc-300 hover:border-brand-dark dark:hover:border-brand-orange transition-colors disabled:opacity-50"
           >
             {uploading ? <Loader2 size={13} className="animate-spin" /> : <Upload size={13} />}
             {uploading ? 'Uploading...' : 'Upload Image'}
@@ -64,7 +64,7 @@ const ImageUploadField = ({ value, onChange, label = 'Image' }) => {
             value={value || ''}
             onChange={(e) => { onChange(e.target.value); setBroken(false); }}
             placeholder="Or paste an image URL"
-            className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs text-gray-500 focus:outline-none focus:border-brand-dark transition-colors"
+            className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 rounded-lg px-3 py-1.5 text-xs text-gray-500 dark:text-zinc-400 focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
           />
           {error && <p className="text-xs text-red-500">{error}</p>}
         </div>

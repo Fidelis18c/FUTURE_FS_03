@@ -154,46 +154,46 @@ const ProductForm = () => {
   };
 
   if (loading) {
-    return <div className="p-16 text-center text-sm text-gray-400">Loading product...</div>;
+    return <div className="p-16 text-center text-sm text-gray-400 dark:text-zinc-500">Loading product...</div>;
   }
 
   return (
     <div className="p-8 max-w-4xl mx-auto">
-      <Link to="/products" className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-dark mb-6 transition-colors">
+      <Link to="/products" className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-zinc-400 hover:text-brand-dark dark:hover:text-zinc-100 mb-6 transition-colors">
         <ChevronLeft size={16} /> Back to products
       </Link>
 
-      <h1 className="text-2xl font-bold text-brand-dark tracking-tight mb-8">
+      <h1 className="text-2xl font-bold text-brand-dark dark:text-zinc-100 tracking-tight mb-8">
         {isEdit ? 'Edit Product' : 'Add Product'}
       </h1>
 
-      {error && <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600">{error}</div>}
+      {error && <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-xl text-sm text-red-600 dark:text-red-400">{error}</div>}
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Basic info */}
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 space-y-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400">Product Details</h2>
+        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6 space-y-5">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">Product Details</h2>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Name</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Name</label>
             <input
               type="text"
               required
               value={form.name}
               onChange={(e) => setField('name', e.target.value)}
               placeholder="e.g. iPhone 17 Pro Max"
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+              className="w-full border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Category</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Category</label>
               <select
                 required
                 value={form.category_id}
                 onChange={(e) => setField('category_id', e.target.value)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark transition-colors bg-white"
+                className="w-full border border-gray-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors bg-white dark:bg-zinc-900 dark:text-zinc-100"
               >
                 <option value="">Select category</option>
                 {categories.map((c) => (
@@ -206,13 +206,13 @@ const ProductForm = () => {
                   value={newCategoryName}
                   onChange={(e) => setNewCategoryName(e.target.value)}
                   placeholder="New category name"
-                  className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-brand-dark transition-colors"
+                  className="flex-1 border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                 />
                 <button
                   type="button"
                   onClick={handleAddCategory}
                   disabled={addingCategory || !newCategoryName.trim()}
-                  className="text-xs font-bold text-brand-dark hover:underline disabled:opacity-40 disabled:no-underline shrink-0"
+                  className="text-xs font-bold text-brand-dark dark:text-zinc-200 hover:underline disabled:opacity-40 disabled:no-underline shrink-0"
                 >
                   + Add
                 </button>
@@ -220,7 +220,7 @@ const ProductForm = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">
                 Base Price (Tshs)
               </label>
               <input
@@ -230,20 +230,20 @@ const ProductForm = () => {
                 value={form.price}
                 onChange={(e) => setField('price', e.target.value)}
                 placeholder="0"
-                className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                className="w-full border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
               />
-              <p className="text-[11px] text-gray-400 mt-1.5">Used as a fallback if the product has no variants.</p>
+              <p className="text-[11px] text-gray-400 dark:text-zinc-500 mt-1.5">Used as a fallback if the product has no variants.</p>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Description</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Description</label>
             <textarea
               rows={3}
               value={form.description}
               onChange={(e) => setField('description', e.target.value)}
               placeholder="Short product description"
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark transition-colors resize-none"
+              className="w-full border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors resize-none"
             />
           </div>
 
@@ -255,67 +255,67 @@ const ProductForm = () => {
         </div>
 
         {/* Variants */}
-        <div className="bg-white border border-gray-100 rounded-2xl p-6">
+        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-5">
             <div>
-              <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400">Variants</h2>
-              <p className="text-xs text-gray-400 mt-1">Colors and storage options, each with their own price, image, and stock.</p>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">Variants</h2>
+              <p className="text-xs text-gray-400 dark:text-zinc-500 mt-1">Colors and storage options, each with their own price, image, and stock.</p>
             </div>
             <button
               type="button"
               onClick={addVariant}
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-dark border border-gray-200 rounded-full px-4 py-2 hover:border-brand-dark transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-dark dark:text-zinc-200 border border-gray-200 dark:border-zinc-600 rounded-full px-4 py-2 hover:border-brand-dark dark:hover:border-brand-orange transition-colors"
             >
               <Plus size={13} /> Add Variant
             </button>
           </div>
 
           {variants.length === 0 ? (
-            <p className="text-sm text-gray-400 py-6 text-center">No variants yet — the base price above will be used.</p>
+            <p className="text-sm text-gray-400 dark:text-zinc-500 py-6 text-center">No variants yet — the base price above will be used.</p>
           ) : (
             <div className="space-y-4">
               {variants.map((v) => (
-                <div key={v.key} className="border border-gray-100 rounded-xl p-4">
+                <div key={v.key} className="border border-gray-100 dark:border-zinc-700 rounded-xl p-4">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Color</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Color</label>
                       <input
                         type="text"
                         value={v.color}
                         onChange={(e) => updateVariant(v.key, 'color', e.target.value)}
                         placeholder="e.g. Black"
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                        className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Storage</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Storage</label>
                       <input
                         type="text"
                         value={v.storage}
                         onChange={(e) => updateVariant(v.key, 'storage', e.target.value)}
                         placeholder="e.g. 256GB"
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                        className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Price (Tshs)</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Price (Tshs)</label>
                       <input
                         type="number"
                         min="0"
                         required
                         value={v.price}
                         onChange={(e) => updateVariant(v.key, 'price', e.target.value)}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                        className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Stock</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Stock</label>
                       <input
                         type="number"
                         min="0"
                         value={v.available}
                         onChange={(e) => updateVariant(v.key, 'available', e.target.value)}
-                        className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark transition-colors"
+                        className="w-full border border-gray-200 dark:border-zinc-600 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
                       />
                     </div>
                   </div>
@@ -331,7 +331,7 @@ const ProductForm = () => {
                     <button
                       type="button"
                       onClick={() => removeVariant(v.key)}
-                      className="p-2.5 rounded-lg text-gray-400 hover:bg-red-50 hover:text-red-500 transition-colors shrink-0"
+                      className="p-2.5 rounded-lg text-gray-400 dark:text-zinc-500 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors shrink-0"
                     >
                       <Trash2 size={16} />
                     </button>
