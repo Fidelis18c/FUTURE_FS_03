@@ -20,10 +20,14 @@ const CategoryPage = () => {
     // sub-filter (iphone/samsung/ipad/...) — there's no such column, so it's
     // matched against the product name on the backend.
     const mainCategory = location.pathname.split('/')[1];
+    // Samsung tablets are named "TAB A11 4G" etc in the actual product data
+    // (matching the static source exactly) — "Samsung" never appears in the
+    // name itself, so that nav link needs its own match term.
+    const brandTerm = mainCategory === 'tablets' && category === 'samsung' ? 'tab' : category;
     try {
       const params = { limit: 100 };
       if (mainCategory) params.category = mainCategory;
-      if (category) params.brand = category;
+      if (brandTerm) params.brand = brandTerm;
 
       const { data } = await api.get('/products', { params });
       if (data && data.length > 0) {
@@ -32,14 +36,14 @@ const CategoryPage = () => {
         // Fallback to static data filtered by path
         let filtered = productsData;
         if (mainCategory) filtered = filtered.filter((p) => p.category === mainCategory);
-        if (category) filtered = filtered.filter((p) => p.name.toLowerCase().includes(category.toLowerCase()));
+        if (brandTerm) filtered = filtered.filter((p) => p.name.toLowerCase().includes(brandTerm.toLowerCase()));
         setProducts(sortIphonesFirst(filtered));
       }
     } catch {
       // Fallback to static data
       let filtered = productsData;
       if (mainCategory) filtered = filtered.filter((p) => p.category === mainCategory);
-      if (category) filtered = filtered.filter((p) => p.name.toLowerCase().includes(category.toLowerCase()));
+      if (brandTerm) filtered = filtered.filter((p) => p.name.toLowerCase().includes(brandTerm.toLowerCase()));
       setProducts(sortIphonesFirst(filtered));
     } finally {
       setLoading(false);
