@@ -31,6 +31,7 @@ app.use('/api/shipping', require('./modules/shipping/routes'));
 app.use('/api/user', require('./modules/users/routes'));
 app.use('/api/payments', require('./modules/payments/routes'));
 app.use('/api/contact', require('./modules/contact/routes'));
+app.use('/api/admin', require('./modules/admin/routes'));
 
 // Error Handler
 app.use((err, req, res, next) => {
