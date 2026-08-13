@@ -43,8 +43,7 @@ const Login = () => {
         </div>
 
         <div className="bg-white border border-gray-100 shadow-xl rounded-2xl p-8">
-          <h1 className="text-xl font-bold text-brand-orange text-center mb-1">Admin Portal</h1>
-          <p className="text-sm text-gray-500 text-center mb-8">Sign in to manage the store</p>
+          <h1 className="text-xl font-bold text-brand-orange text-center mb-8">Admin Portal</h1>
 
           {error && (
             <div className="mb-5 p-3 bg-red-50 border border-red-200 rounded-xl text-sm text-red-600 text-center font-medium">
