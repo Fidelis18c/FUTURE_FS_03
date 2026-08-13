@@ -1,5 +1,31 @@
 const db = require('../../config/db');
 
+// The frontend (ProductCard, ProductDetails) was originally built against
+// static JSON product data shaped as { colors, storage, variantData }.
+// Live products only carry a raw `variants` array, so derive the same shape
+// here rather than duplicating this logic in multiple frontend components.
+const shapeVariantSummary = (product) => {
+  const variants = product.variants || [];
+  const variantData = {};
+  const colors = [];
+  const storageSet = new Set();
+
+  for (const v of variants) {
+    const color = v.attributes?.color;
+    const storage = v.attributes?.storage || '';
+    if (!color) continue;
+
+    if (!variantData[color]) {
+      variantData[color] = { image: v.image_url || product.image || null, prices: {} };
+      colors.push(color);
+    }
+    if (storage) storageSet.add(storage);
+    variantData[color].prices[storage] = parseFloat(v.price);
+  }
+
+  return { ...product, colors, storage: [...storageSet], variantData };
+};
+
 const getAllProducts = async (req, res, next) => {
   // 1. Sanitize and validate pagination
   let limit = parseInt(req.query.limit) || 20;
@@ -53,7 +79,7 @@ const getAllProducts = async (req, res, next) => {
     query += ` ORDER BY p.created_at DESC LIMIT $${params.length - 1} OFFSET $${params.length}`;
 
     const result = await db.query(query, params);
-    res.json(result.rows);
+    res.json(result.rows.map(shapeVariantSummary));
   } catch (err) {
     next(err);
   }
@@ -85,7 +111,7 @@ const getProductBySlug = async (req, res, next) => {
     const result = await db.query(query, [slug]);
 
     if (result.rows.length === 0) return res.status(404).json({ error: 'Product not found' });
-    res.json(result.rows[0]);
+    res.json(shapeVariantSummary(result.rows[0]));
   } catch (err) {
     next(err);
   }

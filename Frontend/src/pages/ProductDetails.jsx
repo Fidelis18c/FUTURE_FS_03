@@ -109,6 +109,7 @@ const ProductDetails = () => {
     : product.variantData?.[selectedColor]?.prices?.[selectedStorage] || staticMatch?.price || product.price || 0;
 
   const currentImage =
+    selectedVariant?.image_url ||
     product.variantData?.[selectedColor]?.image ||
     product.image ||
     staticMatch?.variantData?.[selectedColor]?.image ||

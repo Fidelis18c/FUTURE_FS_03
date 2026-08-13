@@ -78,7 +78,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await api.get('/products', { params: { limit: 100 } });
+        const { data } = await api.get('/products', { params: { limit: 100, category: 'phones' } });
         if (data && data.length > 0) {
           setAllProducts(data);
         } else {
@@ -93,7 +93,15 @@ const Home = () => {
     fetchProducts();
   }, []);
 
-  const trendingProducts = allProducts.length > 0 ? allProducts : productsData.slice(0, 24);
+  // iPhones first, then any other phones, so the homepage leads with iPhone
+  // stock rather than whichever category was seeded most recently.
+  const trendingProducts = allProducts.length > 0
+    ? [...allProducts].sort((a, b) => {
+        const aIsIphone = /^iphone/i.test(a.name.trim()) ? 0 : 1;
+        const bIsIphone = /^iphone/i.test(b.name.trim()) ? 0 : 1;
+        return aIsIphone - bIsIphone;
+      })
+    : productsData.slice(0, 24);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
