@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
 import api from '../api';
 import productsData from '../data/products'; // fallback
+import { sortIphonesFirst } from '../utils/sortProducts';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
 
@@ -93,14 +94,11 @@ const Home = () => {
     fetchProducts();
   }, []);
 
-  // iPhones first, then any other phones, so the homepage leads with iPhone
-  // stock rather than whichever category was seeded most recently.
+  // Newest iPhones first, then any other phones, so the homepage leads with
+  // iPhone stock in the same generation order as the iPhone category page,
+  // rather than whichever category was seeded most recently.
   const trendingProducts = allProducts.length > 0
-    ? [...allProducts].sort((a, b) => {
-        const aIsIphone = /^iphone/i.test(a.name.trim()) ? 0 : 1;
-        const bIsIphone = /^iphone/i.test(b.name.trim()) ? 0 : 1;
-        return aIsIphone - bIsIphone;
-      })
+    ? sortIphonesFirst(allProducts)
     : productsData.slice(0, 24);
 
   useEffect(() => {

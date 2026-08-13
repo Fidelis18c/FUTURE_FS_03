@@ -32,6 +32,7 @@ const getAllProducts = async (req, res, next) => {
   let offset = parseInt(req.query.offset) || 0;
   const category = req.query.category;
   const search = req.query.search;
+  const brand = req.query.brand;
 
   // Prevent abuse and invalid values
   if (limit > 100) limit = 100;
@@ -69,6 +70,12 @@ const getAllProducts = async (req, res, next) => {
       query += ` AND c.slug = $${params.length}`;
     }
 
+    // There's no brand column — the storefront's sub-navigation (e.g.
+    // "iPhone", "Samsung", "iPad") is matched against the product name.
+    if (brand) {
+      params.push(`%${brand}%`);
+      query += ` AND p.name ILIKE $${params.length}`;
+    }
 
     if (search) {
       params.push(`%${search}%`);

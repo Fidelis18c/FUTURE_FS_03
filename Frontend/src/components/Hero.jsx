@@ -40,7 +40,7 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-[35vh] md:h-[60vh] bg-transparent overflow-visible flex flex-col justify-between pt-0 pb-0 px-6 md:px-12 lg:px-24">
+    <section className="relative w-full h-[35vh] md:h-[60vh] bg-transparent overflow-hidden flex flex-col justify-between pt-0 pb-0 px-6 md:px-12 lg:px-24">
 
       {/* SHOWROOM AREA */}
       <div className="relative flex-1 flex items-center justify-center">

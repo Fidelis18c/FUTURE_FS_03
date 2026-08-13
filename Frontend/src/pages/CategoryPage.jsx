@@ -4,6 +4,7 @@ import ProductCard from '../components/ProductCard';
 import productsData from '../data/products'; // fallback
 import api from '../api';
 import { FiFilter } from 'react-icons/fi';
+import { sortIphonesFirst } from '../utils/sortProducts';
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -14,29 +15,32 @@ const CategoryPage = () => {
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
+    // The real DB category (phones/audio/tablets/...) always comes from the
+    // path segment; :category from the route params is actually a brand-ish
+    // sub-filter (iphone/samsung/ipad/...) — there's no such column, so it's
+    // matched against the product name on the backend.
     const mainCategory = location.pathname.split('/')[1];
     try {
       const params = { limit: 100 };
-      // Map frontend URL paths to backend category slugs
-      if (category) params.category = category;
-      else if (mainCategory) params.category = mainCategory;
+      if (mainCategory) params.category = mainCategory;
+      if (category) params.brand = category;
 
       const { data } = await api.get('/products', { params });
       if (data && data.length > 0) {
-        setProducts(data);
+        setProducts(sortIphonesFirst(data));
       } else {
         // Fallback to static data filtered by path
         let filtered = productsData;
         if (mainCategory) filtered = filtered.filter((p) => p.category === mainCategory);
-        if (category) filtered = filtered.filter((p) => p.brand.toLowerCase() === category.toLowerCase());
-        setProducts(filtered);
+        if (category) filtered = filtered.filter((p) => p.name.toLowerCase().includes(category.toLowerCase()));
+        setProducts(sortIphonesFirst(filtered));
       }
     } catch {
       // Fallback to static data
       let filtered = productsData;
       if (mainCategory) filtered = filtered.filter((p) => p.category === mainCategory);
-      if (category) filtered = filtered.filter((p) => p.brand.toLowerCase() === category.toLowerCase());
-      setProducts(filtered);
+      if (category) filtered = filtered.filter((p) => p.name.toLowerCase().includes(category.toLowerCase()));
+      setProducts(sortIphonesFirst(filtered));
     } finally {
       setLoading(false);
     }
