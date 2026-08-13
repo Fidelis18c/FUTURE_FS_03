@@ -53,15 +53,15 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="p-8 max-w-6xl mx-auto">
-      <div className="flex items-center justify-between mb-8">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-bold text-brand-dark dark:text-zinc-100 tracking-tight">Dashboard</h1>
           <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">Overview of your store's catalog</p>
         </div>
         <Link
           to="/products/new"
-          className="inline-flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-orange-700 transition-colors"
+          className="inline-flex items-center justify-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-orange-700 transition-colors"
         >
           Add Product
         </Link>
@@ -69,7 +69,7 @@ const Dashboard = () => {
 
       {error && <div className="mb-6 p-4 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-xl text-sm text-red-600 dark:text-red-400">{error}</div>}
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8">
         <StatCard label="Total Products" value={products.length} delay={0} />
         <StatCard label="Categories" value={categories.length} delay={0.05} />
         <StatCard label="Variants (colors/sizes)" value={stats.totalVariants} delay={0.1} />

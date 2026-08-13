@@ -158,7 +158,7 @@ const ProductForm = () => {
   }
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
       <Link to="/products" className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-zinc-400 hover:text-brand-dark dark:hover:text-zinc-100 mb-6 transition-colors">
         <ChevronLeft size={16} /> Back to products
       </Link>
@@ -171,7 +171,7 @@ const ProductForm = () => {
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Basic info */}
-        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6 space-y-5">
+        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-4 sm:p-6 space-y-5">
           <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">Product Details</h2>
 
           <div>
@@ -186,7 +186,7 @@ const ProductForm = () => {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Category</label>
               <select
@@ -255,8 +255,8 @@ const ProductForm = () => {
         </div>
 
         {/* Variants */}
-        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6">
-          <div className="flex items-center justify-between mb-5">
+        <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
             <div>
               <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">Variants</h2>
               <p className="text-xs text-gray-400 dark:text-zinc-500 mt-1">Colors and storage options, each with their own price, image, and stock.</p>
@@ -264,7 +264,7 @@ const ProductForm = () => {
             <button
               type="button"
               onClick={addVariant}
-              className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-dark dark:text-zinc-200 border border-gray-200 dark:border-zinc-600 rounded-full px-4 py-2 hover:border-brand-dark dark:hover:border-brand-orange transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand-dark dark:text-zinc-200 border border-gray-200 dark:border-zinc-600 rounded-full px-4 py-2 hover:border-brand-dark dark:hover:border-brand-orange transition-colors shrink-0"
             >
               <Plus size={13} /> Add Variant
             </button>
@@ -342,7 +342,7 @@ const ProductForm = () => {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-3">
           {isEdit ? (
             <button
               type="button"

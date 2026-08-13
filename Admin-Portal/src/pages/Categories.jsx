@@ -38,7 +38,7 @@ const Categories = () => {
   };
 
   return (
-    <div className="p-8 max-w-2xl mx-auto">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold text-brand-dark dark:text-zinc-100 tracking-tight mb-1">Categories</h1>
       <p className="text-sm text-gray-500 dark:text-zinc-400 mb-8">Products are organized under these when you create or edit them.</p>
 

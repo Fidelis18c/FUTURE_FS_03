@@ -44,15 +44,15 @@ const Products = () => {
   };
 
   return (
-    <div className="p-8 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-8">
+    <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-bold text-brand-dark dark:text-zinc-100 tracking-tight">Products</h1>
           <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">{products.length} product{products.length !== 1 ? 's' : ''} in the catalog</p>
         </div>
         <Link
           to="/products/new"
-          className="inline-flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-orange-700 transition-colors"
+          className="inline-flex items-center justify-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-orange-700 transition-colors"
         >
           <Plus size={16} /> Add Product
         </Link>
@@ -77,58 +77,104 @@ const Products = () => {
         ) : filtered.length === 0 ? (
           <div className="p-16 text-center text-sm text-gray-400 dark:text-zinc-500">No products found.</div>
         ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-100 dark:border-zinc-700 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">
-                <th className="px-6 py-4">Product</th>
-                <th className="px-6 py-4">Category</th>
-                <th className="px-6 py-4">Price</th>
-                <th className="px-6 py-4">Variants</th>
-                <th className="px-6 py-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
+          <>
+            {/* Mobile: card list — a table would need horizontal scrolling
+                to reach price/actions, which is worse than just stacking. */}
+            <div className="sm:hidden divide-y divide-gray-50 dark:divide-zinc-700/60">
               {filtered.map((p) => {
                 const img = resolveImageUrl(p.image_url);
                 return (
-                  <tr key={p.id} className="border-b border-gray-50 dark:border-zinc-700/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-zinc-700/40 transition-colors">
-                    <td className="px-6 py-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-11 h-11 rounded-lg border border-gray-100 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden shrink-0">
-                          {img ? (
-                            <img src={img} alt="" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
-                          ) : (
-                            <ImageOff size={14} className="text-gray-300 dark:text-zinc-600" />
-                          )}
-                        </div>
-                        <span className="font-semibold text-brand-dark dark:text-zinc-100">{p.name.trim()}</span>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-gray-500 dark:text-zinc-400">{p.category_name || '—'}</td>
-                    <td className="px-6 py-4 font-medium text-brand-dark dark:text-zinc-100">Tshs {Number(p.price || 0).toLocaleString()}</td>
-                    <td className="px-6 py-4 text-gray-500 dark:text-zinc-400">{(p.variants || []).length}</td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link
-                          to={`/products/${p.id}/edit`}
-                          className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
-                        >
-                          <Pencil size={15} />
-                        </Link>
-                        <button
-                          onClick={() => handleDelete(p)}
-                          disabled={deletingId === p.id}
-                          className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
-                        >
-                          <Trash2 size={15} />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
+                  <div key={p.id} className="p-4 flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-lg border border-gray-100 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden shrink-0">
+                      {img ? (
+                        <img src={img} alt="" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                      ) : (
+                        <ImageOff size={14} className="text-gray-300 dark:text-zinc-600" />
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-brand-dark dark:text-zinc-100 truncate">{p.name.trim()}</p>
+                      <p className="text-xs text-gray-500 dark:text-zinc-400 truncate">
+                        {p.category_name || '—'} · {(p.variants || []).length} variant{(p.variants || []).length !== 1 ? 's' : ''}
+                      </p>
+                      <p className="text-sm font-medium text-brand-dark dark:text-zinc-100 mt-0.5">Tshs {Number(p.price || 0).toLocaleString()}</p>
+                    </div>
+                    <div className="flex items-center gap-1 shrink-0">
+                      <Link
+                        to={`/products/${p.id}/edit`}
+                        className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
+                      >
+                        <Pencil size={15} />
+                      </Link>
+                      <button
+                        onClick={() => handleDelete(p)}
+                        disabled={deletingId === p.id}
+                        className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
+                      >
+                        <Trash2 size={15} />
+                      </button>
+                    </div>
+                  </div>
                 );
               })}
-            </tbody>
-          </table>
+            </div>
+
+            {/* Tablet and up: full table */}
+            <div className="hidden sm:block overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-gray-100 dark:border-zinc-700 text-left text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">
+                    <th className="px-6 py-4">Product</th>
+                    <th className="hidden lg:table-cell px-6 py-4">Category</th>
+                    <th className="px-6 py-4">Price</th>
+                    <th className="px-6 py-4">Variants</th>
+                    <th className="px-6 py-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filtered.map((p) => {
+                    const img = resolveImageUrl(p.image_url);
+                    return (
+                      <tr key={p.id} className="border-b border-gray-50 dark:border-zinc-700/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-zinc-700/40 transition-colors">
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-11 h-11 rounded-lg border border-gray-100 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden shrink-0">
+                              {img ? (
+                                <img src={img} alt="" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                              ) : (
+                                <ImageOff size={14} className="text-gray-300 dark:text-zinc-600" />
+                              )}
+                            </div>
+                            <span className="font-semibold text-brand-dark dark:text-zinc-100">{p.name.trim()}</span>
+                          </div>
+                        </td>
+                        <td className="hidden lg:table-cell px-6 py-4 text-gray-500 dark:text-zinc-400">{p.category_name || '—'}</td>
+                        <td className="px-6 py-4 font-medium text-brand-dark dark:text-zinc-100 whitespace-nowrap">Tshs {Number(p.price || 0).toLocaleString()}</td>
+                        <td className="px-6 py-4 text-gray-500 dark:text-zinc-400">{(p.variants || []).length}</td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center justify-end gap-2">
+                            <Link
+                              to={`/products/${p.id}/edit`}
+                              className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
+                            >
+                              <Pencil size={15} />
+                            </Link>
+                            <button
+                              onClick={() => handleDelete(p)}
+                              disabled={deletingId === p.id}
+                              className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
+                            >
+                              <Trash2 size={15} />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </div>
