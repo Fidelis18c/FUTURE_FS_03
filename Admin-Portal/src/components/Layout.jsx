@@ -1,9 +1,10 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { Package, Tags, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, Tags, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
-  { to: '/', label: 'Products', icon: Package, end: true },
+  { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
+  { to: '/products', label: 'Products', icon: Package },
   { to: '/categories', label: 'Categories', icon: Tags },
 ];
 
@@ -11,11 +12,12 @@ const Layout = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-stone-100 flex">
       {/* Sidebar */}
       <aside className="w-64 shrink-0 bg-white border-r border-gray-100 flex flex-col">
-        <div className="h-20 flex items-center px-6 border-b border-gray-100">
+        <div className="h-20 flex items-center gap-2.5 px-6 border-b border-gray-100">
           <img src="/HSMOBILESTORElogo.png" alt="HS Store" className="h-9 w-auto object-contain" />
+          <span className="text-sm font-bold text-brand-orange">Admin Portal</span>
         </div>
 
         <nav className="flex-1 px-4 py-6 space-y-1">
@@ -26,7 +28,7 @@ const Layout = () => {
               end={end}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
-                  isActive ? 'bg-brand-dark text-white' : 'text-gray-600 hover:bg-gray-100'
+                  isActive ? 'bg-brand-orange text-white' : 'text-gray-600 hover:bg-gray-100'
                 }`
               }
             >

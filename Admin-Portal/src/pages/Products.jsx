@@ -52,7 +52,7 @@ const Products = () => {
         </div>
         <Link
           to="/products/new"
-          className="inline-flex items-center gap-2 bg-brand-dark text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors"
+          className="inline-flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-orange-700 transition-colors"
         >
           <Plus size={16} /> Add Product
         </Link>

@@ -53,7 +53,7 @@ const Categories = () => {
         <button
           type="submit"
           disabled={creating || !name.trim()}
-          className="inline-flex items-center gap-2 bg-brand-dark text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-gray-800 transition-colors disabled:opacity-50 shrink-0"
+          className="inline-flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-orange-700 transition-colors disabled:opacity-50 shrink-0"
         >
           {creating ? <Loader2 size={15} className="animate-spin" /> : <Plus size={15} />}
           Add

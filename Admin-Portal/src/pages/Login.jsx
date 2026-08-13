@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-stone-100 flex items-center justify-center px-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ const Login = () => {
         </div>
 
         <div className="bg-white border border-gray-100 shadow-xl rounded-2xl p-8">
-          <h1 className="text-xl font-bold text-brand-dark text-center mb-1">Admin Portal</h1>
+          <h1 className="text-xl font-bold text-brand-orange text-center mb-1">Admin Portal</h1>
           <p className="text-sm text-gray-500 text-center mb-8">Sign in to manage the store</p>
 
           {error && (
@@ -97,7 +97,7 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 bg-brand-dark text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-gray-800 transition-colors disabled:opacity-50 mt-2"
+              className="w-full py-3.5 bg-brand-orange text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-orange-700 transition-colors disabled:opacity-50 mt-2"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>

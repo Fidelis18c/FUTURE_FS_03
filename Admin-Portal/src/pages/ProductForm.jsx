@@ -135,7 +135,7 @@ const ProductForm = () => {
         ]);
       }
 
-      navigate('/');
+      navigate('/products');
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to save product');
     } finally {
@@ -147,7 +147,7 @@ const ProductForm = () => {
     if (!window.confirm(`Delete "${form.name}"? This cannot be undone.`)) return;
     try {
       await api.delete(`/admin/products/${id}`);
-      navigate('/');
+      navigate('/products');
     } catch (err) {
       alert(err.response?.data?.error || 'Failed to delete product');
     }
@@ -159,7 +159,7 @@ const ProductForm = () => {
 
   return (
     <div className="p-8 max-w-4xl mx-auto">
-      <Link to="/" className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-dark mb-6 transition-colors">
+      <Link to="/products" className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-brand-dark mb-6 transition-colors">
         <ChevronLeft size={16} /> Back to products
       </Link>
 
@@ -356,7 +356,7 @@ const ProductForm = () => {
           <button
             type="submit"
             disabled={saving}
-            className="inline-flex items-center gap-2 bg-brand-dark text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-gray-800 transition-colors disabled:opacity-50"
+            className="inline-flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-orange-700 transition-colors disabled:opacity-50"
           >
             {saving && <Loader2 size={15} className="animate-spin" />}
             {saving ? 'Saving...' : isEdit ? 'Save Changes' : 'Create Product'}
