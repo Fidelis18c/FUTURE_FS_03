@@ -61,30 +61,35 @@ const getPrice = (product, selectedColor, selectedStorage) => {
   return product.price;
 };
 
+// Pull the image for a color out of a product's variantData, tolerating
+// case differences in the color name ("Lightblue" vs "lightblue").
+const variantImage = (target, selectedColor) => {
+  if (!target?.variantData || !selectedColor) return null;
+  if (target.variantData[selectedColor]?.image) return target.variantData[selectedColor].image;
+  const key = Object.keys(target.variantData).find(
+    (k) => k.toLowerCase() === selectedColor.toLowerCase()
+  );
+  return (key && target.variantData[key]?.image) || null;
+};
+
+// The hand-picked images in the static catalog (src/data/*.json) are the
+// source of truth for how a product looks: when a static entry matches the
+// product (by slug or name), its images win over whatever image_url the API
+// row carries. API images are only a fallback for products that don't exist
+// in the static catalog (e.g. newly added via the admin portal).
 const getImage = (product, selectedColor) => {
   const staticMatch = productsData.find(
     (p) => p.slug === product.slug || p.name?.toLowerCase() === product.name?.toLowerCase()
   );
 
-  const target = (product.variantData && Object.keys(product.variantData).length > 0) ? product : staticMatch;
-
-  if (target && target.variantData && selectedColor) {
-    if (target.variantData[selectedColor]?.image) {
-      return target.variantData[selectedColor].image;
-    }
-    const key = Object.keys(target.variantData).find(
-      k => k.toLowerCase() === selectedColor.toLowerCase()
-    );
-    if (key && target.variantData[key]?.image) {
-      return target.variantData[key].image;
-    }
-  }
-
-  if (product.image) return product.image;
-  if (product.image_url) return product.image_url;
-  if (staticMatch?.image) return staticMatch.image;
-
-  return '/HSMOBILESTORElogo.png';
+  return (
+    variantImage(staticMatch, selectedColor) ||
+    variantImage(product, selectedColor) ||
+    staticMatch?.image ||
+    product.image ||
+    product.image_url ||
+    '/HSMOBILESTORElogo.png'
+  );
 };
 
 // `eager` marks above-the-fold cards: their image skips lazy-loading and is

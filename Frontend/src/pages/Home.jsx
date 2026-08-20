@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
-import productsData from '../data/products';
+import api from '../api';
+import productsData from '../data/products'; // fallback + instant first paint
 import { sortIphonesFirst } from '../utils/sortProducts';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
@@ -36,11 +37,8 @@ const topHeroItems = [
   { type: 'image', src: heroImg3 },
 ];
 
-// The homepage grid is the curated static catalog (src/data/*.json), rendered
-// immediately — no API round-trip. Live/admin-managed products still power the
-// category pages and product details; keeping the homepage static means it
-// always matches the hand-picked images and never flashes/reorders after load.
-const trendingProducts = sortIphonesFirst(productsData.filter((p) => p.category === 'phones'));
+// Shown instantly while the live API loads, so the grid never sits empty.
+const staticPhones = sortIphonesFirst(productsData.filter((p) => p.category === 'phones'));
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -63,6 +61,7 @@ const cardBounce = {
 const HERO_BG = 'linear-gradient(155deg, #13111c 0%, #1f1509 52%, #13111c 100%)';
 
 const Home = () => {
+  const [allProducts, setAllProducts] = useState([]);
   const [visibleCount, setVisibleCount] = useState(INITIAL_PRODUCTS);
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -78,6 +77,23 @@ const Home = () => {
       lastScrollY.current = latest;
     }
   });
+
+  // Live data comes from the API (so admin-portal edits show up here); the
+  // card images themselves are resolved by ProductCard, which prefers the
+  // hand-picked static images over whatever image_url the API row carries.
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await api.get('/products', { params: { limit: 100, category: 'phones' } });
+        if (data && data.length > 0) setAllProducts(data);
+      } catch {
+        // keep showing the static catalog
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const trendingProducts = allProducts.length > 0 ? sortIphonesFirst(allProducts) : staticPhones;
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
