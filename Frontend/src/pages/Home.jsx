@@ -462,6 +462,14 @@ const Home = () => {
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover"
                 />
+                {/* Thin white frame — full-length hairlines crossing near the
+                    corners, drawing a rectangle over each video */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <span className="absolute top-4 left-0 right-0 h-px bg-white" />
+                  <span className="absolute bottom-4 left-0 right-0 h-px bg-white" />
+                  <span className="absolute left-4 top-0 bottom-0 w-px bg-white" />
+                  <span className="absolute right-4 top-0 bottom-0 w-px bg-white" />
+                </div>
               </div>
             ))}
           </motion.div>
