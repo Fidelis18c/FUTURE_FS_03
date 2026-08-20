@@ -124,8 +124,9 @@ const ProductCard = ({ product, eager = false }) => {
       className="group overflow-hidden transition-all duration-300 rounded-2xl flex flex-col cursor-pointer"
       style={{ backgroundColor: '#f5f5f7' }}
     >
-      {/* Image Area */}
-      <div className="relative w-full overflow-hidden flex-shrink-0" style={{ height: '260px' }}>
+      {/* Image Area — white, so transparent catalog images match the white
+          backgrounds of admin-uploaded product photos */}
+      <div className="relative w-full overflow-hidden flex-shrink-0 bg-white" style={{ height: '260px' }}>
         <img
           src={displayImage}
           alt={product.name}
