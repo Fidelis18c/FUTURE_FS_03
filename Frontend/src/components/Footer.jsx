@@ -121,7 +121,7 @@ const Footer = () => {
             <ul className="space-y-0 lg:space-y-4">
               {[
                 { label: 'Email', value: 'support@hsstore.com' },
-                { label: 'Phone', value: '+255 700 000 000' },
+                { label: 'Phone', value: '+255 762 889 818' },
                 { label: 'Address', value: 'P.O. Box 1234, Dar es Salaam, Tanzania' },
               ].map((item) => (
                 <li key={item.label} className="py-3 lg:py-0 border-b border-gray-50 lg:border-none last:border-none">

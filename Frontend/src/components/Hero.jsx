@@ -40,7 +40,9 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-[35vh] md:h-[60vh] bg-transparent overflow-hidden flex flex-col justify-between pt-0 pb-0 px-6 md:px-12 lg:px-24">
+    // pb-4 leaves slack under the bottom-anchored images so the spring's
+    // slight overshoot never dips past the overflow-hidden edge
+    <section className="relative w-full h-[35vh] md:h-[60vh] bg-transparent overflow-hidden flex flex-col justify-between pt-0 pb-4 px-6 md:px-12 lg:px-24">
 
       {/* SHOWROOM AREA */}
       <div className="relative flex-1 flex items-center justify-center">
@@ -69,7 +71,10 @@ const Hero = () => {
                   scale: isActive ? 1.15 : 0.75,
                   opacity: isVisible ? (isActive ? 1 : 0.4) : 0,
                   zIndex: isActive ? 30 : 20 - absDistance,
-                  y: isActive ? 0 : 60,
+                  // Raise the active slide instead of sinking the others:
+                  // nothing ever translates below the container's bottom edge,
+                  // so the overflow-hidden section can't clip the images.
+                  y: isActive ? -60 : 0,
                   pointerEvents: isVisible ? 'auto' : 'none',
                 }}
                 transition={{
@@ -78,6 +83,8 @@ const Hero = () => {
                   damping: 20,
                   mass: 0.8,
                 }}
+                // Scale grows upward from the bottom edge, not past it.
+                style={{ transformOrigin: 'bottom center' }}
                 className="absolute bottom-0 cursor-pointer select-none"
                 onClick={() => setActiveIndex(index)}
               >
