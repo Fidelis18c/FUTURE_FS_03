@@ -237,11 +237,9 @@ const ProductForm = () => {
             />
           </div>
 
-          <ImageUploadField
-            label="Product Image (fallback / default)"
-            value={form.image_url}
-            onChange={(url) => setField('image_url', url)}
-          />
+          {/* No product-level image field: images are managed per variant.
+              form.image_url is still loaded and sent back unchanged so an
+              existing product image isn't wiped on save. */}
         </div>
 
         {/* Variants */}
