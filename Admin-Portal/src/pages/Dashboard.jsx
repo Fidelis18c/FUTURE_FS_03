@@ -11,7 +11,7 @@ const StatCard = ({ label, value, delay = 0 }) => (
     className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6"
   >
     <p className="text-2xl font-bold text-brand-dark dark:text-zinc-100">{value}</p>
-    <p className="text-sm text-gray-500 dark:text-zinc-400 mt-0.5">{label}</p>
+    <p className="text-sm text-black dark:text-zinc-400 mt-0.5">{label}</p>
   </motion.div>
 );
 
@@ -49,7 +49,7 @@ const Dashboard = () => {
   }, [products]);
 
   if (loading) {
-    return <div className="p-16 text-center text-sm text-gray-400 dark:text-zinc-500">Loading dashboard...</div>;
+    return <div className="p-16 text-center text-sm text-black dark:text-zinc-500">Loading dashboard...</div>;
   }
 
   return (
@@ -57,7 +57,7 @@ const Dashboard = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-bold text-brand-dark dark:text-zinc-100 tracking-tight">Dashboard</h1>
-          <p className="text-sm text-gray-500 dark:text-zinc-400 mt-1">Overview of your store's catalog</p>
+          <p className="text-sm text-black dark:text-zinc-400 mt-1">Overview of your store's catalog</p>
         </div>
         <Link
           to="/products/new"
@@ -79,14 +79,14 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Products by category */}
         <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-5">Products by Category</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-5">Products by Category</h2>
           {Object.keys(stats.byCategory).length === 0 ? (
-            <p className="text-sm text-gray-400 dark:text-zinc-500">No products yet.</p>
+            <p className="text-sm text-black dark:text-zinc-500">No products yet.</p>
           ) : (
             <div className="space-y-3">
               {Object.entries(stats.byCategory).sort((a, b) => b[1] - a[1]).map(([name, count]) => (
                 <div key={name} className="flex items-center gap-3">
-                  <span className="text-sm text-gray-600 dark:text-zinc-300 w-32 truncate">{name}</span>
+                  <span className="text-sm text-black dark:text-zinc-300 w-32 truncate">{name}</span>
                   <div className="flex-1 h-2 bg-gray-100 dark:bg-zinc-700 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-brand-orange rounded-full"
@@ -102,7 +102,7 @@ const Dashboard = () => {
 
         {/* Stock alerts */}
         <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-5">Stock Alerts</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-5">Stock Alerts</h2>
 
           <div className="flex items-center justify-between mb-3">
             <p className="text-sm font-semibold text-brand-dark dark:text-zinc-100">Out of stock</p>
@@ -122,7 +122,7 @@ const Dashboard = () => {
                   to={`/products/${v.productId}/edit`}
                   className="flex items-center justify-between px-3 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-700/60 transition-colors text-xs"
                 >
-                  <span className="text-gray-600 dark:text-zinc-400 truncate">{v.productName} — {v.attributes?.color || v.name}</span>
+                  <span className="text-black dark:text-zinc-400 truncate">{v.productName} — {v.attributes?.color || v.name}</span>
                   <span className={`font-bold shrink-0 ml-2 ${v.available === 0 ? 'text-red-500' : 'text-amber-500'}`}>
                     {v.available} left
                   </span>
@@ -130,14 +130,14 @@ const Dashboard = () => {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-gray-400 dark:text-zinc-500">All variants are well stocked.</p>
+            <p className="text-sm text-black dark:text-zinc-500">All variants are well stocked.</p>
           )}
         </div>
       </div>
 
       {stats.noImage.length > 0 && (
         <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-6 mt-6">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-5">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-5">
             Products missing an image ({stats.noImage.length})
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -145,7 +145,7 @@ const Dashboard = () => {
               <Link
                 key={p.id}
                 to={`/products/${p.id}/edit`}
-                className="text-xs font-medium px-3 py-1.5 rounded-full bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
+                className="text-xs font-medium px-3 py-1.5 rounded-full bg-gray-100 dark:bg-zinc-700 text-black dark:text-zinc-300 hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
               >
                 {p.name.trim()}
               </Link>

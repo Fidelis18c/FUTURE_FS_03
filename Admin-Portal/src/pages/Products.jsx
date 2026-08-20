@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Search, Pencil, Trash2, ImageOff } from 'lucide-react';
 import api, { resolveImageUrl } from '../api';
 
 const Products = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState('');
@@ -30,7 +31,10 @@ const Products = () => {
     return products.filter((p) => p.name.toLowerCase().includes(q) || p.category_name?.toLowerCase().includes(q));
   }, [products, query]);
 
-  const handleDelete = async (product) => {
+  const goToEdit = (product) => navigate(`/products/${product.id}/edit`);
+
+  const handleDelete = async (e, product) => {
+    e.stopPropagation();
     if (!window.confirm(`Delete "${product.name.trim()}"? This cannot be undone.`)) return;
     setDeletingId(product.id);
     try {
@@ -84,7 +88,11 @@ const Products = () => {
               {filtered.map((p) => {
                 const img = resolveImageUrl(p.image_url);
                 return (
-                  <div key={p.id} className="p-4 flex items-center gap-3">
+                  <div
+                    key={p.id}
+                    onClick={() => goToEdit(p)}
+                    className="p-4 flex items-center gap-3 cursor-pointer hover:bg-gray-50/60 dark:hover:bg-zinc-700/40 transition-colors"
+                  >
                     <div className="w-12 h-12 rounded-lg border border-gray-100 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden shrink-0">
                       {img ? (
                         <img src={img} alt="" className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
@@ -102,14 +110,15 @@ const Products = () => {
                     <div className="flex items-center gap-1 shrink-0">
                       <Link
                         to={`/products/${p.id}/edit`}
-                        className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                        className="p-2 rounded-lg text-black dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
                       >
                         <Pencil size={15} />
                       </Link>
                       <button
-                        onClick={() => handleDelete(p)}
+                        onClick={(e) => handleDelete(e, p)}
                         disabled={deletingId === p.id}
-                        className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
+                        className="p-2 rounded-lg text-black dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
                       >
                         <Trash2 size={15} />
                       </button>
@@ -135,7 +144,11 @@ const Products = () => {
                   {filtered.map((p) => {
                     const img = resolveImageUrl(p.image_url);
                     return (
-                      <tr key={p.id} className="border-b border-gray-50 dark:border-zinc-700/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-zinc-700/40 transition-colors">
+                      <tr
+                        key={p.id}
+                        onClick={() => goToEdit(p)}
+                        className="border-b border-gray-50 dark:border-zinc-700/60 last:border-0 hover:bg-gray-50/60 dark:hover:bg-zinc-700/40 transition-colors cursor-pointer"
+                      >
                         <td className="px-6 py-4">
                           <div className="flex items-center gap-3">
                             <div className="w-11 h-11 rounded-lg border border-gray-100 dark:border-zinc-600 bg-gray-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden shrink-0">
@@ -155,14 +168,15 @@ const Products = () => {
                           <div className="flex items-center justify-end gap-2">
                             <Link
                               to={`/products/${p.id}/edit`}
-                              className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                              className="p-2 rounded-lg text-black dark:text-zinc-400 hover:bg-gray-100 dark:hover:bg-zinc-700 hover:text-brand-dark dark:hover:text-zinc-100 transition-colors"
                             >
                               <Pencil size={15} />
                             </Link>
                             <button
-                              onClick={() => handleDelete(p)}
+                              onClick={(e) => handleDelete(e, p)}
                               disabled={deletingId === p.id}
-                              className="p-2 rounded-lg text-gray-500 dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
+                              className="p-2 rounded-lg text-black dark:text-zinc-400 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors disabled:opacity-50"
                             >
                               <Trash2 size={15} />
                             </button>

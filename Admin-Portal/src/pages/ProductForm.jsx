@@ -14,6 +14,15 @@ const emptyVariant = () => ({
   available: 0,
 });
 
+// The product's own price is always derived from its variants (matching how
+// the storefront and the products list compute it) — no separate base-price
+// field for the admin to fill in. A product with no variants correctly has
+// no price yet.
+const computePrice = (variants) => {
+  const prices = variants.map((v) => parseFloat(v.price)).filter((p) => !Number.isNaN(p));
+  return prices.length > 0 ? Math.min(...prices) : 0;
+};
+
 const ProductForm = () => {
   const { id } = useParams();
   const isEdit = Boolean(id);
@@ -23,7 +32,7 @@ const ProductForm = () => {
   const [newCategoryName, setNewCategoryName] = useState('');
   const [addingCategory, setAddingCategory] = useState(false);
 
-  const [form, setForm] = useState({ name: '', category_id: '', description: '', image_url: '', price: '' });
+  const [form, setForm] = useState({ name: '', category_id: '', description: '', image_url: '' });
   const [variants, setVariants] = useState([]);
   const [originalVariantIds, setOriginalVariantIds] = useState([]);
 
@@ -44,7 +53,6 @@ const ProductForm = () => {
           category_id: data.category_id || '',
           description: data.description || '',
           image_url: data.image_url || '',
-          price: data.price ?? '',
         });
         const loadedVariants = (data.variants || []).map((v) => ({
           key: v.id,
@@ -90,8 +98,8 @@ const ProductForm = () => {
     e.preventDefault();
     setError('');
 
-    if (!form.name.trim() || !form.category_id || form.price === '') {
-      setError('Name, category, and price are required.');
+    if (!form.name.trim() || !form.category_id) {
+      setError('Name and category are required.');
       return;
     }
     for (const v of variants) {
@@ -108,7 +116,7 @@ const ProductForm = () => {
         category_id: form.category_id,
         description: form.description || null,
         image_url: form.image_url || null,
-        price: parseFloat(form.price),
+        price: computePrice(variants),
       };
 
       if (!isEdit) {
@@ -154,12 +162,12 @@ const ProductForm = () => {
   };
 
   if (loading) {
-    return <div className="p-16 text-center text-sm text-gray-400 dark:text-zinc-500">Loading product...</div>;
+    return <div className="p-16 text-center text-sm text-black dark:text-zinc-500">Loading product...</div>;
   }
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
-      <Link to="/products" className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-zinc-400 hover:text-brand-dark dark:hover:text-zinc-100 mb-6 transition-colors">
+      <Link to="/products" className="inline-flex items-center gap-1 text-sm text-black dark:text-zinc-400 hover:text-brand-dark dark:hover:text-zinc-100 mb-6 transition-colors">
         <ChevronLeft size={16} /> Back to products
       </Link>
 
@@ -172,10 +180,10 @@ const ProductForm = () => {
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Basic info */}
         <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-4 sm:p-6 space-y-5">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">Product Details</h2>
+          <h2 className="text-sm font-bold uppercase tracking-wider text-black dark:text-zinc-500">Product Details</h2>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Name</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-black dark:text-zinc-400 mb-2">Name</label>
             <input
               type="text"
               required
@@ -186,58 +194,40 @@ const ProductForm = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Category</label>
-              <select
-                required
-                value={form.category_id}
-                onChange={(e) => setField('category_id', e.target.value)}
-                className="w-full border border-gray-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors bg-white dark:bg-zinc-900 dark:text-zinc-100"
-              >
-                <option value="">Select category</option>
-                {categories.map((c) => (
-                  <option key={c.id} value={c.id}>{c.name}</option>
-                ))}
-              </select>
-              <div className="flex items-center gap-2 mt-2">
-                <input
-                  type="text"
-                  value={newCategoryName}
-                  onChange={(e) => setNewCategoryName(e.target.value)}
-                  placeholder="New category name"
-                  className="flex-1 border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
-                />
-                <button
-                  type="button"
-                  onClick={handleAddCategory}
-                  disabled={addingCategory || !newCategoryName.trim()}
-                  className="text-xs font-bold text-brand-dark dark:text-zinc-200 hover:underline disabled:opacity-40 disabled:no-underline shrink-0"
-                >
-                  + Add
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">
-                Base Price (Tshs)
-              </label>
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-black dark:text-zinc-400 mb-2">Category</label>
+            <select
+              required
+              value={form.category_id}
+              onChange={(e) => setField('category_id', e.target.value)}
+              className="w-full border border-gray-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors bg-white dark:bg-zinc-900 dark:text-zinc-100"
+            >
+              <option value="">Select category</option>
+              {categories.map((c) => (
+                <option key={c.id} value={c.id}>{c.name}</option>
+              ))}
+            </select>
+            <div className="flex items-center gap-2 mt-2">
               <input
-                type="number"
-                required
-                min="0"
-                value={form.price}
-                onChange={(e) => setField('price', e.target.value)}
-                placeholder="0"
-                className="w-full border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
+                type="text"
+                value={newCategoryName}
+                onChange={(e) => setNewCategoryName(e.target.value)}
+                placeholder="New category name"
+                className="flex-1 border border-gray-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-brand-dark dark:focus:border-brand-orange transition-colors"
               />
-              <p className="text-[11px] text-gray-400 dark:text-zinc-500 mt-1.5">Used as a fallback if the product has no variants.</p>
+              <button
+                type="button"
+                onClick={handleAddCategory}
+                disabled={addingCategory || !newCategoryName.trim()}
+                className="text-xs font-bold text-brand-dark dark:text-zinc-200 hover:underline disabled:opacity-40 disabled:no-underline shrink-0"
+              >
+                + Add
+              </button>
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">Description</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-black dark:text-zinc-400 mb-2">Description</label>
             <textarea
               rows={3}
               value={form.description}
@@ -258,8 +248,8 @@ const ProductForm = () => {
         <div className="bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 rounded-2xl p-4 sm:p-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
             <div>
-              <h2 className="text-sm font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500">Variants</h2>
-              <p className="text-xs text-gray-400 dark:text-zinc-500 mt-1">Colors and storage options, each with their own price, image, and stock.</p>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-black dark:text-zinc-500">Variants</h2>
+              <p className="text-xs text-black dark:text-zinc-500 mt-1">Colors and storage options, each with their own price, image, and stock.</p>
             </div>
             <button
               type="button"
@@ -271,14 +261,14 @@ const ProductForm = () => {
           </div>
 
           {variants.length === 0 ? (
-            <p className="text-sm text-gray-400 dark:text-zinc-500 py-6 text-center">No variants yet — the base price above will be used.</p>
+            <p className="text-sm text-black dark:text-zinc-500 py-6 text-center">No variants yet — this product will show a price of 0 until you add one.</p>
           ) : (
             <div className="space-y-4">
               {variants.map((v) => (
                 <div key={v.key} className="border border-gray-100 dark:border-zinc-700 rounded-xl p-4">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Color</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-1">Color</label>
                       <input
                         type="text"
                         value={v.color}
@@ -288,7 +278,7 @@ const ProductForm = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Storage</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-1">Storage</label>
                       <input
                         type="text"
                         value={v.storage}
@@ -298,7 +288,7 @@ const ProductForm = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Price (Tshs)</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-1">Price (Tshs)</label>
                       <input
                         type="number"
                         min="0"
@@ -309,7 +299,7 @@ const ProductForm = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-zinc-500 mb-1">Stock</label>
+                      <label className="block text-[10px] font-bold uppercase tracking-wider text-black dark:text-zinc-500 mb-1">Stock</label>
                       <input
                         type="number"
                         min="0"
@@ -331,7 +321,7 @@ const ProductForm = () => {
                     <button
                       type="button"
                       onClick={() => removeVariant(v.key)}
-                      className="p-2.5 rounded-lg text-gray-400 dark:text-zinc-500 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors shrink-0"
+                      className="p-2.5 rounded-lg text-black dark:text-zinc-500 hover:bg-red-50 dark:hover:bg-red-950/40 hover:text-red-500 transition-colors shrink-0"
                     >
                       <Trash2 size={16} />
                     </button>
