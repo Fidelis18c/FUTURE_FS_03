@@ -96,7 +96,7 @@ const ProductDetails = () => {
     );
   }
 
-  if (!product) return <div className="py-20 text-center text-gray-500">Product not found.</div>;
+  if (!product) return <div className="py-20 text-center text-black">Product not found.</div>;
 
   // Resolve static match for images/data fallback
   const staticMatch = productsData.find(
@@ -129,7 +129,7 @@ const ProductDetails = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-6 pb-12 md:py-12">
         {/* Mobile-only: name above image */}
         <div className="block lg:hidden mb-1">
-          <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">{product.brand || product.category_name}</div>
+          <div className="text-xs font-bold text-black uppercase tracking-widest mb-1">{product.brand || product.category_name}</div>
           <h1 className="text-2xl font-bold text-brand-dark tracking-tighter">{product.name}</h1>
         </div>
 
@@ -169,7 +169,7 @@ const ProductDetails = () => {
 
           {/* Right: Info */}
           <div className="flex flex-col">
-            <div className="hidden lg:block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">
+            <div className="hidden lg:block text-sm font-bold text-black uppercase tracking-widest mb-2">
               {product.brand || product.category_name}
             </div>
             <h1 className="hidden lg:block text-4xl md:text-5xl font-bold text-brand-dark tracking-tighter mb-4">
@@ -179,7 +179,7 @@ const ProductDetails = () => {
               Tshs {Number(currentPrice || 0).toLocaleString()}
             </div>
 
-            <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-3 md:mb-10">
+            <p className="text-black text-sm md:text-base leading-relaxed mb-3 md:mb-10">
               {product.description}
             </p>
 
@@ -193,7 +193,7 @@ const ProductDetails = () => {
                       <button
                         key={s}
                         onClick={() => handleVariantSelect('storage', s)}
-                        className={`px-3 py-1 md:px-6 md:py-2 text-xs md:text-sm border font-medium rounded-full transition-all ${selectedStorage === s ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
+                        className={`px-3 py-1 md:px-6 md:py-2 text-xs md:text-sm border font-medium rounded-full transition-all ${selectedStorage === s ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-black hover:border-brand-dark'}`}
                       >
                         {s}
                       </button>
@@ -210,7 +210,7 @@ const ProductDetails = () => {
                       <button
                         key={c}
                         onClick={() => handleVariantSelect('color', c)}
-                        className={`px-3 py-1 md:px-6 md:py-2 text-xs md:text-sm border font-medium rounded-full transition-all ${selectedColor === c ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-gray-600 hover:border-brand-dark'}`}
+                        className={`px-3 py-1 md:px-6 md:py-2 text-xs md:text-sm border font-medium rounded-full transition-all ${selectedColor === c ? 'border-brand-dark bg-brand-dark text-white' : 'border-gray-200 text-black hover:border-brand-dark'}`}
                       >
                         {c}
                       </button>
@@ -258,13 +258,13 @@ const ProductDetails = () => {
 
             {/* Features */}
             <div className="grid grid-cols-3 gap-3 md:gap-6 pt-5 md:pt-10 border-t border-gray-100">
-              <div className="flex items-center text-xs text-gray-500 font-medium">
+              <div className="flex items-center text-xs text-black font-medium">
                 <Truck className="text-brand-dark mr-3" size={18} /> Free Delivery
               </div>
-              <div className="flex items-center text-xs text-gray-500 font-medium">
+              <div className="flex items-center text-xs text-black font-medium">
                 <Shield className="text-brand-dark mr-3" size={18} /> 1 Year Warranty
               </div>
-              <div className="flex items-center text-xs text-gray-500 font-medium">
+              <div className="flex items-center text-xs text-black font-medium">
                 <RefreshCw className="text-brand-dark mr-3" size={18} /> Easy Returns
               </div>
             </div>

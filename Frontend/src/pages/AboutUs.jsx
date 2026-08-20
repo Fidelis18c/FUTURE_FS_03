@@ -127,13 +127,13 @@ const AboutUs = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <p className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-4">Who We Are</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight">
               Bringing the World's Best Technology to Tanzania
             </h2>
-            <p className="text-gray-500 text-sm leading-loose mb-4">
+            <p className="text-black text-sm leading-loose mb-4">
               HS Store was founded with a simple idea: everyone deserves access to world-class technology without compromise. We source directly from authorised distributors to ensure every product you receive is 100% genuine.
             </p>
-            <p className="text-gray-500 text-sm leading-loose">
+            <p className="text-black text-sm leading-loose">
               Based in Dar es Salaam, we serve customers across Tanzania with fast delivery, secure payments, and a dedicated after-sales team ready to help whenever you need us.
             </p>
           </motion.div>
@@ -173,7 +173,7 @@ const AboutUs = () => {
       <section className="pt-0 md:pt-8 pb-0 md:pb-6 px-6 bg-gray-50">
         <div className="text-center mb-0 md:mb-10">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-black tracking-tight"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.8 }}
@@ -298,7 +298,7 @@ const AboutUs = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-3">What Drives Us</p>
-            <h2 className="text-3xl font-bold text-gray-900">Our Core Values</h2>
+            <h2 className="text-3xl font-bold text-black">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((v, i) => (
@@ -314,8 +314,8 @@ const AboutUs = () => {
                 <div className="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center mb-5">
                   <v.icon size={22} className="text-white" />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-3">{v.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{v.body}</p>
+                <h3 className="text-base font-bold text-black mb-3">{v.title}</h3>
+                <p className="text-sm text-black leading-relaxed">{v.body}</p>
               </motion.div>
             ))}
           </div>

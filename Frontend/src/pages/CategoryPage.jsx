@@ -73,7 +73,7 @@ const CategoryPage = () => {
           </h1>
 
           <div className="mt-6 md:mt-0 flex items-center space-x-4">
-            <div className="flex items-center text-sm text-gray-500">
+            <div className="flex items-center text-sm text-black">
               <FiFilter className="mr-2" />
               <span>Sort by:</span>
             </div>
@@ -103,7 +103,7 @@ const CategoryPage = () => {
           </div>
         ) : (
           <div className="py-20 text-center">
-            <p className="text-gray-500">No products found in this category.</p>
+            <p className="text-black">No products found in this category.</p>
           </div>
         )}
       </div>

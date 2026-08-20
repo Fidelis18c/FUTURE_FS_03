@@ -406,10 +406,10 @@ const Home = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark leading-tight mb-4">
               The Feeling of Finding Exactly What You Need.
             </h2>
-            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+            <p className="text-black text-sm leading-relaxed mb-6">
               From the latest iPhones, Pixels, and Samsung flagships to high-performance laptops and premium headphones—we’ve got your upgrade waiting.
             </p>
-            <ul className="text-sm text-gray-500 space-y-3 mb-8">
+            <ul className="text-sm text-black space-y-3 mb-8">
               <li><strong className="text-brand-dark">Phones:</strong> iPhone, Google Pixel, Samsung Galaxy.</li>
               <li><strong className="text-brand-dark">Gear:</strong> Premium Laptops & Immersive Headphones.</li>
               <li><strong className="text-brand-dark">Extras:</strong> Protective covers, fast chargers, and more</li>

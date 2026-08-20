@@ -70,7 +70,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center justify-center lg:justify-start">
               <img src="/HSMOBILESTORElogo.png" alt="HS MOBILE STORE" className="h-16 md:h-20 object-contain" />
             </Link>
-            <p className="text-gray-500 text-sm leading-relaxed text-center lg:text-left max-w-xs mx-auto lg:mx-0">
+            <p className="text-black text-sm leading-relaxed text-center lg:text-left max-w-xs mx-auto lg:mx-0">
               Premium devices and accessories for the smart generation. Quality you can trust, service you'll love.
             </p>
             <div className="flex space-x-3 justify-center lg:justify-start">
@@ -91,7 +91,7 @@ const Footer = () => {
                   <Link
                     to={link.path}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
+                    className="flex items-center py-3 lg:py-0 text-sm text-black hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {link.label}
                   </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
                 <li key={cat.label}>
                   <Link
                     to={cat.path}
-                    className="flex items-center py-3 lg:py-0 text-sm text-gray-500 hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
+                    className="flex items-center py-3 lg:py-0 text-sm text-black hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {cat.label}
                   </Link>
@@ -126,7 +126,7 @@ const Footer = () => {
               ].map((item) => (
                 <li key={item.label} className="py-3 lg:py-0 border-b border-gray-50 lg:border-none last:border-none">
                   <span className="block text-xs font-bold text-brand-dark mb-0.5">{item.label}:</span>
-                  <span className="text-sm text-gray-500">{item.value}</span>
+                  <span className="text-sm text-black">{item.value}</span>
                 </li>
               ))}
             </ul>
@@ -136,12 +136,12 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-100 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-400 text-center sm:text-left">
+          <p className="text-xs text-black text-center sm:text-left">
             © {new Date().getFullYear()} HS STORE. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link to="#" className="text-xs text-gray-400 hover:text-brand-orange transition-colors">Privacy Policy</Link>
-            <Link to="#" className="text-xs text-gray-400 hover:text-brand-orange transition-colors">Terms of Service</Link>
+            <Link to="#" className="text-xs text-black hover:text-brand-orange transition-colors">Privacy Policy</Link>
+            <Link to="#" className="text-xs text-black hover:text-brand-orange transition-colors">Terms of Service</Link>
           </div>
         </div>
 

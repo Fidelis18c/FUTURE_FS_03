@@ -89,9 +89,9 @@ const ContactUs = () => {
               <div className="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-4">
                 <item.icon size={22} className="text-white" />
               </div>
-              <h3 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h3>
-              <p className="text-sm text-gray-700 font-medium">{item.value}</p>
-              <p className="text-xs text-gray-400 mt-1">{item.sub}</p>
+              <h3 className="text-sm font-bold text-black mb-1">{item.title}</h3>
+              <p className="text-sm text-black font-medium">{item.value}</p>
+              <p className="text-xs text-black mt-1">{item.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -103,8 +103,8 @@ const ContactUs = () => {
 
           {/* Left — Form */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}>
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Send Us a Message</h2>
-            <p className="text-gray-500 text-sm mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
+            <h2 className="text-3xl font-bold text-black mb-2">Send Us a Message</h2>
+            <p className="text-black text-sm mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
 
             <AnimatePresence>
               {sent && (
@@ -112,7 +112,7 @@ const ContactUs = () => {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="text-sm font-medium text-gray-700 mb-4"
+                  className="text-sm font-medium text-black mb-4"
                 >
                   Message sent successfully.
                 </motion.p>
@@ -127,18 +127,18 @@ const ContactUs = () => {
               )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Full Name</label>
+                  <label className="block text-xs font-semibold text-black mb-2 tracking-wide uppercase">Full Name</label>
                   <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="John Doe"
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Email</label>
+                  <label className="block text-xs font-semibold text-black mb-2 tracking-wide uppercase">Email</label>
                   <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="you@example.com"
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-gray-600 mb-2 tracking-wide uppercase">Message</label>
+                <label className="block text-xs font-semibold text-black mb-2 tracking-wide uppercase">Message</label>
                 <textarea name="message" value={form.message} onChange={handleChange} required rows={6} placeholder="Tell us more..."
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none" />
               </div>

@@ -78,7 +78,7 @@ const Navbar = () => {
                     <Link
                       key={sub.name}
                       to={sub.path}
-                      className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-brand-dark"
+                      className="block px-4 py-2 text-sm text-black hover:bg-gray-50 hover:text-brand-dark"
                     >
                       {sub.name}
                     </Link>
@@ -125,7 +125,7 @@ const Navbar = () => {
               <span className="text-sm font-semibold text-brand-dark">{user.full_name?.split(' ')[0]}</span>
               <button
                 onClick={logout}
-                className="flex items-center gap-1 text-sm text-gray-500 hover:text-red-500 transition-colors px-3 py-2 rounded-full hover:bg-red-50"
+                className="flex items-center gap-1 text-sm text-black hover:text-red-500 transition-colors px-3 py-2 rounded-full hover:bg-red-50"
               >
                 <LogOut size={16} />
                 <span>Logout</span>
@@ -166,13 +166,13 @@ const Navbar = () => {
 
               {navLinks.map((link) => (
                 <div key={link.name} className="space-y-2">
-                  <div className="font-bold text-gray-800">{link.name}</div>
+                  <div className="font-bold text-black">{link.name}</div>
                   <div className="pl-4 space-y-2">
                     {link.dropdown.map((sub) => (
                       <Link
                         key={sub.name}
                         to={sub.path}
-                        className="block text-sm text-gray-600"
+                        className="block text-sm text-black"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {sub.name}

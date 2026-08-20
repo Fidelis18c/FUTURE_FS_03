@@ -48,8 +48,8 @@ const CartDrawer = () => {
                   <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-4">
                     <ShoppingBag size={32} className="text-gray-300" />
                   </div>
-                  <h3 className="text-lg font-medium text-gray-900">Your cart is empty</h3>
-                  <p className="text-gray-500 mt-2">Looks like you haven't added anything yet.</p>
+                  <h3 className="text-lg font-medium text-black">Your cart is empty</h3>
+                  <p className="text-black mt-2">Looks like you haven't added anything yet.</p>
                   <button
                     onClick={() => setIsCartOpen(false)}
                     className="mt-8 px-8 py-3 bg-brand-dark text-white font-bold text-sm uppercase tracking-widest"
@@ -73,7 +73,7 @@ const CartDrawer = () => {
                           <FiTrash2 size={16} />
                         </button>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="text-xs text-black mt-1">
                         {item.variant} {item.color && `| ${item.color}`}
                       </p>
                       <div className="mt-auto flex items-center justify-between">
@@ -103,7 +103,7 @@ const CartDrawer = () => {
             {cart.length > 0 && (
               <div className="p-6 border-t border-gray-100 bg-gray-50">
                 <div className="flex justify-between items-center mb-6">
-                  <span className="text-gray-500 font-medium">Subtotal</span>
+                  <span className="text-black font-medium">Subtotal</span>
                   <span className="text-xl font-bold text-brand-dark">${cartTotal.toLocaleString()}</span>
                 </div>
                 <div className="grid grid-cols-1 gap-3">
