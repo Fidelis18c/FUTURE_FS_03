@@ -181,10 +181,10 @@ const Home = () => {
 
         {/* ── WORDS ON TOP OF THE VIDEO ── */}
         <div className="hidden md:block absolute left-0 bottom-0 z-10 px-10 pb-14">
-          <h2 className="text-white text-2xl font-bold leading-snug mb-3">
+          <h2 className="text-white text-2xl font-extrabold leading-snug mb-3">
             The Future of<br />Mobile Is Here.
           </h2>
-          <p className="text-gray-300 text-xs leading-relaxed mb-7">
+          <p className="text-gray-300 text-xs font-semibold leading-relaxed mb-7">
             Top-tier smartphones.<br />Unbeatable prices.
           </p>
           <Link
@@ -196,8 +196,7 @@ const Home = () => {
         </div>
 
         <div className="hidden md:block absolute right-0 bottom-0 z-10 px-10 pb-14 text-right">
-          <p className="text-gray-400 text-[10px] tracking-[0.25em] uppercase mb-2">Explore the Collection</p>
-          <p className="text-gray-300 text-sm font-light italic leading-relaxed">
+          <p className="text-gray-300 text-sm font-semibold italic leading-relaxed">
             &ldquo;Experience<br />tomorrow,<br />today.&rdquo;
           </p>
         </div>
