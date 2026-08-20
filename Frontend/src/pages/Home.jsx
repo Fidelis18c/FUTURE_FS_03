@@ -8,6 +8,7 @@ import { sortIphonesFirst } from '../utils/sortProducts';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
 
+import heroVideoNew from '../assets/Hero2/VideoHeroOne.mp4';
 import heroVideo from '../assets/Hero1/HSSTOREVideo.mp4';
 import heroImg1 from '../assets/Hero1/HSSTOREHero1.jpeg';
 import heroImg2 from '../assets/Hero1/HSSTOREHero2.jpeg';
@@ -31,6 +32,7 @@ const exploreCards = [
 ];
 
 const topHeroItems = [
+  { type: 'video', src: heroVideoNew },
   { type: 'video', src: heroVideo },
   { type: 'image', src: heroImg1 },
   { type: 'image', src: heroImg2 },
