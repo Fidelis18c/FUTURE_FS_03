@@ -344,7 +344,7 @@ const Home = () => {
             transition={cardBounce.transition}
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <Truck size={32} className="text-black mb-6" />
+            <Truck size={32} strokeWidth={1.25} className="text-black mb-6" />
             <h3 className="text-lg font-light text-black mb-2">Fast Delivery</h3>
             <p className="text-black text-sm leading-relaxed">
               Free shipping on all orders over Tshs&nbsp;1,000,000 across Tanzania.
@@ -357,7 +357,7 @@ const Home = () => {
             transition={cardBounce.transition}
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <Lock size={32} className="text-black mb-6" />
+            <Lock size={32} strokeWidth={1.25} className="text-black mb-6" />
             <h3 className="text-lg font-light text-black mb-2">Secure Payments</h3>
             <p className="text-black text-sm leading-relaxed">
               Mobile money and bank transfers accepted — fully encrypted and safe.
@@ -370,7 +370,7 @@ const Home = () => {
             transition={cardBounce.transition}
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
-            <Award size={32} className="text-black mb-6" />
+            <Award size={32} strokeWidth={1.25} className="text-black mb-6" />
             <h3 className="text-lg font-light text-black mb-2">Quality Guarantee</h3>
             <p className="text-black text-sm leading-relaxed">
               Every product comes with a 1-year store warranty and genuine authenticity.
