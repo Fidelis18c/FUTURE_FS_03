@@ -85,13 +85,13 @@ const Footer = () => {
 
           {/* Quick Links — accordion on mobile */}
           <AccordionSection title="Quick Links">
-            <ul className="space-y-0 lg:space-y-4">
+            <ul className="space-y-0 lg:space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.path}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="flex items-center py-3 lg:py-0 text-sm text-black hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
+                    className="flex items-center py-2 lg:py-0 text-sm text-black hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {link.label}
                   </Link>
@@ -102,12 +102,12 @@ const Footer = () => {
 
           {/* Categories — accordion on mobile */}
           <AccordionSection title="Categories">
-            <ul className="space-y-0 lg:space-y-4">
+            <ul className="space-y-0 lg:space-y-2">
               {categories.map((cat) => (
                 <li key={cat.label}>
                   <Link
                     to={cat.path}
-                    className="flex items-center py-3 lg:py-0 text-sm text-black hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
+                    className="flex items-center py-2 lg:py-0 text-sm text-black hover:text-brand-orange active:text-brand-orange transition-colors border-b border-gray-50 lg:border-none last:border-none"
                   >
                     {cat.label}
                   </Link>
