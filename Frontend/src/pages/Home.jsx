@@ -444,7 +444,9 @@ const Home = () => {
 
           <motion.div
             animate={{ y: exploreHidden ? -60 : 0, opacity: exploreHidden ? 0 : 1 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            // Fade out much slower than fade in — a gentle disappearance on
+            // scroll-up, but still snappy when the cards come back.
+            transition={{ duration: exploreHidden ? 2.2 : 0.5, ease: 'easeInOut' }}
             className="grid grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {exploreCards.map((card) => (
