@@ -44,15 +44,13 @@
     "description": "Powerful performance in a colorful design. The new iPhone 17.",
     "image": "/products/Iphone17-Plain-Black.webp",
     "trending": true,
-    "colors": ["Black","White","Sage","Purple","Gold","Lightblue","Blue","Silver"],
+    "colors": ["Black","White","Sage","Purple","Blue","Silver"],
     "storage": ["256GB"],
     "variantData": {
       "Black":     { "image": "/products/Iphone17-Plain-Black.webp",   "prices": { "256GB": 2300000 } },
       "White":     { "image": "/products/Iphone17-Plain-White.webp",   "prices": { "256GB": 2300000 } },
       "Sage":      { "image": "/products/Iphone17-Plain-Sage.webp",    "prices": { "256GB": 2300000 } },
       "Purple":    { "image": "/products/Iphone17-Plain-Purple.webp",  "prices": { "256GB": 2300000 } },
-      "Gold":      { "image": "/products/Iphone17-Air-Gold.webp",      "prices": { "256GB": 2300000 } },
-      "Lightblue": { "image": "/products/Iphone17-Air-Lightblue.webp", "prices": { "256GB": 2300000 } },
       "Blue":      { "image": "/products/Iphone17-Plain-Blue.webp",    "prices": { "256GB": 2300000 } },
       "Silver":    { "image": "/products/Iphone17-Silver.webp",        "prices": { "256GB": 2300000 } }
     },
