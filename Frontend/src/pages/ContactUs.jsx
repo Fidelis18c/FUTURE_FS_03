@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Clock } from 'lucide-react';
-import about2 from '../assets/AboutImage/About2.mp4';
+import contactHeroVideo from '../assets/Hero2/VIdeoContactHero.mp4';
 import api from '../api';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
@@ -43,7 +43,7 @@ const ContactUs = () => {
       {/* Hero Video */}
       <section className="relative w-full -mt-16" style={{ height: 'calc(100vh + 4rem)' }}>
         <video
-          src={about2}
+          src={contactHeroVideo}
           autoPlay
           muted
           loop

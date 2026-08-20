@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Target, Heart, Shield, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import about1 from '../assets/AboutImage/About1.mp4';
+import aboutHeroVideo from '../assets/Hero2/VideoAboutHero.mp4';
 import about3 from '../assets/AboutImage/About3.mp4';
 import about4 from '../assets/AboutImage/About4.mp4';
 import aboutImage from '../assets/AboutImage/AboutImage.jpg';
@@ -69,7 +69,7 @@ const AboutUs = () => {
       {/* Full-screen video hero */}
       <section className="relative w-full -mt-16" style={{ height: 'calc(100vh + 4rem)' }}>
         <video
-          src={about1}
+          src={aboutHeroVideo}
           autoPlay
           muted
           loop

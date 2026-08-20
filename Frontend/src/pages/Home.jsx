@@ -8,11 +8,9 @@ import { sortIphonesFirst } from '../utils/sortProducts';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
 
-import heroVideoNew from '../assets/Hero2/VideoHeroOne.mp4';
-import heroVideo from '../assets/Hero1/HSSTOREVideo.mp4';
-import heroImg1 from '../assets/Hero1/HSSTOREHero1.jpeg';
-import heroImg2 from '../assets/Hero1/HSSTOREHero2.jpeg';
-import heroImg3 from '../assets/Hero1/HSSTOREHero3.jpeg';
+import heroVideoOne from '../assets/Hero2/VideoHeroOne.mp4';
+import heroVideoTwo from '../assets/Hero2/VideoHeroTwo.mp4';
+import heroVideoThree from '../assets/Hero2/VideoHeroThree.mp4';
 import featureVideo from '../assets/Hero2/The handcrafted wireless to daily mastery..mp4';
 import aboutUsVideo from '../assets/AboutImage/About1.mp4';
 import contactUsVideo from '../assets/AboutImage/About2.mp4';
@@ -30,11 +28,9 @@ const exploreCards = [
 ];
 
 const topHeroItems = [
-  { type: 'video', src: heroVideoNew },
-  { type: 'video', src: heroVideo },
-  { type: 'image', src: heroImg1 },
-  { type: 'image', src: heroImg2 },
-  { type: 'image', src: heroImg3 },
+  { type: 'video', src: heroVideoOne },
+  { type: 'video', src: heroVideoTwo },
+  { type: 'video', src: heroVideoThree },
 ];
 
 // Shown instantly while the live API loads, so the grid never sits empty.
