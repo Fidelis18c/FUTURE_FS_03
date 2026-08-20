@@ -33,13 +33,13 @@ app.use('/api/payments', require('./modules/payments/routes'));
 app.use('/api/contact', require('./modules/contact/routes'));
 app.use('/api/admin', require('./modules/admin/routes'));
 
-// Error Handler
+// Error Handler — `error` must stay a plain string: every frontend renders
+// `err.response.data.error` directly, and the route modules all respond with
+// `{ error: '<string>' }`, so a nested object here would crash the UI.
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({
-    error: {
-      message: err.message || 'Internal Server Error',
-    },
+    error: err.message || 'Internal Server Error',
   });
 });
 

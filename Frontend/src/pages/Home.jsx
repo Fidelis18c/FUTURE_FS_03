@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ProductCard from '../components/ProductCard';
-import api from '../api';
-import productsData from '../data/products'; // fallback
+import productsData from '../data/products';
 import { sortIphonesFirst } from '../utils/sortProducts';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Truck, Lock, Award } from 'lucide-react';
@@ -37,6 +36,12 @@ const topHeroItems = [
   { type: 'image', src: heroImg3 },
 ];
 
+// The homepage grid is the curated static catalog (src/data/*.json), rendered
+// immediately — no API round-trip. Live/admin-managed products still power the
+// category pages and product details; keeping the homepage static means it
+// always matches the hand-picked images and never flashes/reorders after load.
+const trendingProducts = sortIphonesFirst(productsData.filter((p) => p.category === 'phones'));
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -58,8 +63,6 @@ const cardBounce = {
 const HERO_BG = 'linear-gradient(155deg, #13111c 0%, #1f1509 52%, #13111c 100%)';
 
 const Home = () => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [productsLoading, setProductsLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(INITIAL_PRODUCTS);
   const [slide, setSlide] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -75,31 +78,6 @@ const Home = () => {
       lastScrollY.current = latest;
     }
   });
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const { data } = await api.get('/products', { params: { limit: 100, category: 'phones' } });
-        if (data && data.length > 0) {
-          setAllProducts(data);
-        } else {
-          setAllProducts(productsData);
-        }
-      } catch {
-        setAllProducts(productsData);
-      } finally {
-        setProductsLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  // Newest iPhones first, then any other phones, so the homepage leads with
-  // iPhone stock in the same generation order as the iPhone category page,
-  // rather than whichever category was seeded most recently.
-  const trendingProducts = allProducts.length > 0
-    ? sortIphonesFirst(allProducts)
-    : productsData.slice(0, 24);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -278,7 +256,7 @@ const Home = () => {
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: (i % 4) * 0.07 }}
                 className={i >= 3 ? 'hidden sm:block' : ''}
               >
-                <ProductCard product={product} />
+                <ProductCard product={product} eager={i < 4} />
               </motion.div>
             ))}
           </motion.div>

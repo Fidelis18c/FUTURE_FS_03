@@ -13,7 +13,9 @@ let client = null;
 const getSupabase = () => {
   if (!client) {
     if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      throw new Error('Supabase Storage is not configured (missing SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY)');
+      const err = new Error('Image uploads are not configured on the server — add SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to the deployment environment.');
+      err.status = 503;
+      throw err;
     }
     client = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
   }

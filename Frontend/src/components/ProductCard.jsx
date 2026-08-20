@@ -87,7 +87,9 @@ const getImage = (product, selectedColor) => {
   return '/HSMOBILESTORElogo.png';
 };
 
-const ProductCard = ({ product }) => {
+// `eager` marks above-the-fold cards: their image skips lazy-loading and is
+// fetched at high priority so the first row paints as soon as possible.
+const ProductCard = ({ product, eager = false }) => {
   const navigate = useNavigate();
   const hasColors = product.colors && product.colors.length > 0;
   const hasStorage = product.storage && product.storage.length > 0;
@@ -122,7 +124,8 @@ const ProductCard = ({ product }) => {
         <img
           src={displayImage}
           alt={product.name}
-          loading="lazy"
+          loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
           decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           onError={(e) => { e.target.src = '/HSMOBILESTORElogo.png'; }}

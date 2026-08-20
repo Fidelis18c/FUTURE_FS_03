@@ -16,6 +16,13 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (res) => res,
   (err) => {
+    // The UI renders `err.response.data.error` directly in JSX, so it must
+    // always be a string — unwrap `{ error: { message } }` shaped bodies
+    // (e.g. from the backend's generic error handler) to avoid crashing React.
+    const data = err.response?.data;
+    if (data && typeof data.error === 'object' && data.error !== null) {
+      data.error = data.error.message || 'Something went wrong. Please try again.';
+    }
     if (err.response?.status === 401 && window.location.pathname !== '/login') {
       localStorage.removeItem('hs_admin_token');
       localStorage.removeItem('hs_admin_user');

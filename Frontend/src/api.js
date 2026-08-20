@@ -21,4 +21,18 @@ api.interceptors.request.use(
   }
 );
 
+// The UI renders `err.response.data.error` directly in JSX, so it must always
+// be a string — unwrap `{ error: { message } }` shaped bodies (e.g. from the
+// backend's generic error handler) to avoid crashing React.
+api.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    const data = err.response?.data;
+    if (data && typeof data.error === 'object' && data.error !== null) {
+      data.error = data.error.message || 'Something went wrong. Please try again.';
+    }
+    return Promise.reject(err);
+  }
+);
+
 export default api;
