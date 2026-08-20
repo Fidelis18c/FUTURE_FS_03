@@ -46,9 +46,9 @@ const Login = () => {
           <h1 className="text-xl font-bold text-brand-orange text-center mb-8">Admin Portal</h1>
 
           {error && (
-            <div className="mb-5 p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900 rounded-xl text-sm text-red-600 dark:text-red-400 text-center font-medium">
+            <p className="mb-5 text-xs text-red-500 text-center font-medium">
               {error}
-            </div>
+            </p>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
