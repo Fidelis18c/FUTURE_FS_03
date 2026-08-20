@@ -4,7 +4,8 @@ const { slugify, isFkViolation } = require('../utils');
 const getAdminProducts = async (req, res, next) => {
   try {
     const result = await db.query(`
-      SELECT p.id, p.name, p.slug, p.description, p.category_id, p.image_url, p.price, c.name as category_name,
+      SELECT p.id, p.name, p.slug, p.description, p.category_id, p.image_url, c.name as category_name,
+      (SELECT MIN(v.price) FROM product_variants v WHERE v.product_id = p.id) as price,
       COALESCE(
         (
           SELECT json_agg(json_build_object(
@@ -31,6 +32,7 @@ const getAdminProductById = async (req, res, next) => {
   try {
     const result = await db.query(`
       SELECT p.*, c.name as category_name,
+      (SELECT MIN(v.price) FROM product_variants v WHERE v.product_id = p.id) as price,
       COALESCE(
         (
           SELECT json_agg(json_build_object(
