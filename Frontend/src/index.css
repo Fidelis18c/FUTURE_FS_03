@@ -45,7 +45,7 @@ body {
 
 /* Sticky Navbar Glassmorphism */
 .navbar-glass {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
