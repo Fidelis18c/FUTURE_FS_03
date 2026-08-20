@@ -13,8 +13,6 @@ import heroVideo from '../assets/Hero1/HSSTOREVideo.mp4';
 import heroImg1 from '../assets/Hero1/HSSTOREHero1.jpeg';
 import heroImg2 from '../assets/Hero1/HSSTOREHero2.jpeg';
 import heroImg3 from '../assets/Hero1/HSSTOREHero3.jpeg';
-import sidePhoneLeft from '../assets/hero/IphoneHeroB.png';
-import sidePhoneRight from '../assets/hero/IphoneHeroC.png';
 import featureVideo from '../assets/Hero2/The handcrafted wireless to daily mastery..mp4';
 import aboutUsVideo from '../assets/AboutImage/About1.mp4';
 import contactUsVideo from '../assets/AboutImage/About2.mp4';
@@ -127,50 +125,16 @@ const Home = () => {
     <div className="bg-white">
 
       {/* ══════════════════════════════════════════
-          TOP HERO  —  3-column layout
-          Left panel | Center slider | Right panel
+          TOP HERO  —  full-screen slider with the
+          words overlaid on top of the video
       ══════════════════════════════════════════ */}
       <section
-        className="relative overflow-hidden flex -mt-16"
+        className="relative overflow-hidden -mt-16"
         style={{ height: 'calc(88vh + 4rem)', minHeight: 'calc(500px + 4rem)', background: HERO_BG }}
       >
 
-        {/* ── LEFT PANEL ── */}
-        <div className="hidden md:flex w-[22%] flex-col justify-end relative overflow-hidden shrink-0">
-          {/* Decorative phone image rising from bottom */}
-          <img
-            src={sidePhoneLeft}
-            alt=""
-            draggable="false"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 select-none pointer-events-none"
-            style={{ height: '88%', width: 'auto', objectFit: 'contain', opacity: 0.55 }}
-          />
-          {/* Fade toward center so it blends seamlessly */}
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to right, #13111c 0%, transparent 70%)' }} />
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to top, #1f1509 0%, transparent 45%)' }} />
-
-          {/* Text + CTA */}
-          <div className="relative z-10 px-7 pb-14">
-           
-            <h2 className="text-white text-2xl font-bold leading-snug mb-3">
-              The Future of<br />Mobile Is Here.
-            </h2>
-            <p className="text-gray-400 text-xs leading-relaxed mb-7">
-              Top-tier smartphones.<br />Unbeatable prices.
-            </p>
-            <Link
-              to="/phones"
-              className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-white bg-brand-orange px-6 py-3 hover:bg-orange-700 transition-colors rounded-full"
-            >
-              Buy Now &rarr;
-            </Link>
-          </div>
-        </div>
-
-        {/* ── CENTER SLIDER ── */}
-        <div className="flex-1 relative overflow-hidden">
+        {/* ── FULL-BLEED SLIDER ── */}
+        <div className="absolute inset-0 overflow-hidden">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={slide}
@@ -219,28 +183,27 @@ const Home = () => {
 
         </div>
 
-        {/* ── RIGHT PANEL ── */}
-        <div className="hidden md:flex w-[22%] flex-col justify-end relative overflow-hidden shrink-0">
-          <img
-            src={sidePhoneRight}
-            alt=""
-            draggable="false"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 select-none pointer-events-none"
-            style={{ height: '88%', width: 'auto', objectFit: 'contain', opacity: 0.55 }}
-          />
-          {/* Fade toward center */}
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to left, #13111c 0%, transparent 70%)' }} />
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to top, #1f1509 0%, transparent 45%)' }} />
+        {/* ── WORDS ON TOP OF THE VIDEO ── */}
+        <div className="hidden md:block absolute left-0 bottom-0 z-10 px-10 pb-14">
+          <h2 className="text-white text-2xl font-bold leading-snug mb-3">
+            The Future of<br />Mobile Is Here.
+          </h2>
+          <p className="text-gray-300 text-xs leading-relaxed mb-7">
+            Top-tier smartphones.<br />Unbeatable prices.
+          </p>
+          <Link
+            to="/phones"
+            className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-white bg-brand-orange px-6 py-3 hover:bg-orange-700 transition-colors rounded-full"
+          >
+            Buy Now &rarr;
+          </Link>
+        </div>
 
-          {/* Subtle quote / tagline */}
-          <div className="relative z-10 px-7 pb-14 text-right">
-            <p className="text-gray-500 text-[10px] tracking-[0.25em] uppercase mb-2">Explore the Collection</p>
-            <p className="text-gray-300 text-sm font-light italic leading-relaxed">
-              &ldquo;Experience<br />tomorrow,<br />today.&rdquo;
-            </p>
-          </div>
+        <div className="hidden md:block absolute right-0 bottom-0 z-10 px-10 pb-14 text-right">
+          <p className="text-gray-400 text-[10px] tracking-[0.25em] uppercase mb-2">Explore the Collection</p>
+          <p className="text-gray-300 text-sm font-light italic leading-relaxed">
+            &ldquo;Experience<br />tomorrow,<br />today.&rdquo;
+          </p>
         </div>
 
       </section>
