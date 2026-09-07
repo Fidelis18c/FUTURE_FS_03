@@ -8,7 +8,7 @@ const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const info = [
   { icon: Mail, title: 'Email Us', value: 'support@hsstore.com', sub: 'We reply within 24 hours' },
-  { icon: Phone, title: 'Call Us', value: '+255 700 000 000', sub: 'Mon – Sat, 8am – 8pm' },
+  { icon: Phone, title: 'Call Us', value: '+255 762 889 818', sub: 'Mon – Sat, 8am – 8pm' },
   { icon: MapPin, title: 'Visit Us', value: 'Dar es Salaam, Tanzania', sub: 'P.O. Box 1234' },
   { icon: Clock, title: 'Working Hours', value: 'Mon – Sat: 8am – 8pm', sub: 'Sunday: 10am – 5pm' },
 ];
