@@ -68,6 +68,13 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px; font-weight: 500; line-height: 1.4; letter-spacing: 0;
 }
+/* Serif accent body — Playfair Display italic, for editorial touches
+   like the Core Values card paragraphs. */
+@utility body-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 15px; font-weight: 400; line-height: 1.65; letter-spacing: 0.1px;
+}
 
 :root {
   font-family: 'Inter', -apple-system, system-ui, sans-serif;
