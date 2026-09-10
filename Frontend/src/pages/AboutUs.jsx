@@ -311,8 +311,8 @@ const AboutUs = () => {
                 whileHover={{ y: -12, scale: 1.03, transition: { type: 'spring', stiffness: 300, damping: 15 } }}
                 className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow"
               >
-                <div className="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center mb-5">
-                  <v.icon size={22} className="text-white" />
+                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mb-5">
+                  <v.icon size={22} className="text-gray-700" />
                 </div>
                 <h3 className="title-sm text-black mb-3">{v.title}</h3>
                 <p className="body-sm text-black">{v.body}</p>
