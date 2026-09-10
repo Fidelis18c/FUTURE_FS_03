@@ -7,7 +7,7 @@ import api from '../api';
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
 const info = [
-  { icon: Mail, title: 'Email Us', value: 'support@hsstore.com', sub: 'We reply within 24 hours' },
+  { icon: Mail, title: 'Email Us', value: 'hamzasaidd02@gmail.com', sub: 'We reply within 24 hours' },
   { icon: Phone, title: 'Call Us', value: '+255 762 889 818', sub: 'Mon – Sat, 8am – 8pm' },
   { icon: MapPin, title: 'Visit Us', value: 'Skycity Mall, Dar es Salaam', sub: 'P.O. Box 1234' },
   { icon: Clock, title: 'Working Hours', value: 'Mon – Sat: 8am – 8pm', sub: 'Sunday: 10am – 5pm' },
@@ -104,7 +104,8 @@ const ContactUs = () => {
           {/* Left — Form */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}>
             <h2 className="display-sm text-gray-800 mb-2">Send Us a Message</h2>
-            <p className="body-sm text-gray-700 mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
+           
+          
 
             <AnimatePresence>
               {sent && (
@@ -158,7 +159,7 @@ const ContactUs = () => {
           >
             <iframe
               title="HS Store Location"
-              src="https://maps.google.com/maps?q=Kariakoo+Dar+es+Salaam+Tanzania&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=SkyCity+Mall+Dar+es+Salaam+Tanzania&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '520px' }}
