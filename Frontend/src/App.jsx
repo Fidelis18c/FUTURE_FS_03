@@ -28,8 +28,6 @@ function App() {
                 <Route path="/audio/:category" element={<CategoryPage />} />
                 <Route path="/chargers" element={<CategoryPage />} />
                 <Route path="/chargers/:category" element={<CategoryPage />} />
-                <Route path="/covers" element={<CategoryPage />} />
-                <Route path="/covers/:category" element={<CategoryPage />} />
                 <Route path="/tablets" element={<CategoryPage />} />
                 <Route path="/tablets/:category" element={<CategoryPage />} />
                 <Route path="/product/:slug" element={<ProductDetails />} />

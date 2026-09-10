@@ -12,8 +12,6 @@ const categories = [
   { label: 'Phones', path: '/phones' },
   { label: 'Audio & Pods', path: '/audio' },
   { label: 'Tablets', path: '/tablets' },
-  { label: 'Cases & Covers', path: '/covers' },
-  { label: 'Accessories', path: '/accessories' },
 ];
 
 const AccordionSection = ({ title, children }) => {
