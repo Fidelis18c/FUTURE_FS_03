@@ -141,7 +141,7 @@ const ProductCard = ({ product, eager = false }) => {
       {/* Info Area */}
       <div className="px-3 md:px-5 pb-4 pt-3 flex flex-col gap-3">
         {/* Name */}
-        <h3 className="text-sm font-semibold text-brand-dark group-hover:text-gray-600 transition-colors leading-relaxed tracking-wide">
+        <h3 className="title-sm text-brand-dark group-hover:text-gray-600 transition-colors">
           {product.name}
         </h3>
 
@@ -199,11 +199,11 @@ const ProductCard = ({ product, eager = false }) => {
 
         {/* Price + Buy */}
         <div className="flex items-center justify-between mt-1" onClick={(e) => e.stopPropagation()}>
-          <span className="text-sm font-bold text-brand-dark">
+          <span className="title-sm text-brand-dark">
             Tshs {Number(displayPrice || 0).toLocaleString()}
           </span>
           <button
-            className="text-xs font-semibold text-white px-4 py-2 rounded-full transition-opacity hover:opacity-80 whitespace-nowrap"
+            className="button-text text-white px-4 py-2 rounded-full transition-opacity hover:opacity-80 whitespace-nowrap"
             style={{ backgroundColor: '#000000' }}
             onClick={() => {
               navigate(getTargetUrl());

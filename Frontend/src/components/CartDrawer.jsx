@@ -31,7 +31,7 @@ const CartDrawer = () => {
             className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl flex flex-col"
           >
             <div className="p-6 border-b border-gray-100 flex items-center justify-between">
-              <h2 className="text-xl font-bold flex items-center">
+              <h2 className="title-lg flex items-center">
                 <ShoppingBag className="mr-2" /> Your Cart
               </h2>
               <button
@@ -48,11 +48,11 @@ const CartDrawer = () => {
                   <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-4">
                     <ShoppingBag size={32} className="text-gray-300" />
                   </div>
-                  <h3 className="text-lg font-medium text-black">Your cart is empty</h3>
+                  <h3 className="title-md text-black">Your cart is empty</h3>
                   <p className="text-black mt-2">Looks like you haven't added anything yet.</p>
                   <button
                     onClick={() => setIsCartOpen(false)}
-                    className="mt-8 px-8 py-3 bg-brand-dark text-white font-bold text-sm uppercase tracking-widest"
+                    className="mt-8 px-8 py-3 bg-brand-dark text-white caption-uppercase"
                   >
                     Start Shopping
                   </button>
@@ -65,7 +65,7 @@ const CartDrawer = () => {
                     </div>
                     <div className="flex-1 flex flex-col">
                       <div className="flex justify-between">
-                        <h4 className="text-sm font-bold text-brand-dark">{item.name}</h4>
+                        <h4 className="title-sm text-brand-dark">{item.name}</h4>
                         <button
                           onClick={() => removeFromCart(item.id, item.variant, item.color)}
                           className="text-gray-400 hover:text-red-500 transition-colors"
@@ -73,7 +73,7 @@ const CartDrawer = () => {
                           <FiTrash2 size={16} />
                         </button>
                       </div>
-                      <p className="text-xs text-black mt-1">
+                      <p className="caption text-black mt-1">
                         {item.variant} {item.color && `| ${item.color}`}
                       </p>
                       <div className="mt-auto flex items-center justify-between">
@@ -84,7 +84,7 @@ const CartDrawer = () => {
                           >
                             <Minus size={14} />
                           </button>
-                          <span className="w-8 text-center text-sm font-medium">{item.quantity}</span>
+                          <span className="w-8 text-center caption">{item.quantity}</span>
                           <button
                             onClick={() => updateQuantity(item.id, item.variant, item.color, item.quantity + 1)}
                             className="p-1 hover:bg-gray-50"
@@ -92,7 +92,7 @@ const CartDrawer = () => {
                             <Plus size={14} />
                           </button>
                         </div>
-                        <span className="text-sm font-bold">${(item.price * item.quantity).toLocaleString()}</span>
+                        <span className="title-sm">${(item.price * item.quantity).toLocaleString()}</span>
                       </div>
                     </div>
                   </div>
@@ -103,19 +103,19 @@ const CartDrawer = () => {
             {cart.length > 0 && (
               <div className="p-6 border-t border-gray-100 bg-gray-50">
                 <div className="flex justify-between items-center mb-6">
-                  <span className="text-black font-medium">Subtotal</span>
-                  <span className="text-xl font-bold text-brand-dark">${cartTotal.toLocaleString()}</span>
+                  <span className="body-md text-black">Subtotal</span>
+                  <span className="title-lg text-brand-dark">${cartTotal.toLocaleString()}</span>
                 </div>
                 <div className="grid grid-cols-1 gap-3">
                   <button
                     onClick={() => { openWhatsAppOrder(cart); setIsCartOpen(false); }}
-                    className="w-full py-4 bg-green-600 text-white text-sm font-bold uppercase tracking-widest hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+                    className="w-full py-4 bg-green-600 text-white caption-uppercase hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
                   >
                     <FaWhatsapp size={18} /> Order via WhatsApp
                   </button>
                   <button
                     onClick={() => setIsCartOpen(false)}
-                    className="w-full py-4 bg-white border border-brand-dark text-brand-dark text-sm font-bold uppercase tracking-widest hover:bg-gray-50 transition-colors"
+                    className="w-full py-4 bg-white border border-brand-dark text-brand-dark caption-uppercase hover:bg-gray-50 transition-colors"
                   >
                     Continue Shopping
                   </button>

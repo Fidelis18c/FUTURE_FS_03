@@ -64,7 +64,7 @@ const Navbar = () => {
             <div key={link.name} className="relative group">
               <button
                 type="button"
-                className="flex items-center text-sm font-semibold text-black hover:text-brand-orange transition-colors relative cursor-default"
+                className="flex items-center nav-link text-black hover:text-brand-orange transition-colors relative cursor-default"
               >
                 {link.name}
                 <ChevronDown size={13} className="ml-1 transition-transform group-hover:rotate-180" />
@@ -78,7 +78,7 @@ const Navbar = () => {
                     <Link
                       key={sub.name}
                       to={sub.path}
-                      className="block px-4 py-2 text-sm text-black hover:bg-gray-50 hover:text-brand-dark"
+                      className="block px-4 py-2 nav-link text-black hover:bg-gray-50 hover:text-brand-dark"
                     >
                       {sub.name}
                     </Link>
@@ -116,16 +116,16 @@ const Navbar = () => {
             )}
           </button>
 
-          <div className="hidden md:flex items-center bg-brand-orange text-white px-5 py-2 text-sm font-semibold rounded-full">
+          <div className="hidden md:flex items-center bg-brand-orange text-white px-5 py-2 button-text rounded-full">
             Welcome
           </div>
 
           {user && (
             <div className="hidden md:flex items-center gap-2">
-              <span className="text-sm font-semibold text-brand-dark">{user.full_name?.split(' ')[0]}</span>
+              <span className="title-sm text-brand-dark">{user.full_name?.split(' ')[0]}</span>
               <button
                 onClick={logout}
-                className="flex items-center gap-1 text-sm text-black hover:text-red-500 transition-colors px-3 py-2 rounded-full hover:bg-red-50"
+                className="flex items-center gap-1 nav-link text-black hover:text-red-500 transition-colors px-3 py-2 rounded-full hover:bg-red-50"
               >
                 <LogOut size={16} />
                 <span>Logout</span>
@@ -166,13 +166,13 @@ const Navbar = () => {
 
               {navLinks.map((link) => (
                 <div key={link.name} className="space-y-2">
-                  <div className="font-bold text-black">{link.name}</div>
+                  <div className="title-sm text-black">{link.name}</div>
                   <div className="pl-4 space-y-2">
                     {link.dropdown.map((sub) => (
                       <Link
                         key={sub.name}
                         to={sub.path}
-                        className="block text-sm text-black"
+                        className="block nav-link text-black"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {sub.name}
@@ -182,16 +182,16 @@ const Navbar = () => {
                 </div>
               ))}
 
-              <div className="w-full text-center bg-brand-orange text-white py-3 rounded-lg font-semibold">
+              <div className="w-full text-center bg-brand-orange text-white py-3 rounded-lg button-text">
                 Welcome
               </div>
 
               {user && (
                 <div className="flex items-center justify-between pt-2">
-                  <span className="text-sm font-bold text-brand-dark">{user.full_name}</span>
+                  <span className="title-sm text-brand-dark">{user.full_name}</span>
                   <button
                     onClick={() => { logout(); setIsMenuOpen(false); }}
-                    className="text-sm text-red-500 font-semibold"
+                    className="button-text text-red-500"
                   >
                     Logout
                   </button>

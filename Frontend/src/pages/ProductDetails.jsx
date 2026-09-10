@@ -129,8 +129,8 @@ const ProductDetails = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-6 pb-12 md:py-12">
         {/* Mobile-only: name above image */}
         <div className="block lg:hidden mb-1">
-          <div className="text-xs font-bold text-black uppercase tracking-widest mb-1">{product.brand || product.category_name}</div>
-          <h1 className="text-2xl font-bold text-brand-dark tracking-tighter">{product.name}</h1>
+          <div className="caption-uppercase text-black mb-1">{product.brand || product.category_name}</div>
+          <h1 className="display-sm text-brand-dark">{product.name}</h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-16">
@@ -169,17 +169,17 @@ const ProductDetails = () => {
 
           {/* Right: Info */}
           <div className="flex flex-col">
-            <div className="hidden lg:block text-sm font-bold text-black uppercase tracking-widest mb-2">
+            <div className="hidden lg:block caption-uppercase text-black mb-2">
               {product.brand || product.category_name}
             </div>
-            <h1 className="hidden lg:block text-4xl md:text-5xl font-bold text-brand-dark tracking-tighter mb-4">
+            <h1 className="hidden lg:block display-md md:display-lg text-brand-dark mb-4">
               {product.name}
             </h1>
-            <div className="text-xl md:text-3xl font-bold text-brand-dark mb-2 md:mb-8">
+            <div className="title-lg md:display-sm text-brand-dark mb-2 md:mb-8">
               Tshs {Number(currentPrice || 0).toLocaleString()}
             </div>
 
-            <p className="text-black text-sm md:text-base leading-relaxed mb-3 md:mb-10">
+            <p className="body-sm md:body-md text-black mb-3 md:mb-10">
               {product.description}
             </p>
 
@@ -187,7 +187,7 @@ const ProductDetails = () => {
             <div className="space-y-3 md:space-y-8 mb-3 md:mb-10">
               {variantStorages.length > 0 && (
                 <div>
-                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 md:mb-4">Storage</h4>
+                  <h4 className="caption-uppercase text-brand-dark mb-2 md:mb-4">Storage</h4>
                   <div className="flex flex-wrap gap-2">
                     {variantStorages.map((s) => (
                       <button
@@ -204,7 +204,7 @@ const ProductDetails = () => {
 
               {variantColors.length > 0 && (
                 <div>
-                  <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 md:mb-4">Color</h4>
+                  <h4 className="caption-uppercase text-brand-dark mb-2 md:mb-4">Color</h4>
                   <div className="flex flex-wrap gap-2">
                     {variantColors.map((c) => (
                       <button
@@ -220,10 +220,10 @@ const ProductDetails = () => {
               )}
 
               <div>
-                <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-brand-dark mb-2 md:mb-4">Quantity</h4>
+                <h4 className="caption-uppercase text-brand-dark mb-2 md:mb-4">Quantity</h4>
                 <div className="flex items-center border border-gray-200 w-fit">
                   <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-2 md:p-3 hover:bg-gray-50"><Minus size={16} /></button>
-                  <span className="w-10 md:w-12 text-center text-sm font-bold">{quantity}</span>
+                  <span className="w-10 md:w-12 text-center title-sm">{quantity}</span>
                   <button onClick={() => setQuantity(quantity + 1)} className="p-2 md:p-3 hover:bg-gray-50"><Plus size={16} /></button>
                 </div>
               </div>
@@ -238,7 +238,7 @@ const ProductDetails = () => {
                   selectedStorage,
                   selectedColor
                 )}
-                className="flex items-center justify-center rounded-full bg-brand-dark text-white py-3 md:py-4 px-4 md:px-8 font-bold uppercase tracking-wide md:tracking-widest text-xs md:text-sm hover:bg-gray-800 transition-all"
+                className="flex items-center justify-center rounded-full bg-brand-dark text-white py-3 md:py-4 px-4 md:px-8 caption-uppercase hover:bg-gray-800 transition-all"
               >
                 <ShoppingCart className="mr-1 md:mr-2" size={15} /> Add To Cart
               </button>
@@ -250,7 +250,7 @@ const ProductDetails = () => {
                   price: currentPrice,
                   quantity,
                 }])}
-                className="flex items-center justify-center rounded-full bg-green-600 hover:bg-green-700 text-white py-3 md:py-4 px-4 md:px-8 font-bold uppercase tracking-wide md:tracking-widest text-xs md:text-sm transition-all"
+                className="flex items-center justify-center rounded-full bg-green-600 hover:bg-green-700 text-white py-3 md:py-4 px-4 md:px-8 caption-uppercase transition-all"
               >
                 <FaWhatsapp className="mr-1 md:mr-2" size={15} /> Buy Now
               </button>
@@ -258,13 +258,13 @@ const ProductDetails = () => {
 
             {/* Features */}
             <div className="grid grid-cols-3 gap-3 md:gap-6 pt-5 md:pt-10 border-t border-gray-100">
-              <div className="flex items-center text-xs text-black font-medium">
+              <div className="flex items-center caption text-black">
                 <Truck className="text-brand-dark mr-3" size={18} /> Free Delivery
               </div>
-              <div className="flex items-center text-xs text-black font-medium">
+              <div className="flex items-center caption text-black">
                 <Shield className="text-brand-dark mr-3" size={18} /> 1 Year Warranty
               </div>
-              <div className="flex items-center text-xs text-black font-medium">
+              <div className="flex items-center caption text-black">
                 <RefreshCw className="text-brand-dark mr-3" size={18} /> Easy Returns
               </div>
             </div>
@@ -274,7 +274,7 @@ const ProductDetails = () => {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div className="mt-32">
-            <h2 className="text-2xl font-bold text-brand-dark mb-10">Related Products</h2>
+            <h2 className="title-lg text-brand-dark mb-10">Related Products</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {relatedProducts.map((p) => (
                 <ProductCard key={p.id} product={p} />

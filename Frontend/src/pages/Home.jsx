@@ -181,22 +181,22 @@ const Home = () => {
 
         {/* ── WORDS ON TOP OF THE VIDEO ── */}
         <div className="hidden md:block absolute left-0 bottom-0 z-10 px-10 pb-14">
-          <h2 className="text-white text-2xl font-extrabold leading-snug mb-3">
+          <h2 className="display-sm text-white mb-3">
             The Future of<br />Mobile Is Here.
           </h2>
-          <p className="text-gray-300 text-xs font-semibold leading-relaxed mb-7">
+          <p className="body-sm text-gray-300 mb-7">
             Top-tier smartphones.<br />Unbeatable prices.
           </p>
           <Link
             to="/phones"
-            className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest uppercase text-white bg-brand-orange px-6 py-3 hover:bg-orange-700 transition-colors rounded-full"
+            className="inline-flex items-center gap-2 caption-uppercase text-white bg-brand-orange px-6 py-3 hover:bg-orange-700 transition-colors rounded-full"
           >
             Buy Now &rarr;
           </Link>
         </div>
 
         <div className="hidden md:block absolute right-0 bottom-0 z-10 px-10 pb-14 text-right">
-          <p className="text-gray-300 text-sm font-semibold italic leading-relaxed">
+          <p className="body-sm italic text-gray-300">
             &ldquo;Experience<br />tomorrow,<br />today.&rdquo;
           </p>
         </div>
@@ -259,7 +259,7 @@ const Home = () => {
                       <ChevronDown size={14} className="text-black" />
                     </motion.span>
                   </span>
-                  <span className="text-[9px] font-semibold tracking-[0.25em] uppercase text-black">More</span>
+                  <span className="caption-uppercase text-black">More</span>
                 </button>
               )}
               {visibleCount > INITIAL_PRODUCTS && (
@@ -281,7 +281,7 @@ const Home = () => {
                       <ChevronUp size={14} className="text-black -mt-2.5" />
                     </motion.span>
                   </span>
-                  <span className="text-[9px] font-semibold tracking-[0.25em] uppercase text-black">Less</span>
+                  <span className="caption-uppercase text-black">Less</span>
                 </button>
               )}
             </div>
@@ -305,8 +305,8 @@ const Home = () => {
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
             <Truck size={32} strokeWidth={1.25} className="text-black mb-6" />
-            <h3 className="text-lg font-light text-black mb-2">Fast Delivery</h3>
-            <p className="text-black text-sm leading-relaxed">
+            <h3 className="title-md text-black mb-2">Fast Delivery</h3>
+            <p className="body-sm text-black">
               Free shipping on all orders over Tshs&nbsp;1,000,000 across Tanzania.
             </p>
           </motion.div>
@@ -318,8 +318,8 @@ const Home = () => {
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
             <Lock size={32} strokeWidth={1.25} className="text-black mb-6" />
-            <h3 className="text-lg font-light text-black mb-2">Secure Payments</h3>
-            <p className="text-black text-sm leading-relaxed">
+            <h3 className="title-md text-black mb-2">Secure Payments</h3>
+            <p className="body-sm text-black">
               Mobile money and bank transfers accepted — fully encrypted and safe.
             </p>
           </motion.div>
@@ -331,8 +331,8 @@ const Home = () => {
             className="flex flex-col items-center text-center rounded-2xl p-8 bg-white cursor-default"
           >
             <Award size={32} strokeWidth={1.25} className="text-black mb-6" />
-            <h3 className="text-lg font-light text-black mb-2">Quality Guarantee</h3>
-            <p className="text-black text-sm leading-relaxed">
+            <h3 className="title-md text-black mb-2">Quality Guarantee</h3>
+            <p className="body-sm text-black">
               Every product comes with a 1-year store warranty and genuine authenticity.
             </p>
           </motion.div>
@@ -363,20 +363,20 @@ const Home = () => {
 
           {/* Text Content (1/4 on large screens) */}
           <div className="lg:col-span-1 flex flex-col justify-center px-6 lg:px-0">
-            <h2 className="text-3xl lg:text-4xl font-bold text-brand-dark leading-tight mb-4">
+            <h2 className="display-sm lg:display-md text-brand-dark mb-4">
               The Feeling of Finding Exactly What You Need.
             </h2>
-            <p className="text-black text-sm leading-relaxed mb-6">
+            <p className="body-sm text-black mb-6">
               From the latest iPhones, Pixels, and Samsung flagships to high-performance laptops and premium headphones—we’ve got your upgrade waiting.
             </p>
-            <ul className="text-sm text-black space-y-3 mb-8">
+            <ul className="body-sm text-black space-y-3 mb-8">
               <li><strong className="text-brand-dark">Phones:</strong> iPhone, Google Pixel, Samsung Galaxy.</li>
               <li><strong className="text-brand-dark">Gear:</strong> Premium Laptops & Immersive Headphones.</li>
               <li><strong className="text-brand-dark">Extras:</strong> Protective covers, fast chargers, and more</li>
             </ul>
             <Link
               to="/phones"
-              className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white bg-black px-6 py-4 hover:bg-gray-800 transition-colors rounded-full text-center"
+              className="inline-flex items-center justify-center gap-2 caption-uppercase text-white bg-black px-6 py-4 hover:bg-gray-800 transition-colors rounded-full text-center"
             >
               Explore the Collection &rarr;
             </Link>
@@ -390,7 +390,7 @@ const Home = () => {
       <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark leading-snug max-w-2xl mx-auto">
+            <h2 className="display-sm md:display-md text-brand-dark max-w-2xl mx-auto">
               Every device on HS Store carries a{' '}
               <span
                 className="italic font-normal text-brand-orange"

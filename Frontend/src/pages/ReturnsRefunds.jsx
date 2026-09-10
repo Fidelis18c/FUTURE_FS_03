@@ -32,15 +32,15 @@ const ReturnsRefunds = () => (
     {/* Hero */}
     <section className="bg-gradient-to-br from-[#13111c] to-[#1f1509] py-28 px-6 md:px-12 text-center">
       <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-        className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-4">
+        className="caption-uppercase text-brand-orange mb-4">
         Our Guarantee
       </motion.p>
       <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-        className="text-4xl md:text-5xl font-bold text-white mb-6">
+        className="display-md md:display-lg text-white mb-6">
         Returns & Refunds
       </motion.h1>
       <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-        className="text-gray-400 text-base max-w-2xl mx-auto leading-relaxed">
+        className="body-md text-gray-400 max-w-2xl mx-auto">
         Your satisfaction matters. If something isn't right, we'll make it right — quickly and hassle-free.
       </motion.p>
     </section>
@@ -49,8 +49,8 @@ const ReturnsRefunds = () => (
     <section className="py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-5xl mx-auto">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} className="text-center mb-16">
-          <p className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-3">Simple Process</p>
-          <h2 className="text-3xl font-bold text-black">How to Return an Item</h2>
+          <p className="caption-uppercase text-brand-orange mb-3">Simple Process</p>
+          <h2 className="display-sm text-black">How to Return an Item</h2>
         </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((s, i) => (
@@ -58,8 +58,8 @@ const ReturnsRefunds = () => (
               className="relative">
               <span className="text-6xl font-black text-orange-50 absolute -top-4 -left-2 select-none">{s.num}</span>
               <div className="relative z-10 pt-6">
-                <h3 className="text-sm font-bold text-black mb-2">{s.title}</h3>
-                <p className="text-xs text-black leading-relaxed">{s.desc}</p>
+                <h3 className="title-sm text-black mb-2">{s.title}</h3>
+                <p className="caption text-black">{s.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -71,8 +71,8 @@ const ReturnsRefunds = () => (
     <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
       <div className="max-w-5xl mx-auto">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade} className="text-center mb-12">
-          <p className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-3">Policy Details</p>
-          <h2 className="text-3xl font-bold text-black">What Can Be Returned?</h2>
+          <p className="caption-uppercase text-brand-orange mb-3">Policy Details</p>
+          <h2 className="display-sm text-black">What Can Be Returned?</h2>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Eligible */}
@@ -82,11 +82,11 @@ const ReturnsRefunds = () => (
               <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center">
                 <FiCheckCircle size={20} className="text-green-500" />
               </div>
-              <h3 className="text-base font-bold text-black">Eligible for Return</h3>
+              <h3 className="title-md text-black">Eligible for Return</h3>
             </div>
             <ul className="space-y-3">
               {eligible.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-black">
+                <li key={item} className="flex items-start gap-3 body-sm text-black">
                   <FiCheckCircle size={15} className="text-green-500 shrink-0 mt-0.5" />
                   {item}
                 </li>
@@ -101,11 +101,11 @@ const ReturnsRefunds = () => (
               <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
                 <FiXCircle size={20} className="text-red-400" />
               </div>
-              <h3 className="text-base font-bold text-black">Not Eligible for Return</h3>
+              <h3 className="title-md text-black">Not Eligible for Return</h3>
             </div>
             <ul className="space-y-3">
               {notEligible.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-black">
+                <li key={item} className="flex items-start gap-3 body-sm text-black">
                   <FiXCircle size={15} className="text-red-400 shrink-0 mt-0.5" />
                   {item}
                 </li>
@@ -123,8 +123,8 @@ const ReturnsRefunds = () => (
           className="bg-orange-50 border border-orange-100 rounded-2xl p-8 flex gap-5 mb-8">
           <FiRefreshCw size={22} className="text-brand-orange shrink-0 mt-0.5" />
           <div>
-            <h3 className="text-sm font-bold text-black mb-3">Refund Timeline</h3>
-            <ul className="space-y-2 text-sm text-black list-disc list-inside">
+            <h3 className="title-sm text-black mb-3">Refund Timeline</h3>
+            <ul className="space-y-2 body-sm text-black list-disc list-inside">
               <li>Mobile money refunds (M-Pesa, Airtel, Tigo): within 24 hours of approval.</li>
               <li>Bank transfer refunds: 2–3 business days after approval.</li>
               <li>Exchange orders are dispatched within 3 business days once the return is received and inspected.</li>
@@ -136,8 +136,8 @@ const ReturnsRefunds = () => (
           className="bg-gray-50 border border-gray-100 rounded-2xl p-8 flex gap-5">
           <FiAlertCircle size={22} className="text-gray-400 shrink-0 mt-0.5" />
           <div>
-            <h3 className="text-sm font-bold text-black mb-3">Shipping Costs on Returns</h3>
-            <p className="text-sm text-black leading-relaxed">
+            <h3 className="title-sm text-black mb-3">Shipping Costs on Returns</h3>
+            <p className="body-sm text-black">
               If the return is due to a defect or our error, HS Store covers the return shipping cost. If the return is due to a change of mind, the customer is responsible for the return shipping fee.
             </p>
           </div>
@@ -149,10 +149,10 @@ const ReturnsRefunds = () => (
     <section className="py-16 px-6 md:px-12 bg-gray-50">
       <div className="max-w-2xl mx-auto text-center">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}>
-          <h2 className="text-2xl font-bold text-black mb-3">Ready to Start a Return?</h2>
-          <p className="text-black text-sm mb-8">Contact our team and we'll guide you through every step.</p>
+          <h2 className="title-lg text-black mb-3">Ready to Start a Return?</h2>
+          <p className="body-sm text-black mb-8">Contact our team and we'll guide you through every step.</p>
           <Link to="/contact"
-            className="inline-flex items-center gap-2 bg-brand-orange text-white px-10 py-3.5 rounded-full text-sm font-bold hover:bg-orange-700 transition-colors">
+            className="inline-flex items-center gap-2 bg-brand-orange text-white px-10 py-3.5 rounded-full button-text hover:bg-orange-700 transition-colors">
             <FiMail size={15} /> Contact Support
           </Link>
         </motion.div>

@@ -55,7 +55,7 @@ const ContactUs = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-brand-orange text-xs tracking-[0.4em] uppercase font-semibold mb-4"
+            className="caption-uppercase text-brand-orange mb-4"
           >
             Get In Touch
           </motion.p>
@@ -63,7 +63,7 @@ const ContactUs = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            className="display-md md:display-lg text-white mb-6"
           >
             Find Us
           </motion.h1>
@@ -71,7 +71,7 @@ const ContactUs = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/80 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            className="body-md text-white/80 max-w-2xl mx-auto"
           >
             Have a question, a concern, or just want to say hello? We'd love to hear from you.
           </motion.p>
@@ -89,9 +89,9 @@ const ContactUs = () => {
               <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <item.icon size={22} className="text-gray-700" />
               </div>
-              <h3 className="text-sm font-bold text-gray-800 mb-1">{item.title}</h3>
-              <p className="text-sm text-gray-700 font-medium">{item.value}</p>
-              <p className="text-xs text-gray-700 mt-1">{item.sub}</p>
+              <h3 className="title-sm text-gray-800 mb-1">{item.title}</h3>
+              <p className="body-sm text-gray-700">{item.value}</p>
+              <p className="caption text-gray-700 mt-1">{item.sub}</p>
             </motion.div>
           ))}
         </div>
@@ -103,8 +103,8 @@ const ContactUs = () => {
 
           {/* Left — Form */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fade}>
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">Send Us a Message</h2>
-            <p className="text-gray-700 text-sm mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
+            <h2 className="display-sm text-gray-800 mb-2">Send Us a Message</h2>
+            <p className="body-sm text-gray-700 mb-8">Fill in the form below and we'll get back to you as soon as possible.</p>
 
             <AnimatePresence>
               {sent && (
@@ -112,7 +112,7 @@ const ContactUs = () => {
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
-                  className="text-sm font-medium text-gray-700 mb-4"
+                  className="body-sm text-gray-700 mb-4"
                 >
                   Message sent successfully.
                 </motion.p>
@@ -121,29 +121,29 @@ const ContactUs = () => {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {error && (
-                <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600">
+                <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 body-sm text-red-600">
                   {error}
                 </div>
               )}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-2 tracking-wide uppercase">Full Name</label>
+                  <label className="block caption-uppercase text-gray-700 mb-2">Full Name</label>
                   <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="John Doe"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 body-sm focus:outline-none focus:border-brand-orange transition-colors" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-2 tracking-wide uppercase">Email</label>
+                  <label className="block caption-uppercase text-gray-700 mb-2">Email</label>
                   <input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="you@example.com"
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors" />
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 body-sm focus:outline-none focus:border-brand-orange transition-colors" />
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold text-gray-700 mb-2 tracking-wide uppercase">Message</label>
+                <label className="block caption-uppercase text-gray-700 mb-2">Message</label>
                 <textarea name="message" value={form.message} onChange={handleChange} required rows={6} placeholder="Tell us more..."
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-orange transition-colors resize-none" />
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 body-sm focus:outline-none focus:border-brand-orange transition-colors resize-none" />
               </div>
               <button type="submit" disabled={sending}
-                className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full text-sm font-bold tracking-wide hover:bg-orange-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
+                className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white py-3.5 rounded-full button-text hover:bg-orange-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
                 <Send size={15} />
                 {sending ? 'Sending...' : 'Send Message'}
               </button>
