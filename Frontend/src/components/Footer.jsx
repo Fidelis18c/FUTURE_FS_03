@@ -118,7 +118,7 @@ const Footer = () => {
           <AccordionSection title="Contact Us">
             <ul className="space-y-0 lg:space-y-4">
               {[
-                { label: 'Email', value: 'support@hsstore.com' },
+                { label: 'Email', value: 'hamzasaidd02@gmail.com' },
                 { label: 'Phone', value: '+255 762 889 818' },
                 { label: 'Address', value: 'P.O. Box 1234, Dar es Salaam, Tanzania' },
               ].map((item) => (
