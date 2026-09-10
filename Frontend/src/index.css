@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -68,12 +68,11 @@
   font-family: 'Inter', sans-serif;
   font-size: 14px; font-weight: 500; line-height: 1.4; letter-spacing: 0;
 }
-/* Serif accent body — Playfair Display italic, for editorial touches
-   like the Core Values card paragraphs. */
-@utility body-serif {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-style: italic;
-  font-size: 15px; font-weight: 400; line-height: 1.65; letter-spacing: 0.1px;
+/* Accent body — Poppins, a rounder geometric face clearly distinct
+   from Inter, for touches like the Core Values card paragraphs. */
+@utility body-accent {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 400; line-height: 1.65; letter-spacing: 0.1px;
 }
 
 :root {

@@ -315,7 +315,7 @@ const AboutUs = () => {
                   <v.icon size={22} className="text-gray-700" />
                 </div>
                 <h3 className="title-sm text-black mb-3">{v.title}</h3>
-                <p className="body-serif text-black">{v.body}</p>
+                <p className="body-accent text-black">{v.body}</p>
               </motion.div>
             ))}
           </div>
