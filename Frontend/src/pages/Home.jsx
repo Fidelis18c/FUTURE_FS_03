@@ -216,7 +216,7 @@ const Home = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8"
           >
             {visibleProducts.map((product, i) => (
               <motion.div
@@ -230,7 +230,7 @@ const Home = () => {
                     : (i % 2 === 0 ? cardFromLeft  : cardFromRight)
                 }
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: (i % 4) * 0.07 }}
-                className={i >= 3 ? 'hidden sm:block' : ''}
+                className={i >= 4 ? 'hidden sm:block' : ''}
               >
                 <ProductCard product={product} eager={i < 4} />
               </motion.div>

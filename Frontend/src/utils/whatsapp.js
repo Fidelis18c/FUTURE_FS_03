@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = '255694007665';
+export const WHATSAPP_NUMBER = '255762889818';
 
 const formatTsh = (amount) => `Tshs ${Number(amount || 0).toLocaleString()}`;
 
