@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 /* Manual (class-based) dark mode toggle instead of following system preference */
@@ -12,7 +12,7 @@
 }
 
 :root {
-  font-family: 'Averta CY', 'Poppins', -apple-system, system-ui, sans-serif;
+  font-family: 'Averta CY', 'Figtree', 'Poppins', -apple-system, system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
