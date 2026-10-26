@@ -6,12 +6,19 @@ import api from '../api';
 import { FiChevronDown } from 'react-icons/fi';
 import { sortIphonesFirst } from '../utils/sortProducts';
 
+const SORT_OPTIONS = [
+  { value: 'newest', label: 'Newest' },
+  { value: 'price-low', label: 'Price: Low to High' },
+  { value: 'price-high', label: 'Price: High to Low' },
+];
+
 const CategoryPage = () => {
   const { category } = useParams();
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState('newest');
+  const [sortOpen, setSortOpen] = useState(false);
 
   const fetchProducts = useCallback(async () => {
     setLoading(true);
@@ -54,8 +61,7 @@ const CategoryPage = () => {
     fetchProducts();
   }, [fetchProducts]);
 
-  const handleSort = (e) => {
-    const value = e.target.value;
+  const handleSort = (value) => {
     setSortBy(value);
     const sorted = [...products];
     if (value === 'price-low') sorted.sort((a, b) => (a.price || 0) - (b.price || 0));
@@ -72,20 +78,44 @@ const CategoryPage = () => {
             {category || location.pathname.split('/')[1] || 'All Products'}
           </h1>
 
-          <div className="relative mt-6 md:mt-0 w-fit">
-            <select
-              value={sortBy}
-              onChange={handleSort}
-              className="appearance-none bg-white border border-gray-200 rounded-full pl-5 pr-10 py-2.5 button-text text-brand-dark cursor-pointer hover:border-brand-dark focus:outline-none focus:border-brand-dark transition-colors shadow-sm"
+          {/* Custom sort dropdown — a native <select>'s open list can't be
+              styled, so the menu is our own. self-end keeps it on the right
+              on mobile, where the header stacks vertically. */}
+          <div className="relative mt-6 md:mt-0 w-fit self-end md:self-auto">
+            <button
+              type="button"
+              onClick={() => setSortOpen((o) => !o)}
+              className="flex items-center gap-2 bg-white border border-gray-200 rounded-full pl-5 pr-4 py-2.5 button-text text-brand-dark cursor-pointer hover:border-brand-dark transition-colors shadow-sm"
             >
-              <option value="newest">Newest</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-            </select>
-            <FiChevronDown
-              size={14}
-              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
-            />
+              {SORT_OPTIONS.find((o) => o.value === sortBy)?.label}
+              <FiChevronDown
+                size={14}
+                className={`text-gray-500 transition-transform duration-200 ${sortOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+
+            {sortOpen && (
+              <>
+                {/* click-away backdrop */}
+                <div className="fixed inset-0 z-10" onClick={() => setSortOpen(false)} />
+                <div className="absolute right-0 top-full mt-2 z-20 w-56 bg-white border border-gray-100 rounded-2xl shadow-xl overflow-hidden py-2">
+                  {SORT_OPTIONS.map((o) => (
+                    <button
+                      key={o.value}
+                      type="button"
+                      onClick={() => { handleSort(o.value); setSortOpen(false); }}
+                      className={`w-full text-left px-5 py-2.5 nav-link transition-colors ${
+                        sortBy === o.value
+                          ? 'text-brand-orange bg-orange-50 font-semibold'
+                          : 'text-black hover:bg-gray-50'
+                      }`}
+                    >
+                      {o.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
