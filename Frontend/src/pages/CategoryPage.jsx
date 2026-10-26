@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import productsData from '../data/products'; // fallback
 import api from '../api';
-import { FiFilter } from 'react-icons/fi';
+import { FiChevronDown } from 'react-icons/fi';
 import { sortIphonesFirst } from '../utils/sortProducts';
 
 const CategoryPage = () => {
@@ -72,20 +72,20 @@ const CategoryPage = () => {
             {category || location.pathname.split('/')[1] || 'All Products'}
           </h1>
 
-          <div className="mt-6 md:mt-0 flex items-center space-x-4">
-            <div className="flex items-center body-sm text-black">
-              <FiFilter className="mr-2" />
-              <span>Sort by:</span>
-            </div>
+          <div className="relative mt-6 md:mt-0 w-fit">
             <select
               value={sortBy}
               onChange={handleSort}
-              className="bg-transparent border-none button-text text-brand-dark focus:ring-0 cursor-pointer"
+              className="appearance-none bg-white border border-gray-200 rounded-full pl-5 pr-10 py-2.5 button-text text-brand-dark cursor-pointer hover:border-brand-dark focus:outline-none focus:border-brand-dark transition-colors shadow-sm"
             >
               <option value="newest">Newest</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
             </select>
+            <FiChevronDown
+              size={14}
+              className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
+            />
           </div>
         </div>
 

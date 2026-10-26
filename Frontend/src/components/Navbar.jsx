@@ -22,12 +22,9 @@ const Navbar = () => {
       ],
     },
     {
-      name: 'Pods & Audio',
+      name: 'Audio',
       dropdown: [
-        { name: 'Oraimo Pods', path: '/audio/oraimo' },
-        { name: 'iPhone Pods', path: '/audio/iphone' },
         { name: 'JBL', path: '/audio/jbl' },
-        { name: 'Speakers', path: '/audio/speakers' },
       ],
     },
     {

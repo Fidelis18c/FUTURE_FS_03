@@ -10,7 +10,7 @@ const quickLinks = [
 
 const categories = [
   { label: 'Phones', path: '/phones' },
-  { label: 'Audio & Pods', path: '/audio' },
+  { label: 'Audio', path: '/audio' },
   { label: 'Tablets', path: '/tablets' },
 ];
 
