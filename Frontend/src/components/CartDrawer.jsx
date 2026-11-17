@@ -61,7 +61,7 @@ const CartDrawer = () => {
                 cart.map((item) => (
                   <div key={`${item.id}-${item.variant}-${item.color}`} className="flex space-x-4">
                     <div className="w-24 h-24 bg-brand-gray flex-shrink-0 flex items-center justify-center p-2">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-contain mix-blend-multiply" />
+                      <img loading="lazy" decoding="async" src={item.image} alt={item.name} className="w-full h-full object-contain mix-blend-multiply" />
                     </div>
                     <div className="flex-1 flex flex-col">
                       <div className="flex justify-between">

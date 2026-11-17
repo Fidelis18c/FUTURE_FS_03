@@ -52,7 +52,7 @@ const Navbar = () => {
       <div className="navbar-glass flex items-center justify-between rounded-2xl shadow-lg shadow-black/5 px-5 md:px-8 h-16">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="/HSMOBILESTORElogo.png" alt="HS MOBILE STORE" className="h-8 md:h-10 w-auto object-contain" />
+          <img src="/HSMOBILESTORElogo.webp" alt="HS MOBILE STORE" className="h-8 md:h-10 w-auto object-contain" />
         </Link>
 
         {/* Desktop Nav Links */}

@@ -88,7 +88,7 @@ const getImage = (product, selectedColor) => {
     staticMatch?.image ||
     product.image ||
     product.image_url ||
-    '/HSMOBILESTORElogo.png'
+    '/HSMOBILESTORElogo.webp'
   );
 };
 
@@ -134,7 +134,7 @@ const ProductCard = ({ product, eager = false }) => {
           fetchPriority={eager ? 'high' : 'auto'}
           decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => { e.target.src = '/HSMOBILESTORElogo.png'; }}
+          onError={(e) => { e.target.src = '/HSMOBILESTORElogo.webp'; }}
         />
       </div>
 

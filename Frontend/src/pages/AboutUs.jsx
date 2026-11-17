@@ -4,15 +4,15 @@ import { Target, Heart, Shield, Star, ChevronLeft, ChevronRight } from 'lucide-r
 import aboutHeroVideo from '../assets/Hero2/VideoAboutHero.mp4';
 import about3 from '../assets/AboutImage/About3.mp4';
 import about4 from '../assets/AboutImage/About4.mp4';
-import aboutImage from '../assets/AboutImage/AboutImage.jpg';
-import fourSpeakers from '../assets/hero/FourSpeakers.png';
+import aboutImage from '../assets/AboutImage/AboutImage.webp';
+import fourSpeakers from '../assets/hero/FourSpeakers.webp';
 import jblBoomBox from '../assets/products/JBL BOOM BOX 3.webp';
-import samsung1 from '../assets/AboutImage/Samsung1.png';
-import samsung2 from '../assets/AboutImage/Samsung2.jpeg';
-import samsung3 from '../assets/AboutImage/Samsung.png';
-import iphone1 from '../assets/AboutImage/IPhone1.jpg';
-import iphone2 from '../assets/AboutImage/Iphone2.jpg';
-import iphone3 from '../assets/AboutImage/IPhone3.png';
+import samsung1 from '../assets/AboutImage/Samsung1.webp';
+import samsung2 from '../assets/AboutImage/Samsung2.webp';
+import samsung3 from '../assets/AboutImage/Samsung.webp';
+import iphone1 from '../assets/AboutImage/IPhone1.webp';
+import iphone2 from '../assets/AboutImage/Iphone2.webp';
+import iphone3 from '../assets/AboutImage/IPhone3.webp';
 
 const fade = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 
@@ -146,7 +146,7 @@ const AboutUs = () => {
             whileHover={{ y: -12, scale: 1.02, transition: { type: 'spring', stiffness: 300, damping: 10 } }}
             className="relative rounded-3xl overflow-visible cursor-pointer"
           >
-            <img src={aboutImage} alt="About HS Store" className="w-full h-full object-cover rounded-3xl" />
+            <img loading="lazy" decoding="async" src={aboutImage} alt="About HS Store" className="w-full h-full object-cover rounded-3xl" />
             {/* Floating speaker — top right */}
             <motion.img
               src={fourSpeakers}
@@ -248,7 +248,7 @@ const AboutUs = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="relative rounded-3xl overflow-hidden shadow-lg"
           >
-            <video src={about3} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+            <video preload="metadata" src={about3} autoPlay muted loop playsInline className="w-full h-full object-cover" />
             <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/90 to-transparent pointer-events-none rounded-b-3xl" />
             <div className="absolute top-5 left-0 right-0 flex justify-center overflow-hidden pointer-events-none">
               <AnimatePresence mode="wait">
@@ -273,7 +273,7 @@ const AboutUs = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="relative rounded-3xl overflow-hidden shadow-lg"
           >
-            <video src={about4} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+            <video preload="metadata" src={about4} autoPlay muted loop playsInline className="w-full h-full object-cover" />
             <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/90 to-transparent pointer-events-none rounded-b-3xl" />
             <div className="absolute top-5 left-0 right-0 flex justify-center overflow-hidden pointer-events-none">
               <AnimatePresence mode="wait">

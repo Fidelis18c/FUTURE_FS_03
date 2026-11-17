@@ -3,17 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // Import assets from the provided asset folder
-import logo from '../assets/HSMOBILESTORElogo.png';
-import iphoneHero2image from '../assets/hero/IphoneHeroB.png';
-import iphoneHero3image from '../assets/hero/IphoneHeroC.png';
-import iphoneHero4image from '../assets/hero/IphoneHeroD.png';
-import samsungImage1 from '../assets/hero/SamsungHero2.png';
-import iphoneHero5image from '../assets/hero/SamsungHero3.png';
-import jblHeadphonesImage from '../assets/hero/JBL headphones.png';
-import fourSpeakersImage from '../assets/hero/FourSpeakers.png';
-import macBookProImage from '../assets/hero/MacBookPro.png';
-import oraimoPodsImage from '../assets/hero/OraimoPods.png';
-import pixelImage from '../assets/hero/PIxel.png';
+import logo from '../assets/HSMOBILESTORElogo.webp';
+import iphoneHero2image from '../assets/hero/IphoneHeroB.webp';
+import iphoneHero3image from '../assets/hero/IphoneHeroC.webp';
+import iphoneHero4image from '../assets/hero/IphoneHeroD.webp';
+import samsungImage1 from '../assets/hero/SamsungHero2.webp';
+import iphoneHero5image from '../assets/hero/SamsungHero3.webp';
+import jblHeadphonesImage from '../assets/hero/JBL headphones.webp';
+import fourSpeakersImage from '../assets/hero/FourSpeakers.webp';
+import macBookProImage from '../assets/hero/MacBookPro.webp';
+import oraimoPodsImage from '../assets/hero/OraimoPods.webp';
+import pixelImage from '../assets/hero/PIxel.webp';
 
 
 const Hero = () => {

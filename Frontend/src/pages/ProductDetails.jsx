@@ -114,7 +114,7 @@ const ProductDetails = () => {
     product.image ||
     staticMatch?.variantData?.[selectedColor]?.image ||
     staticMatch?.image ||
-    '/HSMOBILESTORElogo.png';
+    '/HSMOBILESTORElogo.webp';
 
   // Derive colors and storages from variants if available
   const variantColors = product.variants
@@ -147,7 +147,7 @@ const ProductDetails = () => {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.35, ease: 'easeInOut' }}
                   className="w-full h-full object-contain"
-                  onError={(e) => { e.target.src = '/HSMOBILESTORElogo.png'; }}
+                  onError={(e) => { e.target.src = '/HSMOBILESTORElogo.webp'; }}
                 />
               </AnimatePresence>
             </div>
@@ -160,7 +160,7 @@ const ProductDetails = () => {
                     className={`cursor-pointer transition-all overflow-hidden flex items-center justify-center ${selectedColor === color ? 'opacity-100 scale-105' : 'opacity-50 hover:opacity-80'}`}
                     style={{ height: '90px' }}
                   >
-                    <img src={data.image} alt={color} className="w-full h-full object-contain" />
+                    <img loading="lazy" decoding="async" src={data.image} alt={color} className="w-full h-full object-contain" />
                   </div>
                 ))}
               </div>

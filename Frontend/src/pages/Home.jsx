@@ -352,6 +352,7 @@ const Home = () => {
           {/* Video (3/4 on large screens) */}
           <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-2xl">
             <video
+              preload="metadata"
               src={featureVideo}
               autoPlay
               muted
@@ -415,6 +416,7 @@ const Home = () => {
                 className="relative rounded-2xl overflow-hidden shadow-xl aspect-[9/16]"
               >
                 <video
+                  preload="metadata"
                   src={card.video}
                   autoPlay
                   muted
